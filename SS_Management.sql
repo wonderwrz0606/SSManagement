@@ -16,15 +16,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `application`
+-- Table structure for table `t_application`
 --
 
-DROP TABLE IF EXISTS `application`;
+DROP TABLE IF EXISTS `t_application`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `application` (
-  `school_school_id` int(11) NOT NULL,
-  `student_student_id` int(11) NOT NULL,
+CREATE TABLE `t_application` (
+  `a_id` int(10) NOT NULL AUTO_INCREMENT,
   `a_open_date` datetime DEFAULT NULL,
   `a_statue` varchar(45) DEFAULT NULL,
   `a_deposit` int(11) DEFAULT NULL,
@@ -33,153 +32,106 @@ CREATE TABLE `application` (
   `a_submit_date` datetime DEFAULT NULL,
   `a_grade` varchar(45) DEFAULT NULL,
   `comment` varchar(140) DEFAULT NULL,
-  PRIMARY KEY (`school_school_id`,`student_student_id`),
-  KEY `fk_case_student_idx` (`student_student_id`),
-  KEY `fk_case_school1_idx` (`school_school_id`),
-  CONSTRAINT `fk_case_student` FOREIGN KEY (`student_student_id`) REFERENCES `student` (`student_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_case_school1` FOREIGN KEY (`school_school_id`) REFERENCES `school` (`school_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `t_school_sch_id` int(11) NOT NULL,
+  `t_student_stu_id` int(11) NOT NULL,
+  PRIMARY KEY (`a_id`),
+  KEY `t_school_sch_id_idx` (`t_school_sch_id`),
+  KEY `t_student_stu_id_idx` (`t_student_stu_id`),
+  CONSTRAINT `t_school_sch_id` FOREIGN KEY (`t_school_sch_id`) REFERENCES `t_school` (`sch_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `t_student_stu_id` FOREIGN KEY (`t_student_stu_id`) REFERENCES `t_student` (`stu_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `application`
+-- Dumping data for table `t_application`
 --
 
-LOCK TABLES `application` WRITE;
-/*!40000 ALTER TABLE `application` DISABLE KEYS */;
-/*!40000 ALTER TABLE `application` ENABLE KEYS */;
+LOCK TABLES `t_application` WRITE;
+/*!40000 ALTER TABLE `t_application` DISABLE KEYS */;
+/*!40000 ALTER TABLE `t_application` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `application_doc`
+-- Table structure for table `t_school`
 --
 
-DROP TABLE IF EXISTS `application_doc`;
+DROP TABLE IF EXISTS `t_school`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `application_doc` (
-  `i-20` int(11) DEFAULT NULL,
-  `case_student_student_id` int(11) NOT NULL,
-  `case_school_school_id` int(11) NOT NULL,
-  `comment` varchar(140) DEFAULT NULL,
-  PRIMARY KEY (`case_student_student_id`,`case_school_school_id`),
-  CONSTRAINT `fk_case_doc_case1` FOREIGN KEY (`case_student_student_id`, `case_school_school_id`) REFERENCES `application` (`student_student_id`, `school_school_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `application_doc`
---
-
-LOCK TABLES `application_doc` WRITE;
-/*!40000 ALTER TABLE `application_doc` DISABLE KEYS */;
-/*!40000 ALTER TABLE `application_doc` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `sch_doc`
---
-
-DROP TABLE IF EXISTS `sch_doc`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sch_doc` (
-  `i-20` int(11) DEFAULT NULL,
-  `school_school_id` int(11) NOT NULL,
-  `comment` varchar(140) DEFAULT NULL,
-  PRIMARY KEY (`school_school_id`),
-  CONSTRAINT `fk_sch_doc_school1` FOREIGN KEY (`school_school_id`) REFERENCES `school` (`school_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sch_doc`
---
-
-LOCK TABLES `sch_doc` WRITE;
-/*!40000 ALTER TABLE `sch_doc` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sch_doc` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `school`
---
-
-DROP TABLE IF EXISTS `school`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `school` (
-  `school_id` int(11) NOT NULL,
-  `schoolName` varchar(45) DEFAULT NULL,
+CREATE TABLE `t_school` (
+  `sch_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sch_name` varchar(45) DEFAULT NULL,
+  `sch_website` varchar(45) DEFAULT NULL,
+  `deadline` datetime DEFAULT NULL,
+  `sch_grade` varchar(45) DEFAULT NULL,
+  `sch_Est` int(10) DEFAULT NULL,
+  `sch_cap` int(11) DEFAULT NULL,
+  `sch_pt_ratio` varchar(45) DEFAULT NULL,
+  `sch_street` varchar(45) DEFAULT NULL,
   `sch_city` varchar(45) DEFAULT NULL,
   `sch_state` varchar(45) DEFAULT NULL,
-  `sch_street` varchar(45) DEFAULT NULL,
-  `sch_zipCode` int(11) DEFAULT NULL,
-  `web_site` varchar(45) DEFAULT NULL,
-  `est` varchar(45) DEFAULT NULL,
-  `app_grade` varchar(45) DEFAULT NULL,
-  `capcity` int(11) DEFAULT NULL,
-  `pt_ratio` int(11) DEFAULT NULL,
-  `type` varchar(45) DEFAULT NULL,
-  `religon` varchar(45) DEFAULT NULL,
-  `ESL` varchar(45) DEFAULT NULL,
-  `chinese_population` int(11) DEFAULT NULL,
-  `SAT` int(11) DEFAULT NULL,
-  `group` varchar(45) DEFAULT NULL,
-  `resident` varchar(45) DEFAULT NULL,
-  `sch_deposit` int(11) DEFAULT NULL,
-  `tuition_fee` int(11) DEFAULT NULL,
+  `sch_zip` varchar(45) DEFAULT NULL,
+  `sch_Sat` int(11) DEFAULT NULL,
+  `sch_TF` int(11) DEFAULT NULL,
+  `sch_Esl` int(11) DEFAULT NULL,
+  `sch_chn_pop` int(11) DEFAULT NULL,
+  `sch_deps` int(11) DEFAULT NULL,
+  `sch_fee` int(11) DEFAULT NULL,
   `total_fee` int(11) DEFAULT NULL,
-  `description` varchar(45) DEFAULT NULL,
-  `dead_line` datetime DEFAULT NULL,
-  `comment` varchar(140) DEFAULT NULL,
-  PRIMARY KEY (`school_id`)
+  `sch_des` varchar(45) DEFAULT NULL,
+  `sch_group` varchar(45) DEFAULT NULL,
+  `sch_religon` varchar(45) DEFAULT NULL,
+  `sch_type` varchar(45) DEFAULT NULL,
+  `sch_res_fee` int(11) DEFAULT NULL,
+  `sch_start_date` datetime DEFAULT NULL,
+  `comment` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`sch_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `school`
+-- Dumping data for table `t_school`
 --
 
-LOCK TABLES `school` WRITE;
-/*!40000 ALTER TABLE `school` DISABLE KEYS */;
-/*!40000 ALTER TABLE `school` ENABLE KEYS */;
+LOCK TABLES `t_school` WRITE;
+/*!40000 ALTER TABLE `t_school` DISABLE KEYS */;
+/*!40000 ALTER TABLE `t_school` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `student`
+-- Table structure for table `t_student`
 --
 
-DROP TABLE IF EXISTS `student`;
+DROP TABLE IF EXISTS `t_student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `student` (
-  `student_id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) DEFAULT NULL,
+CREATE TABLE `t_student` (
+  `stu_id` int(11) NOT NULL,
   `last_name` varchar(45) DEFAULT NULL,
-  `gender` varchar(45) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
-  `referrence` varchar(45) DEFAULT NULL,
-  `grade` varchar(45) DEFAULT NULL,
-  `phone` int(11) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
+  `first_name` varchar(45) DEFAULT NULL,
+  `stu_gender` varchar(45) DEFAULT NULL,
+  `stu_ref` varchar(45) DEFAULT NULL,
+  `stu_age` int(11) DEFAULT NULL,
+  `stu_phone` int(11) DEFAULT NULL,
   `stu_street` varchar(45) DEFAULT NULL,
   `stu_city` varchar(45) DEFAULT NULL,
-  `stu_province` varchar(45) DEFAULT NULL,
-  `stu_zipcode` varchar(45) DEFAULT NULL,
-  `decision` varchar(45) DEFAULT NULL,
-  `comment` varchar(140) DEFAULT NULL,
-  PRIMARY KEY (`student_id`)
+  `stu_pvn` varchar(45) DEFAULT NULL,
+  `stu_zip` varchar(45) DEFAULT NULL,
+  `stu_Sat` int(11) DEFAULT NULL,
+  `stu_TF` int(11) DEFAULT NULL,
+  `stu_deci` varchar(45) DEFAULT NULL,
+  `comment` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`stu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `student`
+-- Dumping data for table `t_student`
 --
 
-LOCK TABLES `student` WRITE;
-/*!40000 ALTER TABLE `student` DISABLE KEYS */;
-/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+LOCK TABLES `t_student` WRITE;
+/*!40000 ALTER TABLE `t_student` DISABLE KEYS */;
+/*!40000 ALTER TABLE `t_student` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -191,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-21 22:48:49
+-- Dump completed on 2015-12-22 16:28:10

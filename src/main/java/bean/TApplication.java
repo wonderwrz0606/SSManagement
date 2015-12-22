@@ -1,29 +1,28 @@
 package bean;
 
 import java.sql.Timestamp;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * Application entity. @author MyEclipse Persistence Tools
+ * TApplication entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "application", catalog = "sql5100650")
-public class Application implements java.io.Serializable {
+@Table(name = "t_application", catalog = "sql5100650")
+public class TApplication implements java.io.Serializable {
 
 	// Fields
 
-	private ApplicationId id;
-	private Student student;
-	private School school;
+	private Integer AId;
+	private TStudent TStudent;
+	private TSchool TSchool;
 	private Timestamp AOpenDate;
 	private String AStatue;
 	private Integer ADeposit;
@@ -32,29 +31,27 @@ public class Application implements java.io.Serializable {
 	private Timestamp ASubmitDate;
 	private String AGrade;
 	private String comment;
-	private ApplicationDoc applicationDoc;
+	
 
 	// Constructors
 
 	/** default constructor */
-	public Application() {
+	public TApplication() {
 	}
 
 	/** minimal constructor */
-	public Application(ApplicationId id, Student student, School school) {
-		this.id = id;
-		this.student = student;
-		this.school = school;
+	public TApplication(TStudent TStudent, TSchool TSchool) {
+		this.TStudent = TStudent;
+		this.TSchool = TSchool;
 	}
 
 	/** full constructor */
-	public Application(ApplicationId id, Student student, School school,
+	public TApplication(TStudent TStudent, TSchool TSchool,
 			Timestamp AOpenDate, String AStatue, Integer ADeposit,
 			String APayStatue, Integer AResidentFee, Timestamp ASubmitDate,
-			String AGrade, String comment, ApplicationDoc applicationDoc) {
-		this.id = id;
-		this.student = student;
-		this.school = school;
+			String AGrade, String comment, String TApplicationcol) {
+		this.TStudent = TStudent;
+		this.TSchool = TSchool;
 		this.AOpenDate = AOpenDate;
 		this.AStatue = AStatue;
 		this.ADeposit = ADeposit;
@@ -63,40 +60,38 @@ public class Application implements java.io.Serializable {
 		this.ASubmitDate = ASubmitDate;
 		this.AGrade = AGrade;
 		this.comment = comment;
-		this.applicationDoc = applicationDoc;
 	}
 
 	// Property accessors
-	@EmbeddedId
-	@AttributeOverrides({
-			@AttributeOverride(name = "schoolSchoolId", column = @Column(name = "school_school_id", nullable = false)),
-			@AttributeOverride(name = "studentStudentId", column = @Column(name = "student_student_id", nullable = false)) })
-	public ApplicationId getId() {
-		return this.id;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "a_id", unique = true, nullable = false)
+	public Integer getAId() {
+		return this.AId;
 	}
 
-	public void setId(ApplicationId id) {
-		this.id = id;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "student_student_id", nullable = false, insertable = false, updatable = false)
-	public Student getStudent() {
-		return this.student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setAId(Integer AId) {
+		this.AId = AId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "school_school_id", nullable = false, insertable = false, updatable = false)
-	public School getSchool() {
-		return this.school;
+	@JoinColumn(name = "t_student_stu_id", nullable = false)
+	public TStudent getTStudent() {
+		return this.TStudent;
 	}
 
-	public void setSchool(School school) {
-		this.school = school;
+	public void setTStudent(TStudent TStudent) {
+		this.TStudent = TStudent;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "t_school_sch_id", nullable = false)
+	public TSchool getTSchool() {
+		return this.TSchool;
+	}
+
+	public void setTSchool(TSchool TSchool) {
+		this.TSchool = TSchool;
 	}
 
 	@Column(name = "a_open_date", length = 0)
@@ -169,15 +164,6 @@ public class Application implements java.io.Serializable {
 
 	public void setComment(String comment) {
 		this.comment = comment;
-	}
-
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "application")
-	public ApplicationDoc getApplicationDoc() {
-		return this.applicationDoc;
-	}
-
-	public void setApplicationDoc(ApplicationDoc applicationDoc) {
-		this.applicationDoc = applicationDoc;
 	}
 
 }
