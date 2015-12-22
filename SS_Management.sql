@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.6.19, for osx10.7 (i386)
 --
--- Host: localhost    Database: mydb
+-- Host: sql5.freemysqlhosting.net    Database: sql5100650
 -- ------------------------------------------------------
--- Server version	5.6.21
+-- Server version	5.5.46-0ubuntu0.14.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,62 +16,64 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `case`
+-- Table structure for table `application`
 --
 
-DROP TABLE IF EXISTS `case`;
+DROP TABLE IF EXISTS `application`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `case` (
-  `open_date` datetime DEFAULT NULL,
-  `apply_statue` varchar(45) DEFAULT NULL,
-  `c_deposit` int(11) DEFAULT NULL,
-  `pay_statue` varchar(45) DEFAULT NULL,
-  `c_resident_fee` int(11) DEFAULT NULL,
-  `submit_date` datetime DEFAULT NULL,
-  `apply_grade` varchar(45) DEFAULT NULL,
-  `student_student_id` int(11) NOT NULL,
+CREATE TABLE `application` (
   `school_school_id` int(11) NOT NULL,
-  PRIMARY KEY (`student_student_id`,`school_school_id`),
+  `student_student_id` int(11) NOT NULL,
+  `a_open_date` datetime DEFAULT NULL,
+  `a_statue` varchar(45) DEFAULT NULL,
+  `a_deposit` int(11) DEFAULT NULL,
+  `a_pay_statue` varchar(45) DEFAULT NULL,
+  `a_resident_fee` int(11) DEFAULT NULL,
+  `a_submit_date` datetime DEFAULT NULL,
+  `a_grade` varchar(45) DEFAULT NULL,
+  `comment` varchar(140) DEFAULT NULL,
+  PRIMARY KEY (`school_school_id`,`student_student_id`),
   KEY `fk_case_student_idx` (`student_student_id`),
   KEY `fk_case_school1_idx` (`school_school_id`),
-  CONSTRAINT `fk_case_school1` FOREIGN KEY (`school_school_id`) REFERENCES `school` (`school_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_case_student` FOREIGN KEY (`student_student_id`) REFERENCES `student` (`student_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_case_student` FOREIGN KEY (`student_student_id`) REFERENCES `student` (`student_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_case_school1` FOREIGN KEY (`school_school_id`) REFERENCES `school` (`school_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `case`
+-- Dumping data for table `application`
 --
 
-LOCK TABLES `case` WRITE;
-/*!40000 ALTER TABLE `case` DISABLE KEYS */;
-/*!40000 ALTER TABLE `case` ENABLE KEYS */;
+LOCK TABLES `application` WRITE;
+/*!40000 ALTER TABLE `application` DISABLE KEYS */;
+/*!40000 ALTER TABLE `application` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `case_doc`
+-- Table structure for table `application_doc`
 --
 
-DROP TABLE IF EXISTS `case_doc`;
+DROP TABLE IF EXISTS `application_doc`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `case_doc` (
+CREATE TABLE `application_doc` (
   `i-20` int(11) DEFAULT NULL,
   `case_student_student_id` int(11) NOT NULL,
   `case_school_school_id` int(11) NOT NULL,
+  `comment` varchar(140) DEFAULT NULL,
   PRIMARY KEY (`case_student_student_id`,`case_school_school_id`),
-  CONSTRAINT `fk_case_doc_case1` FOREIGN KEY (`case_student_student_id`, `case_school_school_id`) REFERENCES `case` (`student_student_id`, `school_school_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_case_doc_case1` FOREIGN KEY (`case_student_student_id`, `case_school_school_id`) REFERENCES `application` (`student_student_id`, `school_school_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `case_doc`
+-- Dumping data for table `application_doc`
 --
 
-LOCK TABLES `case_doc` WRITE;
-/*!40000 ALTER TABLE `case_doc` DISABLE KEYS */;
-/*!40000 ALTER TABLE `case_doc` ENABLE KEYS */;
+LOCK TABLES `application_doc` WRITE;
+/*!40000 ALTER TABLE `application_doc` DISABLE KEYS */;
+/*!40000 ALTER TABLE `application_doc` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -84,9 +86,10 @@ DROP TABLE IF EXISTS `sch_doc`;
 CREATE TABLE `sch_doc` (
   `i-20` int(11) DEFAULT NULL,
   `school_school_id` int(11) NOT NULL,
+  `comment` varchar(140) DEFAULT NULL,
   PRIMARY KEY (`school_school_id`),
   CONSTRAINT `fk_sch_doc_school1` FOREIGN KEY (`school_school_id`) REFERENCES `school` (`school_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,9 +132,9 @@ CREATE TABLE `school` (
   `total_fee` int(11) DEFAULT NULL,
   `description` varchar(45) DEFAULT NULL,
   `dead_line` datetime DEFAULT NULL,
-  `comment` varchar(45) DEFAULT NULL,
+  `comment` varchar(140) DEFAULT NULL,
   PRIMARY KEY (`school_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,8 +168,9 @@ CREATE TABLE `student` (
   `stu_province` varchar(45) DEFAULT NULL,
   `stu_zipcode` varchar(45) DEFAULT NULL,
   `decision` varchar(45) DEFAULT NULL,
+  `comment` varchar(140) DEFAULT NULL,
   PRIMARY KEY (`student_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,4 +191,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-21 17:59:32
+-- Dump completed on 2015-12-21 22:48:49
