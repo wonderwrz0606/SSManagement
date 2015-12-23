@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table name="t_application" catalog="sql5100650"
+		class="Application">
+		<primary-key>
+			<key-column name="a_id" property="aId" />
+		</primary-key>
+		<column name="a_open_date" property="aOpenDate"></column>
+		<column name="a_statue" property="aStatue"></column>
+		<column name="a_deposit" property="aDeposit"></column>
+		<column name="a_pay_statue" property="aPayStatue"></column>
+		<column name="a_resident_fee" property="aResidentFee"></column>
+		<column name="a_submit_date" property="aSubmitDate"></column>
+		<column name="a_grade" property="aGrade"></column>
+		<column name="comment" property="comment"></column>
+	</table>
+	<table name="t_school" catalog="sql5100650" class="School"></table>
+	<table name="t_student" catalog="sql5100650" class="Student"></table>
+</hibernate-reverse-engineering>
