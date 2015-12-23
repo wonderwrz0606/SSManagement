@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 /**
  * TApplication entity. @author MyEclipse Persistence Tools
+ * 表关系 ，多方
  */
 @Entity
 @Table(name = "t_application", catalog = "sql5100650")
@@ -74,7 +75,7 @@ public class TApplication implements java.io.Serializable {
 		this.AId = AId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne( fetch = FetchType.LAZY)
 	@JoinColumn(name = "t_student_stu_id", nullable = false)
 	public TStudent getTStudent() {
 		return this.TStudent;
