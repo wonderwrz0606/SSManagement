@@ -15,7 +15,6 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Override
 	public void addSchool(School school) {
 		sessionFactory.getCurrentSession().save(school);
 	}
@@ -24,7 +23,7 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 	public void updateSchool(School school) {
 		sessionFactory.getCurrentSession().update(school);
 	}
-
+	
 	@Override
 	public void deleteSchool(int sch_id) {
 		sessionFactory.getCurrentSession().delete(getSchoolbyId(sch_id));
@@ -35,7 +34,7 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 		return (School) sessionFactory.getCurrentSession().get(School.class, sch_id);
 	}	
 	
-	public List<School> getAllRoom() {
+	public List<School> getAllSchool() {
 		return sessionFactory.getCurrentSession().createQuery("from School").list();
 	}
 }

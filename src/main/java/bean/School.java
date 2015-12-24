@@ -356,7 +356,7 @@ public class School  implements java.io.Serializable {
     public void setComment(String comment) {
         this.comment = comment;
     }
-@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="school")
+@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="school")
 
     public Set<Application> getApplications() {
         return this.applications;

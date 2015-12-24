@@ -2,6 +2,8 @@ package bean;
 // default package
 
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -87,7 +89,7 @@ public class Application  implements java.io.Serializable {
     public void setStudent(Student student) {
         this.student = student;
     }
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(cascade=CascadeType.ALL,  fetch=FetchType.EAGER)
         @JoinColumn(name="t_school_sch_id", nullable=false)
 
     public School getSchool() {
