@@ -20,7 +20,6 @@ public class SchoolServiceImpl extends SchoolServiceAdapter{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	
 	@Autowired
 	private SchoolDao schoolDao;
 	
