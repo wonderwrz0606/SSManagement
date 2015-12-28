@@ -43,6 +43,16 @@
 			</tr>
 		</table>
 	</form>
+	
+	<form action="school/getSchool">
+	Search By:<select name="select">
+    <option value="id">School ID</option>
+    <option value="name">School Name</option>
+    <option value="state">School State</option>
+  </select>
+  <input type="text" name="input" >
+  <input type="submit" value="submit">
+	</form>
 
 </body>
 </html>

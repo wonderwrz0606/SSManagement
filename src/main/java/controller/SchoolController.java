@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import service.SchoolService;
@@ -37,15 +38,34 @@ public class SchoolController {
 	 * @param school
 	 * @return testPage/ListSchool.jsp
 	 */
-	@RequestMapping(value="getSchoolById",method=RequestMethod.GET)
+	@RequestMapping(value="getSchool",method=RequestMethod.GET)
 	public ModelAndView getSchoolById(
+			@RequestParam String select,
+			@RequestParam String input,
 			@ModelAttribute School school){
 		ModelAndView mv=new ModelAndView("testPage/ListSchool");
 		
-		school=schoolService.getSchoolbyId(15);
 		
-		System.out.println("school Name: "+school.getSchName());
-		
+		switch(select.toLowerCase()){
+		// Search By Id
+		case "id":
+			
+			school=schoolService.getSchoolbyId(Integer.parseInt(input));
+			
+			mv.addObject("school", school);
+			break;
+			
+		// Search by school name	
+		case "name":
+			System.out.println("name: "+input);
+			break;
+			
+		// Search by school state	
+		case "state":
+			System.out.println("state: "+input);
+			break;
+		}
+				
 		return mv;
 	}
 }
