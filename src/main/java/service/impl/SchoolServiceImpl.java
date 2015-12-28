@@ -80,31 +80,23 @@ public class SchoolServiceImpl extends SchoolServiceAdapter{
 		return list;
 	}
 	
-	@Override
-	public School getSchoolbyReligon(String sch_religon) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	/**
+	 * @param String sch_zip
+	 * @return list
+	 */
+	public List<School> getSchoolbyZipCode(String sch_zip) {
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		
+		List<School> list=schoolDao.getSchoolbyZipCode(sch_zip);
+		
+		session.getTransaction().commit();
+		return list;	
+		}
 
 	
-
-	@Override
-	public School getSchoolbyDealLine(Date deadline) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public School getSchoolbySat(int sch_Sat) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public School getSchoolbyTuitionFee(int sch_fee) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public List<School> getAllSchool() {

@@ -48,7 +48,7 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 	 */
 	public List<School> getSchoolbyZipCode(String sch_zip) {
 			Query query=sessionFactory.getCurrentSession().createQuery("from School  where sch_zip=:sch_zip");
-			query.setString("sch_state", sch_zip);
+			query.setString("sch_zip", sch_zip);
 			return query.list();
 	}
 	

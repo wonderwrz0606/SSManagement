@@ -95,6 +95,17 @@ public class DaoTest {
 		}
 	}
 	
+	
+	
+	@Test
+	public void testGetSchoolByZip(){
+		List list=schoolService.getSchoolbyZipCode("07029");
+		for(int i=0;i<list.size();i++){
+			School s=(School) list.get(i);
+			System.out.println(s.getSchName());
+		}
+	}
+	
 //	@BeforeClass
 //	public static void beforeClass() {
 //		ApplicationContext context = new ClassPathXmlApplicationContext(

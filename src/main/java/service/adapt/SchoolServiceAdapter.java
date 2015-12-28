@@ -64,5 +64,11 @@ public class SchoolServiceAdapter implements SchoolService {
 	}
 
 	
+	public List<School> getSchoolbyZipCode(String sch_zip) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }
