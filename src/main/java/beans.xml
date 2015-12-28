@@ -19,5 +19,14 @@
 			<value>classpath:hibernate.cfg.xml</value>
 		</property>
 	</bean>
+	
+	
+	<bean id="schoolDao"
+	class="dao.impl.SchoolDaoImpl"
+	></bean>
+	
+	<bean id="schoolService"
+	class="service.impl.SchoolServiceImpl"
+	></bean>
 
 </beans>

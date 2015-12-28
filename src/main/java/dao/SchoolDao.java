@@ -12,7 +12,7 @@ public interface SchoolDao {
 	public School getSchoolbyId(int sch_id);
 	public School getSchoolbyName(String sch_name);  //get School by school name
 	public School getSchoolbyReligon(String sch_religon);
-	public School getSchoolbyState(String sch_state);
+	public List<School> getSchoolbyState(String sch_state);
 	public School getSchoolbyDealLine(Date deadline);
 	public School getSchoolbySat(int sch_Sat);
 	public School getSchoolbyTuitionFee(int sch_fee);

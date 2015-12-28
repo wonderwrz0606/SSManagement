@@ -2,6 +2,8 @@ package dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,6 +30,19 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 	public void deleteSchool(int sch_id) {
 		sessionFactory.getCurrentSession().delete(getSchoolbyId(sch_id));
 	}
+	
+	
+	/**	@param String sch_state
+	 *  return List
+	 */
+	public List<School> getSchoolbyState(String sch_state) {
+		Query query=sessionFactory.getCurrentSession().createQuery("from School  where sch_state=:sch_state");
+		query.setString("sch_state", sch_state);
+		return query.list();
+	}
+	
+	
+	
 
 	@Override
 	public School getSchoolbyId(int sch_id) {

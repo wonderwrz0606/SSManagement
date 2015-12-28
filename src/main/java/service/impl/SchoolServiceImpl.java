@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import dao.SchoolDao;
 import bean.School;
-import service.SchoolService;
 import service.adapt.SchoolServiceAdapter;
 
 @Service
@@ -33,36 +32,61 @@ public class SchoolServiceImpl extends SchoolServiceAdapter{
 
 	@Override
 	public void updateSchool(School school) {
-		
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		schoolDao.updateSchool(school);
+		session.getTransaction().commit();
 	}
 
 	@Override
 	public void deleteSchool(int sch_id) {
-		
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		schoolDao.deleteSchool(sch_id);
+		session.getTransaction().commit();
 	}
 
 	@Override
 	public School getSchoolbyId(int sch_id) {
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		School school = schoolDao.getSchoolbyId(sch_id);
+		session.getTransaction().commit();
+		
+		return school;
 	}
+	
+	
+	
 
 	@Override
 	public School getSchoolbyName(String sch_name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	
+	/**
+	 * @param String sch_state
+	 * @return list
+	 */
+	public List<School> getSchoolbyState(String sch_state) {
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		
+		List<School> list=schoolDao.getSchoolbyState(sch_state);
+		
+		session.getTransaction().commit();
+		return list;
+	}
+	
 	@Override
 	public School getSchoolbyReligon(String sch_religon) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public School getSchoolbyState(String sch_state) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public School getSchoolbyDealLine(Date deadline) {
@@ -84,8 +108,13 @@ public class SchoolServiceImpl extends SchoolServiceAdapter{
 
 	@Override
 	public List<School> getAllSchool() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		List<School> list = schoolDao.getAllSchool();
+		session.getTransaction().commit();
+		
+		
+		return list;
 	}
 
 }
