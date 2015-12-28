@@ -1,6 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="US-ASCII"%>
-<%
-String path = request.getContextPath();
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"%>
+<%@String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
@@ -14,8 +13,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="js/prefixfree.min.js"></script>
   </head>
 
+<!--  body  -->
   <body>
-
+	<%@ include file="/header.jsp" %>
+	
     <table>
   <thead>
     <tr>
@@ -63,7 +64,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tbody>
 </table>
     
+    
+    <%@include file="/footer.jsp" %>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="js/index.js"></script>
+    
   </body>
+<!--  body  -->
+
 </html>
