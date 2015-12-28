@@ -7,8 +7,8 @@
 		<nav>
 	  	<a href="#">申请管理</a>
   	 	<a href="#">学生管理</a>
-  	 	<a href="#">学校管理</a>
-  	 	<a href="#">退出</a>
+  	 	<a href="school_management.jsp">学校管理</a>
+  	 	<a href="index.jsp">退出</a>
  	 	</nav>
  	</div>
 </header>
