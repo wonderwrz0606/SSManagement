@@ -106,6 +106,15 @@ public class DaoTest {
 		}
 	}
 	
+	@Test
+	public void testGetSchoolByName(){
+		List list=schoolService.getSchoolbyName("new jersey");
+		for(int i=0;i<list.size();i++){
+			School s=(School) list.get(i);
+			System.out.println(s.getSchName());
+		}
+	}
+	
 //	@BeforeClass
 //	public static void beforeClass() {
 //		ApplicationContext context = new ClassPathXmlApplicationContext(

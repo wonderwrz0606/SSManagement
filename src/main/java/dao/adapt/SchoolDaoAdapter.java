@@ -28,7 +28,7 @@ public class SchoolDaoAdapter implements SchoolDao {
 		return null;
 	}
 
-	public School getSchoolbyName(String sch_name) {
+	public List<School> getSchoolbyName(String sch_name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

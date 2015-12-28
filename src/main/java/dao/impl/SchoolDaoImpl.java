@@ -31,6 +31,23 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 		sessionFactory.getCurrentSession().delete(getSchoolbyId(sch_id));
 	}
 	
+	@Override
+	public School getSchoolbyId(int sch_id) {
+		return (School) sessionFactory.getCurrentSession().get(School.class, sch_id);
+	}	
+	
+	
+	/**
+	 *  @param String sch_name
+	 *  @return List
+	 */ 
+	public List<School> getSchoolbyName(String sch_name) {
+		// name like: name  
+		Query query=sessionFactory.getCurrentSession().createQuery("from School  where sch_name like:sch_name");
+		query.setString("sch_name", sch_name+"%");
+		return query.list();
+	}
+	
 	
 	/**	@param String sch_state
 	 *  @return List
@@ -54,10 +71,7 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 	
 	
 
-	@Override
-	public School getSchoolbyId(int sch_id) {
-		return (School) sessionFactory.getCurrentSession().get(School.class, sch_id);
-	}	
+	
 	
 	public List<School> getAllSchool() {
 		return sessionFactory.getCurrentSession().createQuery("from School").list();

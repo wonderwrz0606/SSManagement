@@ -59,18 +59,20 @@ public class SchoolController {
 			
 		// Search by school name	
 		case "name":
-			System.out.println("name: "+input);
+			List<School> schoolList=schoolService.getSchoolbyName(input);
+			mv.addObject("schoolList", schoolList);
 			break;
 			
 		// Search by school state	
 		case "state":
-			System.out.println("state: "+input);
+			schoolList=schoolService.getSchoolbyState(input);
+			mv.addObject("schoolList", schoolList);
 			break;
 			
 		//Seach by school zipcode
 		case "zip":
 			
-			List<School> schoolList=schoolService.getSchoolbyZipCode(input);
+			schoolList=schoolService.getSchoolbyZipCode(input);
 			
 			mv.addObject("schoolList", schoolList);
 			break;

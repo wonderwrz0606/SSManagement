@@ -58,11 +58,18 @@ public class SchoolServiceImpl extends SchoolServiceAdapter{
 	
 	
 	
-
-	@Override
-	public School getSchoolbyName(String sch_name) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 @param String sch_name
+	 * @return list
+	 */
+	public List<School> getSchoolbyName(String sch_name) {
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		
+		List<School> list=schoolDao.getSchoolbyName(sch_name);
+		
+		session.getTransaction().commit();
+		return list;
 	}
 	
 	
