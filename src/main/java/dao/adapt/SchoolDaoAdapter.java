@@ -63,5 +63,10 @@ public class SchoolDaoAdapter implements SchoolDao {
 		return null;
 	}
 
+	public List<School> getSchoolbyZipCode(String schZip) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

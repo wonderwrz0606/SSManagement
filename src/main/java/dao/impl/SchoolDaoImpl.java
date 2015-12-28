@@ -33,7 +33,7 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 	
 	
 	/**	@param String sch_state
-	 *  return List
+	 *  @return List
 	 */
 	public List<School> getSchoolbyState(String sch_state) {
 		Query query=sessionFactory.getCurrentSession().createQuery("from School  where sch_state=:sch_state");
@@ -41,6 +41,16 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 		return query.list();
 	}
 	
+	/**
+	 * @param String sch_Zip
+	 * @return List
+	 * 
+	 */
+	public List<School> getSchoolbyZipCode(String sch_zip) {
+			Query query=sessionFactory.getCurrentSession().createQuery("from School  where sch_zip=:sch_zip");
+			query.setString("sch_state", sch_zip);
+			return query.list();
+	}
 	
 	
 
