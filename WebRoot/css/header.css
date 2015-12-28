@@ -5,7 +5,7 @@ header {
   height: 100px;
   top: 0;
   left: 0;
-  background-color: rgba(22, 22, 22, 0.4);
+  background-color: rgba(100, 186, 212, 0.52);
   border-bottom: 3px solid rgba(0, 0, 0, 0.4);
   -webkit-transition: height 0.3s;
 }
@@ -26,6 +26,7 @@ header h1, header nav {
 header a {
   text-decoration: none;
   color: #FFF;
+  padding-left: 20px;
 }
 header nav {
   float: right;
