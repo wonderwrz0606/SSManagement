@@ -49,6 +49,7 @@
     <option value="id">School ID</option>
     <option value="name">School Name</option>
     <option value="state">School State</option>
+     <option value="zip">School ZipCode</option>
   </select>
   <input type="text" name="input" >
   <input type="submit" value="submit">

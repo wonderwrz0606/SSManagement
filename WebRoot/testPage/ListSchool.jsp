@@ -1,4 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="US-ASCII"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -32,8 +35,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<tr>
     		<td>School WebSite:</td>
     		<td>${school.schWebsite }</td>
-    		
     	<tr>
+    	<tr>
+    	<td>ID</td>
+    	<td>Name:</td>
+    	<td>WebSite:</td>
+    	<td>ZipCode</td>
+    	<td>State</td>
+    </tr>
+    <c:forEach items="${schoolList }" var="school">
+    	<tr>
+    		<td>${school.schId }</td>
+    		<td>${school.schName }</td>
+    		<td>${school.schWebsite }</td>
+    		<td>${school.schState }</td>
+    		<td>${school.schZip }</td>
+    	</tr>
+    </c:forEach>
     </table>
   </body>
 </html>
