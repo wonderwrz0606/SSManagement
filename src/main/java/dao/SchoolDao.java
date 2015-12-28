@@ -10,13 +10,18 @@ public interface SchoolDao {
 	public void updateSchool(School school);
 	public void deleteSchool(int sch_id);
 	public School getSchoolbyId(int sch_id);
+	
+	
+	public List<School> getSchoolbyState(String sch_state); 
+	public List<School> getSchoolbyZipCode(String schZip);
+	public List<School> getAllSchool();
+	
 	public School getSchoolbyName(String sch_name);  //get School by school name
 	public School getSchoolbyReligon(String sch_religon);
-	public List<School> getSchoolbyState(String sch_state);
 	public School getSchoolbyDealLine(Date deadline);
 	public School getSchoolbySat(int sch_Sat);
 	public School getSchoolbyTuitionFee(int sch_fee);
-	public List<School> getAllSchool();
+	
 	
 	
 	
