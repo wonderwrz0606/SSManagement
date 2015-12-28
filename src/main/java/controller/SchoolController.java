@@ -27,8 +27,8 @@ public class SchoolController {
 	public ModelAndView saveSchool(
 			@ModelAttribute School school){
 		ModelAndView mv=new ModelAndView("index");
-		
-		schoolService.addSchool(school);
+		System.out.println(school.getSchName());
+		//schoolService.addSchool(school);
 		return mv;
 	}
 	
