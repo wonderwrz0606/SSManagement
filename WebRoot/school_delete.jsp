@@ -10,7 +10,7 @@ String basePath = request.getScheme() + "://"
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 	<head>
-	    <title>查询学校</title>
+	    <title>删除学校</title>
 	    <link rel="stylesheet" href="css/reset.css">
 	    <link rel="stylesheet" href="css/style.css">
 	    <script src="js/prefixfree.min.js"></script>
@@ -21,7 +21,7 @@ String basePath = request.getScheme() + "://"
 		<%@include file="/header.jsp" %>
 		<div class="container">
 			<div>
-				<span style="padding-left: 45%;">学校查询界面</span>
+				<span style="padding-left: 45%;">学校删除界面</span>
 			</div>
 			<table class="school_search_table">
 				<tbody>
@@ -31,16 +31,10 @@ String basePath = request.getScheme() + "://"
 						<td><input type="text" class="school_search_li"/></td>
 						<td><button type="submit"><span>名称</span></button></td>
 					</tr>
-					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button type="submit"><span>Zip Code</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button type="submit"><span>州</span></button></td>
-					</tr>
 				</tbody>
 			</table>
 			<div>
-				<button type="submit" onclick="window.location.href='school_detail.jsp'"  style="margin: 0px 41%;width: 15%;"><span>查询</span></button>
+				<button type="submit" onclick="window.location.href='school_management.jsp'"  style="margin: 0px 41%;width: 15%;background-color:red;color:white;"><span>确认删除</span></button>
 			</div>
 		</div>
     
