@@ -11,7 +11,7 @@ String basePath = request.getScheme() + "://"
 <html >
 	<head>
 	    <meta charset="UTF-8">
-	    <title>school management</title>
+	    <title>school search</title>
 	    <link rel="stylesheet" href="css/reset.css">
 	    <link rel="stylesheet" href="css/style.css">
 	    <script src="js/prefixfree.min.js"></script>

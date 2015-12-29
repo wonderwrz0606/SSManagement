@@ -23,16 +23,16 @@ String basePath = request.getScheme() + "://"
 		<div class="container">
 			<ul class="school_management">
 				<a style="text-decoration: none;" href="school_search.jsp"><li class="school_management_li">
-					<lable class="school_management_label">查询学校</lable>
+					<label class="school_management_label">查询学校</label>
+				</li></a>
+				<a style="text-decoration: none;" href="school_add.jsp"><li class="school_management_li">
+					<label class="school_management_label">增加学校</label>
 				</li></a>
 				<a style="text-decoration: none;" href="#"><li class="school_management_li">
-					<lable class="school_management_label">增加学校</lable>
+					<label class="school_management_label">修改学校</label>
 				</li></a>
 				<a style="text-decoration: none;" href="#"><li class="school_management_li">
-					<lable class="school_management_label">修改学校</lable>
-				</li></a>
-				<a style="text-decoration: none;" href="#"><li class="school_management_li">
-					<lable class="school_management_label">删除学校</lable>
+					<label class="school_management_label">删除学校</label>
 				</li></a>	
 			</ul>	
 		</div>
