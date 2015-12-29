@@ -8,7 +8,7 @@ String basePath = request.getScheme() + "://"
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html >
+<html>
 	<head>
 	    <meta charset="UTF-8">
 	    <title>school add</title>
@@ -76,15 +76,42 @@ String basePath = request.getScheme() + "://"
 						<td><input type="text" class="school_search_li"/></td>
 						<td><button type="submit"><span>州</span></button></td>
 					</tr>
-					
-					
+					<tr>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>Zip Code</span></button></td>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>州</span></button></td>
+					</tr>
+					<tr>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>Zip Code</span></button></td>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>州</span></button></td>
+					</tr>
+					<tr>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>Zip Code</span></button></td>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>州</span></button></td>
+					</tr>
+					<tr>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>Zip Code</span></button></td>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>州</span></button></td>
+					</tr>
+					<tr>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>Zip Code</span></button></td>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>州</span></button></td>
+					</tr>
 				</tbody>
 			</table>
 			<div>
-				<button  type="submit" style="margin: 0px 41%;width: 15%;"></button><span>添加学校</span>
+				<button  type="submit" style="margin: 0px 41%;width: 15%;"><span>添加学校</span></button>
 			</div>
-				</form>
-			
+			</form>
 			
 		</div>
     
