@@ -8,9 +8,9 @@ String basePath = request.getScheme() + "://"
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html >
 	<head>
-	    <title>添加学校</title>
+	    <title>修改学校</title>
 	    <link rel="stylesheet" href="css/reset.css">
 	    <link rel="stylesheet" href="css/style.css">
 	    <script src="js/prefixfree.min.js"></script>
@@ -21,8 +21,28 @@ String basePath = request.getScheme() + "://"
 		<%@include file="/header.jsp" %>
 		<div class="container">
 			<div>
-				<span style="padding-left: 45%;">学校添加界面</span>
+				<span style="padding-left: 45%;">学校修改界面</span>
 			</div>
+			<table class="school_search_table">
+				<tbody>
+					<tr>
+						<td colspan="4">
+							<span style="padding-left: 36%;">请输入您要查询的学校ID或者名称</span>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit" onclick="window.location.href='school_detail.jsp'"><span>按ID查询</span></button></td>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>按名称查询</span></button></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div>
+			<br>
+			</div>
+			
 			
 			<!-- <form action="school/addSchool" method="post"> -->
 			<table class="school_search_table">
@@ -108,12 +128,12 @@ String basePath = request.getScheme() + "://"
 				</tbody>
 			</table>
 			<div>
-				<button type="submit" onclick="window.location.href='school_detail.jsp'"  style="margin: 0px 41%;width: 15%;"><span>确认添加</span></button>
+				<button type="submit" onclick="window.location.href='school_management.jsp'"  style="margin: 0px 41%;width: 15%;"><span>确认修改</span></button>
 			</div>
 			<!-- </form> -->
 		</div>
-		
-    	<%@include file="/footer.jsp" %>
+    
+   	 	<%@include file="/footer.jsp" %>
     	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	</body>
 <!--  body  -->

@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.io.*,java.util.*" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme() + "://"
     + request.getServerName() + ":" + request.getServerPort()
     + path + "/";
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ page import="java.util.*"%>  
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 	<head>
-	    <meta charset="UTF-8">
-	    <title>school detail page</title>
+	    <title>学校明细</title>
 	    <link rel="stylesheet" href="css/reset.css">
 	    <link rel="stylesheet" href="css/style.css">
 	    <script src="js/prefixfree.min.js"></script>
@@ -24,94 +24,116 @@ String basePath = request.getScheme() + "://"
 	    	<table>
 	  			<thead>
 	    			<tr>
-			     		<th>School Info</th>
-			      		<th>Details</th>
+			     		<th>项目</th>
+			      		<th>详细信息</th>
 	    			</tr>
 	 			</thead>
 				<tbody>
 				    <tr>
-				      	<td><strong>showSpeed</strong></td>
-				      	<td>The speed of the show/reveal</td>
+				      	<td><strong>ID</strong></td>
+				      	<td>0001</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>showEasing</strong></td>
-				      	<td>The easing of the show/reveal</td>
+				      	<td><strong>名称</strong></td>
+				      	<td>New York University</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>hideSpeed</strong></td>
-				      	<td>The speed of the hide/conceal</td>
+				      	<td><strong>网址</strong></td>
+				      	<td>www.nyu.edu</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>hideEasing</strong></td>
-				      	<td>The easing of the hide/conceal</td>
+				      	<td><strong>城市</strong></td>
+				      	<td>New York City</td>
 				    </tr>					
 				    <tr>
-				      	<td><strong>width</strong></td>
-				      	<td>The width that the data will be truncated to - <em>('auto' or px amount)</em></td>
+				      	<td><strong>州</strong></td>
+				      	<td>NY</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>ellipsis</strong></td>
-				      	<td>Set to true to enable the ellipsis</td>
+				      	<td><strong>Zip Code</strong></td>
+				      	<td>11101</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>title</strong></td>
-				      	<td>Set to true to show the full data on hover</td>
+				      	<td><strong>建校年份</strong></td>
+				      	<td>1890</td>
 				    </tr>
 				    <tr>
-				      <td><strong>afterShow</strong></td>
-				      <td>The callback fired after the show/reveal</td>
+				      <td><strong>学生人数</strong></td>
+				      <td>5000</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>afterHide</strong></td>
-				      	<td>The callback fired after the hide/conceal</td>
+				      	<td><strong>招生年级</strong></td>
+				      	<td>9-11</td>
 				    </tr>
 				    <tr>
-				     	 <td><strong>afterHide</strong></td>
-				      	<td>The callback fired after the hide/conceal</td>
+				     	 <td><strong>师生比</strong></td>
+				      	<td>2:1</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>afterHide</strong></td>
-				      	<td>The callback fired after the hide/conceal</td>
+				      	<td><strong>性质</strong></td>
+				      	<td>XXX</td>
 				    </tr>
 				    <tr>
-				      <td><strong>afterHide</strong></td>
-				      <td>The callback fired after the hide/conceal</td>
+				      <td><strong>宗教</strong></td>
+				      <td>基督教</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>afterHide</strong></td>
-				      	<td>The callback fired after the hide/conceal</td>
+				      	<td><strong>中国学生人数</strong></td>
+				      	<td>2000</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>afterHide</strong></td>
-				      	<td>The callback fired after the hide/conceal</td>
+				      	<td><strong>Toefl</strong></td>
+				      	<td>79</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>afterHide</strong></td>
-				      	<td>The callback fired after the hide/conceal</td>
+				      	<td><strong>申请期限</strong></td>
+				      	<td>9/11</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>afterHide</strong></td>
-				      	<td>The callback fired after the hide/conceal</td>
+				      	<td><strong>AP</strong></td>
+				      	<td>XXX</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>afterHide</strong></td>
-				      	<td>The callback fired after the hide/conceal</td>
+				      	<td><strong>运动</strong></td>
+				      	<td>XXX</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>afterHide</strong></td>
-				      	<td>The callback fired after the hide/conceal</td>
+				      	<td><strong>社团</strong></td>
+				      	<td>魔术社，轮滑社</td>
 				    </tr>
 				    <tr>
-				      	<td><strong>afterHide</strong></td>
-				      	<td>The callback fired after the hide/conceal</td>
+				      	<td><strong>住宿</strong></td>
+				      	<td>Apartment</td>
+				    </tr>
+				     <tr>
+				      	<td><strong>押金</strong></td>
+				      	<td>4000</td>
+				    </tr>
+				    <tr>
+				      	<td><strong>学费</strong></td>
+				      	<td>8000</td>
+				    </tr>
+				     <tr>
+				      	<td><strong>总计</strong></td>
+				      	<td>12000</td>
+				    </tr>
+				    <tr>
+				      	<td><strong>特点</strong></td>
+				      	<td>XXXXXX</td>
+				    </tr>
+				     <tr>
+				      	<td><strong>备注</strong></td>
+				      	<td>XXXXXX</td>
+				    </tr>
+				    <tr>
+				      	<td><strong>备注2</strong></td>
+				      	<td>XXXXXX</td>
 				    </tr>
 		  		</tbody>
 			</table>
-		</div>
-		<div class="school_pdf">
-			<a href="#">
-				<button value="点击显示图文信息">点击显示图文信息</button>
-			</a>
+			<div>
+				<button type="submit" onclick="window.location.href='http://www.nyu.edu'"  style="margin: 0px 41%;width: 15%;"><span>点击申请</span></button>
+			</div>
 		</div>
 		<%-- <div>
 		<%
@@ -147,9 +169,8 @@ String basePath = request.getScheme() + "://"
 		%>
 		</div> --%>
     
-    <%@include file="/footer.jsp" %>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    
+    	<%@include file="/footer.jsp" %>
+    	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	</body>
 <!--  body  -->
 

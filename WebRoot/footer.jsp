@@ -5,10 +5,10 @@
 	<div class="footer_container">
 	 	<h1><a href="index.jsp">Logo</a></h1>
 		<nav>
-		  	<a href="#">申请管理</a>
-  	 		<a href="#">学生管理</a>
-  	 		<a href="#">学校管理</a>
-  	 		<a href="#">退出</a>
+		  	<a href="application_management.jsp">申请管理</a>
+  	 		<a href="student_management.jsp">学生管理</a>
+  	 		<a href="school_management.jsp">学校管理</a>
+  	 		<a href="index.jsp">退出</a>
  	 	</nav>
  	</div>
 </footer>

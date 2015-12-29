@@ -10,7 +10,7 @@ String basePath = request.getScheme() + "://"
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 	<head>
-	    <title>学校管理</title>
+	    <title>申请管理</title>
 	    <link rel="stylesheet" href="css/reset.css">
 	    <link rel="stylesheet" href="css/style.css">
 	    <script src="js/prefixfree.min.js"></script>
@@ -20,20 +20,7 @@ String basePath = request.getScheme() + "://"
   	<body>
 		<%@include file="/header.jsp" %>
 		<div class="container">
-			<ul class="school_management">
-				<a style="text-decoration: none;" href="school_search.jsp"><li class="school_management_li">
-					<label class="school_management_label">查询学校</label>
-				</li></a>
-				<a style="text-decoration: none;" href="school_add.jsp"><li class="school_management_li">
-					<label class="school_management_label">增加学校</label>
-				</li></a>
-				<a style="text-decoration: none;" href="school_update.jsp"><li class="school_management_li">
-					<label class="school_management_label">修改学校</label>
-				</li></a>
-				<a style="text-decoration: none;" href="school_delete.jsp"><li class="school_management_li">
-					<label class="school_management_label">删除学校</label>
-				</li></a>	
-			</ul>	
+			<div style="margin: 0 38%;font-size: 40px;">Comming soon...</div>
 		</div>
     
     <%@include file="/footer.jsp" %>
