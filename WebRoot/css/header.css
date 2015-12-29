@@ -9,7 +9,7 @@ header {
   border-bottom: 3px solid rgba(0, 0, 0, 0.4);
   -webkit-transition: height 0.3s;
 }
-header .container {
+header .header_container {
   width: 90%;
   margin: 0 0;
 }

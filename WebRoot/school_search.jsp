@@ -21,25 +21,30 @@ String basePath = request.getScheme() + "://"
   	<body>
 		<%@include file="/header.jsp" %>
 		<div class="container">
-			<ul class="school_management">
-				<a style="text-decoration: none;" href="school_search.jsp"><li class="school_management_li">
-					<lable class="school_management_label">查询学校</lable>
-				</li></a>
-				<a style="text-decoration: none;" href="#"><li class="school_management_li">
-					<lable class="school_management_label">增加学校</lable>
-				</li></a>
-				<a style="text-decoration: none;" href="#"><li class="school_management_li">
-					<lable class="school_management_label">修改学校</lable>
-				</li></a>
-				<a style="text-decoration: none;" href="#"><li class="school_management_li">
-					<lable class="school_management_label">删除学校</lable>
-				</li></a>	
-			</ul>	
+			<div>
+				<span style="padding-left: 45%;">学校查询界面</span>
+			</div>
+			<table class="school_search_table">
+				<tbody>
+					<tr>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit" onclick="window.location.href='school_detail.jsp'"><span>按ID查询</span></button></td>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>按名称查询</span></button></td>
+					</tr>
+					<tr>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>按Zip Code查询</span></button></td>
+						<td><input type="text" class="school_search_li"/></td>
+						<td><button type="submit"><span>按州查询</span></button></td>
+					</tr>
+				</tbody>
+			</table>
+			
 		</div>
     
     <%@include file="/footer.jsp" %>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="js/index.js"></script>
     
 	</body>
 <!--  body  -->
