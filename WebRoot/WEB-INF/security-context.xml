@@ -1,0 +1,29 @@
+<beans:beans 
+    xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+
+	<http use-expressions="true" auto-config="true">
+		<intercept-url pattern="/**" access="isAuthenticated()" />
+		<form-login />
+		<logout logout-url="/logout" logout-success-url="/index" />
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+			<!--normally,we will declare the source of users,
+			 hard-code the users, useful for testing -->
+			 <user-service>
+			 	<user name="szt" password="szt" authorities="Admin,User"/>
+			 	<user name="sam" password="sam" authorities="Admin,User"/>
+			 	<user name="jero" password="jero" authorities="User"/>
+			 </user-service>
+		</authentication-provider>
+	
+	</authentication-manager>
+</beans:beans>
