@@ -30,8 +30,7 @@ public class SchoolController {
 	public ModelAndView saveSchool(
 			@ModelAttribute School school){
 		ModelAndView mv=new ModelAndView("index");
-		System.out.println(school.getSchName());
-		//schoolService.addSchool(school);
+		schoolService.addSchool(school);
 		return mv;
 	}
 	
