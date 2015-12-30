@@ -25,6 +25,7 @@ String basePath = request.getScheme() + "://"
 				<a style="text-decoration: none;" href="school_search.jsp"><li class="school_management_li">
 					<label class="school_management_label">查询学校</label>
 				</li></a>
+				<!-- 控制用户访问权限 -->
 				<sec:authorize access="hasRole('Admin')">
 				<a style="text-decoration: none;" href="school_add.jsp"><li class="school_management_li">
 					<label class="school_management_label">增加学校</label>

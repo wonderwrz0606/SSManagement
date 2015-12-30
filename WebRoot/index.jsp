@@ -79,7 +79,7 @@ String basePath = request.getScheme() + "://"
 	            </li>
 	            <li>
 	              <a href="school_management.jsp" class="mainLinks">
-	                <button class="mdl-button mdl-js-button mdl-js-ripple-effect">登陆</button>
+	                <button class="mdl-button mdl-js-button mdl-js-ripple-effect">Spring Security登陆</button>
 	              </a>
 	            </li>
 	
