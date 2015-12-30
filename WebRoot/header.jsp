@@ -9,6 +9,8 @@
   	 		<a href="student_management.jsp">学生管理</a>
   	 		<a href="school_management.jsp">学校管理</a>
   	 		<a href="index.jsp">退出</a>
+  	 		<a href="logout">spring 退出</a>
+  	 		
  	 	</nav>
  	</div>
 </header>

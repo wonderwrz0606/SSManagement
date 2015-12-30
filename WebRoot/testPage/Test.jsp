@@ -54,6 +54,12 @@
   <input type="text" name="input" >
   <input type="submit" value="submit">
 	</form>
+	
+	
+	<form action="login/testLogin">
+		Test Login Controller
+		<input type="submit" value="submit">
+	</form>
 
 </body>
 </html>

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page import="java.io.*,java.util.*" %>
 <%
 String path = request.getContextPath();
@@ -24,6 +25,7 @@ String basePath = request.getScheme() + "://"
 				<a style="text-decoration: none;" href="school_search.jsp"><li class="school_management_li">
 					<label class="school_management_label">查询学校</label>
 				</li></a>
+				<sec:authorize access="hasRole('Admin')">
 				<a style="text-decoration: none;" href="school_add.jsp"><li class="school_management_li">
 					<label class="school_management_label">增加学校</label>
 				</li></a>
@@ -33,6 +35,7 @@ String basePath = request.getScheme() + "://"
 				<a style="text-decoration: none;" href="school_delete.jsp"><li class="school_management_li">
 					<label class="school_management_label">删除学校</label>
 				</li></a>	
+				</sec:authorize>
 			</ul>	
 		</div>
     

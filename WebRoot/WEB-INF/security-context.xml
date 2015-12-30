@@ -9,9 +9,11 @@
 
 
 	<http use-expressions="true" auto-config="true">
-		<intercept-url pattern="/**" access="isAuthenticated()" />
+		<intercept-url pattern="/login/**" access="isAuthenticated()"/> 
+		<intercept-url pattern="/school_management.jsp" access="isAuthenticated()"/>
+		<intercept-url pattern="/**" access="permitAll" />
 		<form-login />
-		<logout logout-url="/logout" logout-success-url="/index" />
+		<logout logout-url="/logout" logout-success-url="/index.jsp" />
 	</http>
 	
 	<authentication-manager>
@@ -19,9 +21,8 @@
 			<!--normally,we will declare the source of users,
 			 hard-code the users, useful for testing -->
 			 <user-service>
-			 	<user name="szt" password="szt" authorities="Admin,User"/>
-			 	<user name="sam" password="sam" authorities="Admin,User"/>
-			 	<user name="jero" password="jero" authorities="User"/>
+			 	<user name="admin" password="admin" authorities="Admin,User"/>
+			 	<user name="user" password="user" authorities="User"/>
 			 </user-service>
 		</authentication-provider>
 	
