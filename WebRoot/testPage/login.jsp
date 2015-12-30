@@ -29,8 +29,9 @@
         </p>  
   
         <input type="submit" value="Login" />  
-  
     </form>  
-  
+  	<p>备注</p>
+  	<p>Role1: admin PW: admin</p>
+  	<p>Role2: user PW: user</p>
 </body>  
 </html>  
