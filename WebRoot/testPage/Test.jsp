@@ -26,7 +26,7 @@
 
 <body>
 
-	<form action="school/addSchool" method="post">
+	<form action="addSchool" method="post">
 		<table>
 
 			<tr>
@@ -44,7 +44,7 @@
 		</table>
 	</form>
 	
-	<form action="school/getSchool">
+	<form action="getSchool">
 	Search By:<select name="select">
     <option value="name">School Name</option>
     <option value="id">School ID</option>
@@ -56,10 +56,7 @@
 	</form>
 	
 	
-	<form action="login/testLogin">
-		Test Login Controller
-		<input type="submit" value="submit">
-	</form>
+	
 
 </body>
 </html>
