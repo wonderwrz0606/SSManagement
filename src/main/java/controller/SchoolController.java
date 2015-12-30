@@ -35,6 +35,20 @@ public class SchoolController {
 	}
 	
 	/**
+	 *  prepare school information to addSchool(school_detail.jsp), final check before save.
+	 * @param school
+	 * @return 
+	 */
+	@RequestMapping(value="preSaveSchool",method= RequestMethod.POST)
+	public ModelAndView preSaveSchool(
+			@ModelAttribute School school){
+		
+		ModelAndView mv=new ModelAndView("school_detail");
+		mv.addObject("school", school);
+		return mv;
+	}
+	
+	/**
 	 * 
 	 * @param school
 	 * @return testPage/ListSchool.jsp

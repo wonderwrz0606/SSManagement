@@ -35,7 +35,7 @@ String basePath = request.getScheme() + "://"
 				    </tr>
 				    <tr>
 				      	<td><strong>名称</strong></td>
-				      	<td>New York University</td>
+				      	<td>${school.schName }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>网址</strong></td>

@@ -24,9 +24,15 @@ String basePath = request.getScheme() + "://"
 				<span style="padding-left: 45%;">学校添加界面</span>
 			</div>
 			
-			<!-- <form action="school/addSchool" method="post"> -->
+			<form action="school/preSaveSchool" method="post"> 
 			<table class="school_search_table">
 				<tbody>
+					<tr>
+						<td><input type="text" name="schName" class="school_search_li"/></td>
+						<td><button><span>名称</span></button></td>
+						<td><input type="text" name="schShort" class="school_search_li"/></td>
+						<td><button><span>简称</span></button></td>
+					</tr>
 					<tr>
 						<td><input type="text" name="schName" class="school_search_li"/></td>
 						<td><button><span>名称</span></button></td>
@@ -42,65 +48,66 @@ String basePath = request.getScheme() + "://"
 					<tr>
 						<td><input type="text" name="schZip"class="school_search_li"/></td>
 						<td><button ><span>Zip Code</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schEst" class="school_search_li"/></td>
 						<td><button ><span>建校年份</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schCap" class="school_search_li"/></td>
 						<td><button ><span>学生人数</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schGrade" class="school_search_li"/></td>
 						<td><button ><span>招生年级</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
+					                                <!-- 加入百分号 -->
+						<td><input type="text" name="schPtRatio" class="school_search_li"/></td>
 						<td><button ><span>师生比</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schType" class="school_search_li"/></td>
 						<td><button ><span>性质</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schReligon" class="school_search_li"/></td>
 						<td><button ><span>宗教</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schEsl" class="school_search_li"/></td>
 						<td><button ><span>ESL</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schChnPop" class="school_search_li"/></td>
 						<td><button ><span>中国学生人数</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schSat" class="school_search_li"/></td>
 						<td><button ><span>SAT</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schTf" class="school_search_li"/></td>
 						<td><button ><span>Toefl</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="deadline" class="school_search_li"/></td>
 						<td><button ><span>申请期限</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>AP</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>运动</span></button></td>
-					</tr>
-					<tr>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schStartDate" class="school_search_li"/></td>
+						<td><button ><span>开学时间</span></button></td>
+						<td><input type="text" name="schGroup" class="school_search_li"/></td>
 						<td><button ><span>社团</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>住宿安排</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schResType" class="school_search_li"/></td>
+						<td><button ><span>住宿安排</span></button></td>
+						<td><input type="text" name="schResFee" class="school_search_li"/></td>
+						<td><button ><span>住宿费用</span></button></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="schDeps" class="school_search_li"/></td>
 						<td><button ><span>押金</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schFee" class="school_search_li"/></td>
 						<td><button ><span>学费</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="totalFee" class="school_search_li"/></td>
 						<td><button ><span>总计</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="schDes" class="school_search_li"/></td>
 						<td><button ><span>特点</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
+						<td><input type="text" name="comment"class="school_search_li"/></td>
 						<td><button ><span>备注</span></button></td>
 						<td><input type="text" class="school_search_li"/></td>
 						<td><button ><span>备注2</span></button></td>
@@ -108,9 +115,10 @@ String basePath = request.getScheme() + "://"
 				</tbody>
 			</table>
 			<div>
-				<button type="submit" onclick="window.location.href='school_detail.jsp'"  style="margin: 0px 41%;width: 15%;"><span>确认添加</span></button>
+				<button type="submit" onclick="window.location.href='school/preSaveSchool'"  style="margin: 0px 41%;width: 15%;"><span>确认添加</span></button>
+				<input type="submit"   value="确认添加" style="margin: 0px 41%;width: 15%;"><span></span>
 			</div>
-			<!-- </form> -->
+			 </form>
 		</div>
 		
     	<%@include file="/footer.jsp" %>

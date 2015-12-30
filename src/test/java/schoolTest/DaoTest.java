@@ -59,7 +59,8 @@ public class DaoTest {
 		
 		for(int i=0;i<list.size();i++){
 			School s =list.get(i);
-			System.out.println(s.getSchName());
+			System.out.println("full name: "+s.getSchName());
+			System.out.println("short name: "+s.getSchShort());
 		}
 	}
 	
