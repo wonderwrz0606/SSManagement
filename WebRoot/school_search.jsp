@@ -44,13 +44,13 @@ String basePath = request.getScheme() + "://"
 			<table class="school_search_table_single">
 				<tbody>
 					<tr>
-						<td><input type="text" name="inputId" value="" class="school_search_li"/></td>
+						<td><input type="text" name="schSearch" class="school_search_li"/></td>
 						<td>
 							<select name="select" class="select_drop_down">	
-	  							<option value="volvo">名字</option>
-	  							<option value="saab">ID</option>
-	  							<option value="mercedes">State</option>
-	  							<option value="audi">Zip code</option>
+	  							<option value="schName">名字</option>
+	  							<option value="schId">ID</option>
+	  							<option value="schState">State</option>
+	  							<option value="SchZip">Zip code</option>
 							</select>
 						</td>
 					</tr>
