@@ -11,6 +11,7 @@
 	<http use-expressions="true" auto-config="true">
 		<intercept-url pattern="/login/**" access="isAuthenticated()"/> <!-- login controller url -->
 		<intercept-url pattern="/school_management.jsp" access="isAuthenticated()"/>
+		<intercept-url pattern="/*management.jsp*" access="isAuthenticated()"/>
 		<intercept-url pattern="/login.jsp" access="permitAll"/> <!-- login page -->
 		<intercept-url pattern="/**" access="permitAll" />
 		
