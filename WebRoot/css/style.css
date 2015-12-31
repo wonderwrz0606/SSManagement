@@ -148,3 +148,8 @@ button {
     background-color: #AEDBE8;
     border-style: none;
 }
+
+.login {
+	width: 30%;
+    margin: 2% 33%;
+}
