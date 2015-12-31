@@ -20,4 +20,10 @@ public interface SchoolService {
 	public School getSchoolbyReligon(String sch_religon);
 	public School getSchoolbyDealLine(Date deadline);
 	public School getSchoolbySat(int sch_Sat);
-	public School getSchoolbyTuitionFee(int sch_fee);}
+	public School getSchoolbyTuitionFee(int sch_fee);
+
+
+	public List<School> DynamicSearch(School school);
+
+
+}

@@ -102,18 +102,34 @@ public class SchoolServiceImpl extends SchoolServiceAdapter{
 		return list;	
 		}
 
-	
-	
-
-	@Override
+	/** list all school
+	 * 
+	 * @return List list
+	 * 
+	 */
 	public List<School> getAllSchool() {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		List<School> list = schoolDao.getAllSchool();
 		session.getTransaction().commit();
-		
-		
 		return list;
 	}
+	
+	/**
+	 *  custom search 
+	 * 	search condition: schId, schName(like), schState(like), schZip
+	 *  @param School school
+	 *  @return List
+	 */ 
+	public List<School> DynamicSearch(School school) {
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		List<School> list = schoolDao.DynamicSearch(school);
+		session.getTransaction().commit();
+		return list;
+	}
+
+	
+	
 
 }

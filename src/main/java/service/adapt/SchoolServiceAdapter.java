@@ -69,6 +69,12 @@ public class SchoolServiceAdapter implements SchoolService {
 		return null;
 	}
 
+	@Override
+	public List<School> DynamicSearch(School school) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

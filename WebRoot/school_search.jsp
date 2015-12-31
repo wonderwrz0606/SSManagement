@@ -44,24 +44,24 @@ String basePath = request.getScheme() + "://"
 			<table class="school_search_table_single">
 				<tbody>
 					<tr>
-						<td><input type="text" name="schSearch" class="school_search_li"/></td>
+						<td><input type="text" name="input" class="school_search_li"/></td>
 						<td>
 							<select name="select" class="select_drop_down">	
-	  							<option value="schName">名字</option>
-	  							<option value="schId">ID</option>
-	  							<option value="schState">State</option>
-	  							<option value="SchZip">Zip code</option>
+	  							<option value="id">ID</option>
+	  							<option value="name">名字</option>
+	  							<option value="state">State</option>
+	  							<option value="zip">Zip code</option>
 							</select>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			
-			
-			</form>
 			<div>
-				<button type="submit" onclick="window.location.href='school_detail.jsp'"  style="margin: 0px 41%;width: 15%;"><span>查询</span></button>
+				<button type="submit" style="margin: 0px 41%;width: 15%;"><span>查询</span></button>
 			</div>
+			</form>
+			
 		</div>
     
     	<%@include file="/footer.jsp" %>

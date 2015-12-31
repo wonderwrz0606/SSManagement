@@ -2,9 +2,12 @@ package dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -69,11 +72,47 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 			return query.list();
 	}
 	
-	
-
-	
-	
 	public List<School> getAllSchool() {
 		return sessionFactory.getCurrentSession().createQuery("from School").list();
 	}
+	
+	/**
+	 *  custom search 
+	 * 	search condition: schId, schName(like), schState(like), schZip
+	 *  @param School school
+	 *  @return List
+	 */  
+	public List<School> DynamicSearch(School school) {
+//		DetachedCriteria dc=DetachedCriteria.forClass(School.class);
+//		
+//		System.out.println("=============");
+//		System.out.println(school.getSchId());
+//		System.out.println(school.getSchName());
+//		System.out.println(school.getSchZip());
+//		System.out.println(school.getSchState());
+//		System.out.println("=============");
+//		if(school.getSchId()!=null){
+//			dc.add(Restrictions.eq("schId", school.getSchId()));
+//		}
+//		
+//		if(school.getSchName()!=null){
+//			dc.add(Restrictions.like("schName", school.getSchName()+"%"));
+//		}
+//		
+//		if(school.getSchZip()!=null){
+//			dc.add(Restrictions.eq("schZip", school.getSchZip()+"%"));
+//		}
+//		
+//		if(school.getSchState()!=null){
+//			dc.add(Restrictions.like("schState", school.getSchState()+"%"));
+//		}
+//		
+//		Criteria criteria=dc.getExecutableCriteria(sessionFactory.getCurrentSession());
+//		System.out.println("dao empty?"+criteria.list().isEmpty());
+//		
+//		return criteria.list();
+		return null;
+	
+	}
+	
 }

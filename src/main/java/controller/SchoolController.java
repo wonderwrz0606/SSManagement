@@ -58,41 +58,45 @@ public class SchoolController {
 	@RequestMapping(value="getSchool",method=RequestMethod.GET)
 	public ModelAndView getSchoolById(
 			@RequestParam String select,
-			@RequestParam String inputId,
-			@RequestParam String inputName,
-			@RequestParam String inputZip,
-			@RequestParam String inputState,
+			@RequestParam String input,
+//			@RequestParam String inputId,
+//			@RequestParam String inputName,
+//			@RequestParam String inputZip,
+//			@RequestParam String inputState,
 			@ModelAttribute School school){
 		ModelAndView mv=new ModelAndView("testPage/ListSchool");
 		
-		System.out.println(inputId);
-		System.out.println(inputName);
+		
 		switch(select.toLowerCase()){
 		// Search By Id
 		case "id":
 			
-			school=schoolService.getSchoolbyId(Integer.parseInt(inputId));
+			//school=schoolService.getSchoolbyId(Integer.parseInt(inputId));
+			school=schoolService.getSchoolbyId(Integer.parseInt(input));
+//			List<School> schoolList
 			
 			mv.addObject("school", school);
 			break;
 			
 		// Search by school name	
 		case "name":
-			List<School> schoolList=schoolService.getSchoolbyName(inputName);
+			//List<School> schoolList=schoolService.getSchoolbyName(inputName);
+			List<School> schoolList=schoolService.getSchoolbyName(input);
 			mv.addObject("schoolList", schoolList);
 			break;
 			
 		// Search by school state	
 		case "state":
-			schoolList=schoolService.getSchoolbyState(inputState);
+			//schoolList=schoolService.getSchoolbyState(inputState);
+			schoolList=schoolService.getSchoolbyState(input);
 			mv.addObject("schoolList", schoolList);
 			break;
 			
 		//Seach by school zipcode
 		case "zip":
 			
-			schoolList=schoolService.getSchoolbyZipCode(inputZip);
-			
+			//schoolList=schoolService.getSchoolbyZipCode(inputZip);
+			schoolList=schoolService.getSchoolbyZipCode(input);
 			mv.addObject("schoolList", schoolList);
 			break;
 		

@@ -151,6 +151,26 @@ public class DaoTest {
 		session.getTransaction().commit();
 	}
 	
+	@Test
+	public void testDynamicSearch(){
+		
+		School school =new School();
+		
+		school.setSchId(null);
+		school.setSchName("n");
+		school.setSchZip(null);
+		school.setSchState(null);
+		
+		List list=schoolService.DynamicSearch(school);
+		for(int i=0;i<list.size();i++){
+			School s=(School) list.get(i);
+			System.out.println("id: "+s.getSchId());
+			System.out.println("name: "+s.getSchName());
+			System.out.println("zip: "+s.getSchZip());
+			System.out.println("state: "+s.getSchState());
+		}
+	}
+	
 //	@BeforeClass
 //	public static void beforeClass() {
 //		ApplicationContext context = new ClassPathXmlApplicationContext(
