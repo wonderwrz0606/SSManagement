@@ -36,7 +36,7 @@
 				<span style="padding-left: 45%;">欢迎登陆管理系统</span>
 				<div id="login-error">${error}</div>  
 			</div>
-			<form action="../j_spring_security_check" method="post">
+			<form action="j_spring_security_check" method="post">
 			<table class="login">
 				<tbody>
 					<tr>
