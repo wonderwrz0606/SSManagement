@@ -2,8 +2,11 @@ package schoolTest;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -114,6 +117,38 @@ public class DaoTest {
 			School s=(School) list.get(i);
 			System.out.println(s.getSchName());
 		}
+	}
+	
+	
+	@Test
+	public void dynamicQuery(){
+		SessionFactory sessionFactory =(SessionFactory) context.getBean("sessionFactory");
+		Session session=sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		
+		DetachedCriteria dc=DetachedCriteria.forClass(School.class);
+		
+		int schId=18;
+		String schName="Guangxi";
+		
+		if(schId!=0){
+			dc.add(Restrictions.eq("schId", schId));
+		}
+		if(schName!=null){
+			dc.add(Restrictions.like("schName", schName+"%"));
+			
+		}
+		
+		Criteria c=dc.getExecutableCriteria(session);
+		
+		List<School> list=c.list();
+		
+		for(School s:list){
+			System.out.println(s.getSchName());
+		}
+		
+		
+		session.getTransaction().commit();
 	}
 	
 //	@BeforeClass
