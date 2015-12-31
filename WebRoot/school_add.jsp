@@ -25,7 +25,7 @@ String basePath = request.getScheme() + "://"
 			</div>
 			
 			<form action="preSaveSchool" method="post"> 
-			<table class="school_search_table">
+			<table class="school_search_table_multi">
 				<tbody>
 					<tr>
 						<td><input type="text" name=schName class="school_search_li"/></td>

@@ -131,8 +131,13 @@ tbody:hover tr:hover td {
     color: #fff;
 }
 
-.school_search_table {
+.school_search_table_multi {
 	width: 60%;
+}
+
+.school_search_table_single {
+	width: 40%;
+	margin: 2% 28.5%;
 }
 
 .school_search_li {
@@ -153,3 +158,11 @@ button {
 	width: 30%;
     margin: 2% 33%;
 }
+
+.select_drop_down {
+    background-color: transparent;
+    width: 100%;
+    cursor: pointer;
+    height: 30px;
+}
+

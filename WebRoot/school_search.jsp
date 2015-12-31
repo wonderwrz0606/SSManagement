@@ -24,7 +24,7 @@ String basePath = request.getScheme() + "://"
 				<span style="padding-left: 45%;">学校查询界面</span>
 			</div>
 			<form action="getSchool">
-			<table class="school_search_table">
+			<!-- <table class="school_search_table_multi">
 				<tbody>
 					<tr>
 						<td><input type="text" name="inputId" value="" class="school_search_li"/></td>
@@ -39,7 +39,25 @@ String basePath = request.getScheme() + "://"
 						<td><button type="submit" name="select" value="state"><span>州</span></button></td>
 					</tr>
 				</tbody>
+			</table> -->
+			
+			<table class="school_search_table_single">
+				<tbody>
+					<tr>
+						<td><input type="text" name="inputId" value="" class="school_search_li"/></td>
+						<td>
+							<select name="select" class="select_drop_down">	
+	  							<option value="volvo">名字</option>
+	  							<option value="saab">ID</option>
+	  							<option value="mercedes">State</option>
+	  							<option value="audi">Zip code</option>
+							</select>
+						</td>
+					</tr>
+				</tbody>
 			</table>
+			
+			
 			</form>
 			<div>
 				<button type="submit" onclick="window.location.href='school_detail.jsp'"  style="margin: 0px 41%;width: 15%;"><span>查询</span></button>
