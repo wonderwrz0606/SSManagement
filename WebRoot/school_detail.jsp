@@ -125,10 +125,10 @@ String basePath = request.getScheme() + "://"
 				      	<td><strong>备注</strong></td>
 				      	<td>${school.comment }</td>
 				    </tr>
-				    <tr>
+				    <%-- <tr>
 				      	<td><strong>备注2</strong></td>
 				      	<td>${school.comment2 }</td>
-				    </tr>
+				    </tr> --%>
 		  		</tbody>
 			</table>
 			<div>
