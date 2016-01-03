@@ -64,8 +64,8 @@ public class SchoolController {
 //			@RequestParam String inputZip,
 //			@RequestParam String inputState,
 			@ModelAttribute School school){
-		ModelAndView mv=new ModelAndView("testPage/ListSchool");
-		
+		//ModelAndView mv=new ModelAndView("testPage/ListSchool");//for testing
+		ModelAndView mv=new ModelAndView("school_detail");
 		
 		switch(select.toLowerCase()){
 		// Search By Id

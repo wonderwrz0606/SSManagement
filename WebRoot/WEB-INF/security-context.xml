@@ -25,7 +25,7 @@
 			<!--normally,we will declare the source of users,
 			 hard-code the users, useful for testing -->
 			 <user-service>
-			 	<user name="admin" password="admin" authorities="Admin,User"/>
+			 	<user name="admin" password="admin"   authorities="Admin"/>
 			 	<user name="user" password="user" authorities="User"/>
 			 </user-service>
 		</authentication-provider>
