@@ -24,7 +24,7 @@ String basePath = request.getScheme() + "://"
 				<span style="padding-left: 45%;">学校添加界面</span>
 			</div>
 			
-			<form action="preSaveSchool" method="post"> 
+			<form name="test" action="test_detail.jsp" method="post"> 
 			<table class="school_search_table_multi">
 				<tbody>
 					<tr>
@@ -115,7 +115,7 @@ String basePath = request.getScheme() + "://"
 				</tbody>
 			</table>
 			<div>
-				<button type="submit"   style="margin: 0px 41%;width: 15%;"><span>确认添加</span></button>
+				<button type="submit"  style="margin: 0px 41%;width: 15%;"><span>确认添加</span></button>
 			</div>
 			 </form>
 		</div>

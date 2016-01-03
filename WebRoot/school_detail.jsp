@@ -31,7 +31,7 @@ String basePath = request.getScheme() + "://"
 				<tbody>
 				    <tr>
 				      	<td><strong>ID</strong></td>
-				      	<td>0001</td>
+				      	<td>${school.schId }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>名称</strong></td>
@@ -39,95 +39,95 @@ String basePath = request.getScheme() + "://"
 				    </tr>
 				    <tr>
 				      	<td><strong>网址</strong></td>
-				      	<td>www.nyu.edu</td>
+				      	<td>${school.schWebsite }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>城市</strong></td>
-				      	<td>New York City</td>
+				      	<td>${school.schCity }</td>
 				    </tr>					
 				    <tr>
 				      	<td><strong>州</strong></td>
-				      	<td>NY</td>
+				      	<td>${school.schState }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>Zip Code</strong></td>
-				      	<td>11101</td>
+				      	<td>${school.schZip }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>建校年份</strong></td>
-				      	<td>1890</td>
+				      	<td>${school.schEst }</td>
 				    </tr>
 				    <tr>
 				      <td><strong>学生人数</strong></td>
-				      <td>5000</td>
+				      <td>${school.schCap }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>招生年级</strong></td>
-				      	<td>9-11</td>
+				      	<td>${school.schGrade }</td>
 				    </tr>
 				    <tr>
 				     	 <td><strong>师生比</strong></td>
-				      	<td>2:1</td>
+				      	<td>${school.schPtRatio }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>性质</strong></td>
-				      	<td>XXX</td>
+				      	<td>${school.schType }</td>
 				    </tr>
 				    <tr>
 				      <td><strong>宗教</strong></td>
-				      <td>基督教</td>
+				      <td>${school.schReligon }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>中国学生人数</strong></td>
-				      	<td>2000</td>
+				      	<td>${school.schChnPop }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>Toefl</strong></td>
-				      	<td>79</td>
+				      	<td>${school.schTf }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>申请期限</strong></td>
-				      	<td>9/11</td>
+				      	<td>${school.deadline }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>AP</strong></td>
-				      	<td>XXX</td>
+				      	<td>${school. }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>运动</strong></td>
-				      	<td>XXX</td>
+				      	<td>${school. }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>社团</strong></td>
-				      	<td>魔术社，轮滑社</td>
+				      	<td>${school.schGroup }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>住宿</strong></td>
-				      	<td>Apartment</td>
+				      	<td>${school.schResFee }</td>
 				    </tr>
 				     <tr>
 				      	<td><strong>押金</strong></td>
-				      	<td>4000</td>
+				      	<td>${school.schDeps }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>学费</strong></td>
-				      	<td>8000</td>
+				      	<td>${school.schFee }</td>
 				    </tr>
 				     <tr>
 				      	<td><strong>总计</strong></td>
-				      	<td>12000</td>
+				      	<td>${school.totalFee }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>特点</strong></td>
-				      	<td>XXXXXX</td>
+				      	<td>${school.schDes }</td>
 				    </tr>
 				     <tr>
 				      	<td><strong>备注</strong></td>
-				      	<td>XXXXXX</td>
+				      	<td>${school.comment }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>备注2</strong></td>
-				      	<td>XXXXXX</td>
+				      	<td>${school.comment2 }</td>
 				    </tr>
 		  		</tbody>
 			</table>
