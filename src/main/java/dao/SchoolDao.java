@@ -16,7 +16,7 @@ public interface SchoolDao {
 		public List<School> getSchoolbyZipCode(String sch_zip);
 		public List<School> getAllSchool();
 		
-		
+		 
 		public School getSchoolbyReligon(String sch_religon);
 		public School getSchoolbyDealLine(Date deadline);
 		public School getSchoolbySat(int sch_Sat);
