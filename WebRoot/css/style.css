@@ -166,3 +166,8 @@ button {
     height: 30px;
 }
 
+.login_name {
+    text-decoration: none;
+    color: #FFF;
+    padding-left: 20px;
+}
