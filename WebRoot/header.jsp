@@ -7,8 +7,8 @@
 	<div class="header_container">
 	 	<h1><a href="index.jsp">Logo</a></h1>
  		<sec:authentication var="user" property="name" />
-		<span class="login_name">Name:<sec:authorize access="isAuthenticated()">${user}</sec:authorize></span>
-		<span class="login_name">Level:<sec:authentication property="authorities"/></span>
+		<span class="login_name">Welcome : <sec:authorize access="isAuthenticated()">${user}</sec:authorize></span>
+		<span class="login_name">Your Level : <sec:authentication property="authorities"/></span>
 		<nav>
 	  		<a href="application_management.jsp">申请管理</a>
   	 		<a href="student_management.jsp">学生管理</a>
