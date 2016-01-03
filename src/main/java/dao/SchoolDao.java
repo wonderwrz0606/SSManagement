@@ -23,7 +23,7 @@ public interface SchoolDao {
 		public School getSchoolbyTuitionFee(int sch_fee);
 	
 	
-	
+		public List<School> DynamicSearch(School school);
 	
 	
 }

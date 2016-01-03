@@ -11,10 +11,11 @@
 	<http use-expressions="true" auto-config="true">
 		<intercept-url pattern="/login/**" access="isAuthenticated()"/> <!-- login controller url -->
 		<intercept-url pattern="/school_management.jsp" access="isAuthenticated()"/>
-		<intercept-url pattern="/testPage/login.jsp" access="permitAll"/> <!-- login page -->
+		<intercept-url pattern="/*management.jsp*" access="isAuthenticated()"/>
+		<intercept-url pattern="/login.jsp" access="permitAll"/> <!-- login page -->
 		<intercept-url pattern="/**" access="permitAll" />
 		
-		<form-login login-page="/testPage/login.jsp" default-target-url="/school_management.jsp"/>
+		<form-login login-page="/login.jsp" default-target-url="/school_management.jsp"/>
 		
 		<logout logout-url="/logout" logout-success-url="/index.jsp" />
 	</http>

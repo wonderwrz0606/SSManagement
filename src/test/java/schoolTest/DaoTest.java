@@ -2,8 +2,11 @@ package schoolTest;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -113,6 +116,58 @@ public class DaoTest {
 		for(int i=0;i<list.size();i++){
 			School s=(School) list.get(i);
 			System.out.println(s.getSchName());
+		}
+	}
+	
+	
+	@Test
+	public void dynamicQuery(){
+		SessionFactory sessionFactory =(SessionFactory) context.getBean("sessionFactory");
+		Session session=sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		
+		DetachedCriteria dc=DetachedCriteria.forClass(School.class);
+		
+		int schId=18;
+		String schName="Guangxi";
+		
+		if(schId!=0){
+			dc.add(Restrictions.eq("schId", schId));
+		}
+		if(schName!=null){
+			dc.add(Restrictions.like("schName", schName+"%"));
+			
+		}
+		
+		Criteria c=dc.getExecutableCriteria(session);
+		
+		List<School> list=c.list();
+		
+		for(School s:list){
+			System.out.println(s.getSchName());
+		}
+		
+		
+		session.getTransaction().commit();
+	}
+	
+	@Test
+	public void testDynamicSearch(){
+		
+		School school =new School();
+		
+		school.setSchId(null);
+		school.setSchName("n");
+		school.setSchZip(null);
+		school.setSchState(null);
+		
+		List list=schoolService.DynamicSearch(school);
+		for(int i=0;i<list.size();i++){
+			School s=(School) list.get(i);
+			System.out.println("id: "+s.getSchId());
+			System.out.println("name: "+s.getSchName());
+			System.out.println("zip: "+s.getSchZip());
+			System.out.println("state: "+s.getSchState());
 		}
 	}
 	

@@ -8,7 +8,8 @@
 		  	<a href="application_management.jsp">申请管理</a>
   	 		<a href="student_management.jsp">学生管理</a>
   	 		<a href="school_management.jsp">学校管理</a>
-  	 		<a href="index.jsp">退出</a>
+  	 		<!-- logout路径在security-context.xml里配置 -->
+  	 		<a href="logout">Spring Security退出</a>
  	 	</nav>
  	</div>
 </footer>

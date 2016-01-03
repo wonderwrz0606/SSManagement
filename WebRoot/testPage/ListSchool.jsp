@@ -31,6 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<td>School Name:</td>
     		<td>${school.schName }</td>
     		
+    		
     	<tr>
     	<tr>
     		<td>School WebSite:</td>

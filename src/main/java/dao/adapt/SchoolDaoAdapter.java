@@ -68,5 +68,11 @@ public class SchoolDaoAdapter implements SchoolDao {
 		return null;
 	}
 
+	@Override
+	public List<School> DynamicSearch(School school) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

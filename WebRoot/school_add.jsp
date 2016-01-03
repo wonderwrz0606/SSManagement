@@ -24,18 +24,18 @@ String basePath = request.getScheme() + "://"
 				<span style="padding-left: 45%;">学校添加界面</span>
 			</div>
 			
-			<form action="school/preSaveSchool" method="post"> 
-			<table class="school_search_table">
+			<form action="preSaveSchool" method="post"> 
+			<table class="school_search_table_multi">
 				<tbody>
 					<tr>
-						<td><input type="text" name="schName" class="school_search_li"/></td>
+						<td><input type="text" name=schName class="school_search_li"/></td>
 						<td><button><span>名称</span></button></td>
 						<td><input type="text" name="schShort" class="school_search_li"/></td>
 						<td><button><span>简称</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" name="schName" class="school_search_li"/></td>
-						<td><button><span>名称</span></button></td>
+						<td><input type="text" name=input class="school_search_li"/></td>
+						<td><button  name="action"  value="xx"><span>xx</span></button></td>
 						<td><input type="text" name="schWebsite" class="school_search_li"/></td>
 						<td><button><span>网址</span></button></td>
 					</tr>
@@ -79,11 +79,11 @@ String basePath = request.getScheme() + "://"
 					<tr>
 						<td><input type="text" name="schTf" class="school_search_li"/></td>
 						<td><button ><span>Toefl</span></button></td>
-						<td><input type="text" name="deadline" class="school_search_li"/></td>
+						<td><input type="text" name="" class="school_search_li"/></td>     <!-- data bug -->
 						<td><button ><span>申请期限</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" name="schStartDate" class="school_search_li"/></td>
+						<td><input type="text" name="" class="school_search_li"/></td>		<!-- data bug -->
 						<td><button ><span>开学时间</span></button></td>
 						<td><input type="text" name="schGroup" class="school_search_li"/></td>
 						<td><button ><span>社团</span></button></td>
@@ -115,8 +115,7 @@ String basePath = request.getScheme() + "://"
 				</tbody>
 			</table>
 			<div>
-				<button type="submit" onclick="window.location.href='school/preSaveSchool'"  style="margin: 0px 41%;width: 15%;"><span>确认添加</span></button>
-				<input type="submit"   value="确认添加" style="margin: 0px 41%;width: 15%;"><span></span>
+				<button type="submit"   style="margin: 0px 41%;width: 15%;"><span>确认添加</span></button>
 			</div>
 			 </form>
 		</div>
