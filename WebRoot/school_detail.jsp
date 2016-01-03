@@ -89,14 +89,14 @@ String basePath = request.getScheme() + "://"
 				      	<td><strong>申请期限</strong></td>
 				      	<td>${school.deadline }</td>
 				    </tr>
-				    <tr>
+				    <%-- <tr>
 				      	<td><strong>AP</strong></td>
 				      	<td>${school. }</td>
 				    </tr>
 				    <tr>
 				      	<td><strong>运动</strong></td>
 				      	<td>${school. }</td>
-				    </tr>
+				    </tr> --%>
 				    <tr>
 				      	<td><strong>社团</strong></td>
 				      	<td>${school.schGroup }</td>

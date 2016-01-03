@@ -7,13 +7,14 @@
 	<div class="header_container">
 	 	<h1><a href="index.jsp">Logo</a></h1>
 		<nav>
+			<span>User Name:<sec:authorize access="isAuthenticated()">${user}</sec:authorize></span>
 	  		<a href="application_management.jsp">申请管理</a>
   	 		<a href="student_management.jsp">学生管理</a>
   	 		<a href="school_management.jsp">学校管理</a>
   	 		<!-- logout路径在security-context.xml里配置 -->
   	 		<a href="logout">Spring Security退出</a>
-  	 		User Name:<sec:authentication property="name"/>
-  	 		User Authoration:<sec:authentication property="authorities"/>
+  	 		
+  	 		<%-- <span>User Authoration:<sec:authentication property="authorities"/></span> --%>
  	 	</nav>
  	</div>
 </header>
