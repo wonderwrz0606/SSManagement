@@ -45,7 +45,7 @@
 					</tr>
 					<tr>
 						<td><label for="j_password"><span>密码：</span></label></td>
-						<td><input type="text" name="j_password" id="j_password" class="school_search_li"/></td>
+						<td><input type="password" name="j_password" id="j_password" class="school_search_li"/></td>
 					</tr>
 				</tbody>
 			</table>

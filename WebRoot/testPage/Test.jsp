@@ -55,7 +55,10 @@
   <input type="submit" value="submit">
 	</form>
 	
-	
+	<form action="test">
+	School Name:<input type="text" name="schName" >
+  <input type="submit" value="submit">
+	</form>
 	
 
 </body>
