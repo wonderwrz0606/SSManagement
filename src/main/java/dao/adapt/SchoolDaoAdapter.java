@@ -23,7 +23,7 @@ public class SchoolDaoAdapter implements SchoolDao {
 		
 	}
 
-	public School getSchoolbyId(int sch_id) {
+	public List<School> getSchoolbyId(int sch_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

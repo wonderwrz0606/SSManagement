@@ -47,13 +47,13 @@ public class SchoolServiceImpl extends SchoolServiceAdapter{
 	}
 
 	@Override
-	public School getSchoolbyId(int sch_id) {
+	public List<School> getSchoolbyId(int sch_id) {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		School school = schoolDao.getSchoolbyId(sch_id);
+		List<School> schoolList= schoolDao.getSchoolbyId(sch_id);
 		session.getTransaction().commit();
 		
-		return school;
+		return schoolList;
 	}
 	
 	

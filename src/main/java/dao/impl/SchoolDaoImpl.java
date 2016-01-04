@@ -35,8 +35,10 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 	}
 	
 	@Override
-	public School getSchoolbyId(int sch_id) {
-		return (School) sessionFactory.getCurrentSession().get(School.class, sch_id);
+	public List<School> getSchoolbyId(int sch_id) {
+		Query query=sessionFactory.getCurrentSession().createQuery("from School  where sch_id =:sch_id");
+		query.setInteger("sch_id", sch_id);
+		return query.list();
 	}	
 	
 	
@@ -83,35 +85,35 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 	 *  @return List
 	 */  
 	public List<School> DynamicSearch(School school) {
-//		DetachedCriteria dc=DetachedCriteria.forClass(School.class);
-//		
-//		System.out.println("=============");
-//		System.out.println(school.getSchId());
-//		System.out.println(school.getSchName());
-//		System.out.println(school.getSchZip());
-//		System.out.println(school.getSchState());
-//		System.out.println("=============");
-//		if(school.getSchId()!=null){
-//			dc.add(Restrictions.eq("schId", school.getSchId()));
-//		}
-//		
-//		if(school.getSchName()!=null){
-//			dc.add(Restrictions.like("schName", school.getSchName()+"%"));
-//		}
-//		
-//		if(school.getSchZip()!=null){
-//			dc.add(Restrictions.eq("schZip", school.getSchZip()+"%"));
-//		}
-//		
-//		if(school.getSchState()!=null){
-//			dc.add(Restrictions.like("schState", school.getSchState()+"%"));
-//		}
-//		
-//		Criteria criteria=dc.getExecutableCriteria(sessionFactory.getCurrentSession());
-//		System.out.println("dao empty?"+criteria.list().isEmpty());
-//		
-//		return criteria.list();
-		return null;
+		DetachedCriteria dc=DetachedCriteria.forClass(School.class);
+		
+		System.out.println("=============");
+		System.out.println("school ID:"+school.getSchId());
+		System.out.println("school name:"+school.getSchName());
+		System.out.println("zip: "+school.getSchZip());
+		System.out.println("State: "+school.getSchState());
+		System.out.println("=============");
+		if(school.getSchId()!=null){
+			dc.add(Restrictions.eq("schId", school.getSchId()));
+		}
+		
+		if(school.getSchName()!=null){
+			dc.add(Restrictions.like("schName", school.getSchName()+"%"));
+		}
+		
+		if(school.getSchZip()!=null){
+			dc.add(Restrictions.eq("schZip", school.getSchZip()+"%"));
+		}
+		
+		if(school.getSchState()!=null){
+			dc.add(Restrictions.like("schState", school.getSchState()+"%"));
+		}
+		
+		Criteria criteria=dc.getExecutableCriteria(sessionFactory.getCurrentSession());
+		System.out.println("dao empty?"+criteria.list().isEmpty());
+		
+		return criteria.list();
+		//return null;
 	
 	}
 	
