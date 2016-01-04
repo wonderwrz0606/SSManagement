@@ -48,11 +48,14 @@ public class DaoTest {
 	@Test
 	public void testGetSchoolByID(){
 		
-	    
-		
-	      School s=schoolService.getSchoolbyId(15);
-	      System.out.println(s.getSchName());
-	      System.out.println(s.getSchWebsite());
+	      List<School> list=schoolService.getSchoolbyId(46);
+			for(int i=0;i<list.size();i++){
+				School s=(School) list.get(i);
+				System.out.println("id: "+s.getSchId());
+				System.out.println("name: "+s.getSchName());
+				System.out.println("zip: "+s.getSchZip());
+				System.out.println("state: "+s.getSchState());
+			}
 	}
 	
 	@Test
