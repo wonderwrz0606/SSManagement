@@ -71,17 +71,20 @@ public class SchoolController {
 		// Search By Id
 		case "id":
 			
-			//school=schoolService.getSchoolbyId(Integer.parseInt(inputId));
-			school=schoolService.getSchoolbyId(Integer.parseInt(input));
-//			List<School> schoolList
+			List<School> schoolList=schoolService.getSchoolbyId(Integer.parseInt(input));
 			
-			mv.addObject("school", school);
+			// return to xxx page if result is null.
+			if(schoolList.isEmpty()){
+				mv=new ModelAndView("index");
+				break;
+			}
+			mv.addObject("schoolList", schoolList);
 			break;
 			
 		// Search by school name	
 		case "name":
 			//List<School> schoolList=schoolService.getSchoolbyName(inputName);
-			List<School> schoolList=schoolService.getSchoolbyName(input);
+			schoolList=schoolService.getSchoolbyName(input);
 			mv.addObject("schoolList", schoolList);
 			break;
 			
