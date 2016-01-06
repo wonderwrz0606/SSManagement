@@ -55,7 +55,7 @@ public class SchoolController {
 	 * @param school
 	 * @return testPage/ListSchool.jsp
 	 */
-	@RequestMapping(value="getSchool",method=RequestMethod.GET)
+	//@RequestMapping(value="getSchool",method=RequestMethod.GET)
 	public ModelAndView getSchoolById(
 			@RequestParam String select,
 			@RequestParam String input,
@@ -109,6 +109,27 @@ public class SchoolController {
 	}
 	
 	
+	@RequestMapping(value="testGet")
+	public ModelAndView testGet(
+			@RequestParam int schId
+			){
+		ModelAndView mv=new ModelAndView("school_detail");
+		System.out.println("SchId:"+schId);
+		
+		School school=new School();
+		school.setSchId(schId);
+		school.setSchName("");
+		school.setSchZip("");
+		school.setSchState("");
+		
+		List<School> schoolList=schoolService.DynamicSearch(school);
+		
+		mv.addObject("schoolList", schoolList);		
+		
+		return mv;
+	}
+	
+	
 	/**
 	 * 
 	 * powerful  dynamic search , multip input, custom criteria
@@ -122,28 +143,32 @@ public class SchoolController {
 			){
 		ModelAndView mv=new ModelAndView("school_detail");
 
-		
-		System.out.println("**************");
-		System.out.println("school ID:"+school.getSchId());
-		System.out.println("school name:"+school.getSchName());
-		System.out.println("zip: "+school.getSchZip());
-		System.out.println("State: "+school.getSchState());
-		System.out.println("**************");
-		
 		List<School> schoolList=schoolService.DynamicSearch(school);
 		
 		mv.addObject("schoolList", schoolList);		
-		for(int i=0;i<schoolList.size();i++){
-			School s=(School) schoolList.get(i);
-			System.out.println("id: "+s.getSchId());
-			System.out.println("name: "+s.getSchName());
-			System.out.println("zip: "+s.getSchZip());
-			System.out.println("state: "+s.getSchState());
-		}
+//		for(int i=0;i<schoolList.size();i++){
+//			School s=(School) schoolList.get(i);
+//			System.out.println("id: "+s.getSchId());
+//			System.out.println("name: "+s.getSchName());
+//			System.out.println("zip: "+s.getSchZip());
+//			System.out.println("state: "+s.getSchState());
+//		}
 		
 		return mv;
 		
+	}
+	
+	
+	@RequestMapping("listSchool")
+	public ModelAndView listSchool(){
 		
+		ModelAndView mv=new ModelAndView("testPage/AllSchool");
+		
+		List<School> schoolList=schoolService.getAllSchool();
+		
+		mv.addObject("schoolList", schoolList);
+		
+		return mv;
 	}
 	
 	

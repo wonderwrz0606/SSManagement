@@ -78,23 +78,6 @@ String basePath = request.getScheme() + "://"
 				<button type="submit" style="margin: 0px 41%;width: 15%;" onclick=""><span>查询</span></button>
 			</div>
 			</form>
-			<form action="searchSchool">
-				<table>
-					<tr>
-						<td>ID:<input type="text" name="schId"></td>
-					    <td>Name:<input type="text" name="schName"></td>
-					</tr>
-				     <tr>
-						<td>Zip:<input type="text" name="schZip"></td>
-					    <td>State:<input type="text" name="schState"></td>
-					    
-					</tr>
-					<tr>
-					<td><input type="submit" value="submit"></td>
-					</tr>
-				
-				</table>
-			</form>
 			
 		</div>
     
