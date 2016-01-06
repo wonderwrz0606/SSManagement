@@ -108,11 +108,27 @@ public class SchoolController {
 		return mv;
 	}
 	
+	
+	/**
+	 * 
+	 * powerful  dynamic search , multip input, custom criteria
+	 * 
+	 * @param school
+	 * @return
+	 */
 	@RequestMapping(value="searchSchool" ,method=RequestMethod.GET)
 	public ModelAndView searchSchool(
 			@ModelAttribute School school
 			){
 		ModelAndView mv=new ModelAndView("school_detail");
+
+		
+		System.out.println("**************");
+		System.out.println("school ID:"+school.getSchId());
+		System.out.println("school name:"+school.getSchName());
+		System.out.println("zip: "+school.getSchZip());
+		System.out.println("State: "+school.getSchState());
+		System.out.println("**************");
 		
 		List<School> schoolList=schoolService.DynamicSearch(school);
 		

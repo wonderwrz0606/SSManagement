@@ -160,9 +160,9 @@ public class DaoTest {
 		School school =new School();
 		
 		school.setSchId(null);
-		school.setSchName("n");
-		school.setSchZip(null);
-		school.setSchState(null);
+		school.setSchName("");
+		school.setSchZip("");
+		school.setSchState("c");
 		
 		List list=schoolService.DynamicSearch(school);
 		for(int i=0;i<list.size();i++){

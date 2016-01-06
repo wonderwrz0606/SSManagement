@@ -93,19 +93,20 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 		System.out.println("zip: "+school.getSchZip());
 		System.out.println("State: "+school.getSchState());
 		System.out.println("=============");
+		
 		if(school.getSchId()!=null){
 			dc.add(Restrictions.eq("schId", school.getSchId()));
 		}
 		
-		if(school.getSchName()!=null){
+		if(!school.getSchName().equals("")){
 			dc.add(Restrictions.like("schName", school.getSchName()+"%"));
 		}
 		
-		if(school.getSchZip()!=null){
-			dc.add(Restrictions.eq("schZip", school.getSchZip()+"%"));
+		if(!school.getSchZip().equals("")){
+			dc.add(Restrictions.like("schZip", school.getSchZip()+"%"));
 		}
 		
-		if(school.getSchState()!=null){
+		if(!school.getSchState().equals("")){
 			dc.add(Restrictions.like("schState", school.getSchState()+"%"));
 		}
 		

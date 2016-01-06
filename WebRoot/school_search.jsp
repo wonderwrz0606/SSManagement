@@ -44,22 +44,22 @@ String basePath = request.getScheme() + "://"
 			<table class="school_search_table_multi">
 				<tbody>
 					<tr>
-						<td><input type="text" name="schId" value="" class="school_search_li"/></td>
+						<td><input type="text" name="schId"  class="school_search_li"/></td>
 						<td><button type="submit" ><span>ID</span></button></td>
-						<td><input type="text" name="schName" value="" class="school_search_li"/></td>
+						<td><input type="text" name="schName"  class="school_search_li"/></td>
 						<td><button type="submit" ><span>名称</span></button></td>
 					</tr>
 					<tr>
-						<td><input type="text" name="schTF" value="" class="school_search_li"/></td>
+						<td><input type="text" name="schZip"  class="school_search_li"/></td>
 						<td><button type="submit" ><span>Toefl</span></button></td>
-						<td><input type="text" name="schState" value="" class="school_search_li"/></td>
+						<td><input type="text" name="schState"  class="school_search_li"/></td>
 						<td><button type="submit" ><span>州</span></button></td>
 					</tr>
 				</tbody>
 			</table>
 			
 			<!-- <table class="school_search_table_single">
-				<tbody>
+				<tbody>     
 					<tr>
 						<td><input type="text" name="input" class="school_search_li"/></td>
 						<td>
@@ -77,6 +77,23 @@ String basePath = request.getScheme() + "://"
 			<div>
 				<button type="submit" style="margin: 0px 41%;width: 15%;" onclick=""><span>查询</span></button>
 			</div>
+			</form>
+			<form action="searchSchool">
+				<table>
+					<tr>
+						<td>ID:<input type="text" name="schId"></td>
+					    <td>Name:<input type="text" name="schName"></td>
+					</tr>
+				     <tr>
+						<td>Zip:<input type="text" name="schZip"></td>
+					    <td>State:<input type="text" name="schState"></td>
+					    
+					</tr>
+					<tr>
+					<td><input type="submit" value="submit"></td>
+					</tr>
+				
+				</table>
 			</form>
 			
 		</div>
