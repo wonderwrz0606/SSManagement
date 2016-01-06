@@ -108,6 +108,28 @@ public class SchoolController {
 		return mv;
 	}
 	
+	@RequestMapping(value="searchSchool" ,method=RequestMethod.GET)
+	public ModelAndView searchSchool(
+			@ModelAttribute School school
+			){
+		ModelAndView mv=new ModelAndView("school_detail");
+		
+		List<School> schoolList=schoolService.DynamicSearch(school);
+		
+		mv.addObject("schoolList", schoolList);		
+		for(int i=0;i<schoolList.size();i++){
+			School s=(School) schoolList.get(i);
+			System.out.println("id: "+s.getSchId());
+			System.out.println("name: "+s.getSchName());
+			System.out.println("zip: "+s.getSchZip());
+			System.out.println("state: "+s.getSchState());
+		}
+		
+		return mv;
+		
+		
+	}
+	
 	
 	
 }

@@ -23,8 +23,8 @@ String basePath = request.getScheme() + "://"
 			<div>
 				<span style="padding-left: 45%;">学校查询界面</span>
 			</div>
-			<form action="getSchool">
-			<table class="school_search_table_multi">
+			<form action="searchSchool">
+			<!-- <table class="school_search_table_multi">
 				<tbody>
 					<tr>
 						<td><input type="text" name="inputId" value="" class="school_search_li"/></td>
@@ -37,6 +37,23 @@ String basePath = request.getScheme() + "://"
 						<td><button type="submit" name="select" value="zip"><span>Toefl</span></button></td>
 						<td><input type="text" name="inputState" value="" class="school_search_li"/></td>
 						<td><button type="submit" name="select" value="state"><span>州</span></button></td>
+					</tr>
+				</tbody>
+			</table> -->
+			
+			<table class="school_search_table_multi">
+				<tbody>
+					<tr>
+						<td><input type="text" name="schId" value="" class="school_search_li"/></td>
+						<td><button type="submit" ><span>ID</span></button></td>
+						<td><input type="text" name="schName" value="" class="school_search_li"/></td>
+						<td><button type="submit" ><span>名称</span></button></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="schTF" value="" class="school_search_li"/></td>
+						<td><button type="submit" ><span>Toefl</span></button></td>
+						<td><input type="text" name="schState" value="" class="school_search_li"/></td>
+						<td><button type="submit" ><span>州</span></button></td>
 					</tr>
 				</tbody>
 			</table>
