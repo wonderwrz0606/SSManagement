@@ -108,7 +108,13 @@ public class SchoolController {
 		return mv;
 	}
 	
-	
+	/**
+	 * 
+	 *  get school detail by school id.
+	 * 
+	 * @param schId
+	 * @return
+	 */
 	@RequestMapping(value="testGet")
 	public ModelAndView testGet(
 			@RequestParam int schId
@@ -159,6 +165,11 @@ public class SchoolController {
 	}
 	
 	
+	/**
+	 *  List all School.
+	 * 
+	 * @return
+	 */
 	@RequestMapping("listSchool")
 	public ModelAndView listSchool(){
 		
