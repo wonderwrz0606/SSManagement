@@ -78,9 +78,14 @@ String basePath = request.getScheme() + "://"
 				<button type="submit" style="margin: 0px 41%;width: 15%;" onclick=""><span>查询</span></button>
 			</div>
 			</form>
-			
 		</div>
-    
+             <table>
+				<tr>
+				<form action="listSchool">
+					<button>List All School</button>
+				</form>
+			</tr>
+			</table>
     	<%@include file="/footer.jsp" %>
     	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	</body>

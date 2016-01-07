@@ -26,7 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <table>
+  <%@include file="/header.jsp" %>
+    <table border="1">
     	
     	
     <c:forEach items="${schoolList }" var="school">
@@ -37,7 +38,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<td>School Web:</td>
     		<td>School State:</td>
     		<td>School ZipCode:</td>
-    		<td>More Information</td>
     	</tr>
     	<tr>
     		<td>${school.schId }</td>
