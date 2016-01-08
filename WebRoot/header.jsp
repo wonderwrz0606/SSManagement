@@ -11,9 +11,9 @@
  		<sec:authentication var="level" property="authorities" />
 		<span class="login_name">
 			<c:if test="${user ne null}">
-      				Welcome : 
-      				Your Level : ${level}
+      				Welcome : ${user}
    			</c:if>
+   			
 		</span>
 		<nav>
 	  		<a href="application_management.jsp">申请管理</a>

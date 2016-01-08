@@ -150,8 +150,18 @@ tbody:hover tr:hover td {
 button {
 	height: 35px;
     width: 100%;
+    background-color: rgba(23, 192, 241, 0.82);
+    border-style: none;
+}
+
+.table_column_div {
+	height: 30px;
+    width: 100%;
     background-color: #AEDBE8;
     border-style: none;
+    text-align: center;
+    font-size: 12px;
+    text-shadow: none;
 }
 
 .login {

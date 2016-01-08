@@ -27,9 +27,9 @@ String basePath = request.getScheme() + "://"
 				<tbody>
 					<tr>
 						<td><input type="text" class="school_search_li"/></td>
-						<td><button type="submit" onclick="window.location.href='school_detail.jsp'"><span>ID</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">ID</span></div></td>
 						<td><input type="text" class="school_search_li"/></td>
-						<td><button type="submit"><span>名称</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">名称</span></div></td>
 					</tr>
 				</tbody>
 			</table>

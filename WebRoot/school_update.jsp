@@ -45,85 +45,92 @@ String basePath = request.getScheme() + "://"
 			
 			
 			<!-- <form action="school/addSchool" method="post"> -->
-			<table class="school_search_table">
+			<table class="school_search_table_multi">
 				<tbody>
 					<tr>
-						<td><input type="text" name="schName" class="school_search_li"/></td>
-						<td><button><span>名称</span></button></td>
+						<td><input type="text" name=schName class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">名称</span></div></td>
+						<td><input type="text" name="schShort" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">简称</span></div></td>
+					</tr>
+					<tr>
+						<td><input type="text" name=input class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">XX</span></div></td>
 						<td><input type="text" name="schWebsite" class="school_search_li"/></td>
-						<td><button><span>网址</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">网址</span></div></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="schCity"class="school_search_li"/></td>
-						<td><button ><span>城市</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">城市</span></div></td>
 						<td><input type="text" name="schState" class="school_search_li"/></td>
-						<td><button ><span>州</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">州</span></div></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="schZip"class="school_search_li"/></td>
-						<td><button ><span>Zip Code</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>建校年份</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">Zip Code</span></div></td>
+						<td><input type="text" name="schEst" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">建校年份</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>学生人数</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>招生年级</span></button></td>
+						<td><input type="text" name="schCap" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">学生人数</span></div></td>
+						<td><input type="text" name="schGrade" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">招生年级</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>师生比</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>性质</span></button></td>
+					                                <!-- 加入百分号 -->
+						<td><input type="text" name="schPtRatio" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">师生比</span></div></td>
+						<td><input type="text" name="schType" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">性质</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>宗教</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>ESL</span></button></td>
+						<td><input type="text" name="schReligon" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">宗教</span></div></td>
+						<td><input type="text" name="schEsl" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">ESL</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>中国学生人数</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>SAT</span></button></td>
+						<td><input type="text" name="schChnPop" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">中国学生人数</span></div></td>
+						<td><input type="text" name="schSat" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">SAT</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>Toefl</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>申请期限</span></button></td>
+						<td><input type="text" name="schTf" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">TOEFL</span></div></td>
+						<td><input type="text" name="" class="school_search_li"/></td>     <!-- data bug -->
+						<td><div class="table_column_div"><span class="table_column_span">申请期限</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>AP</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>运动</span></button></td>
+						<td><input type="text" name="" class="school_search_li"/></td>		<!-- data bug -->
+						<td><div class="table_column_div"><span class="table_column_span">开学时间</span></div></td>
+						<td><input type="text" name="schGroup" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">社团</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>社团</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>住宿安排</span></button></td>
+						<td><input type="text" name="schResType" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">住宿安排</span></div></td>
+						<td><input type="text" name="schResFee" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">住宿费用</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>押金</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>学费</span></button></td>
+						<td><input type="text" name="schDeps" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">押金</span></div></td>
+						<td><input type="text" name="schFee" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">学费</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>总计</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>特点</span></button></td>
+						<td><input type="text" name="totalFee" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">总计</span></div></td>
+						<td><input type="text" name="schDes" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">特点</span></div></td>
 					</tr>
 					<tr>
+						<td><input type="text" name="comment"class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">备注</span></div></td>
 						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>备注</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button ><span>备注2</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">备注2</span></div></td>
 					</tr>
 				</tbody>
 			</table>

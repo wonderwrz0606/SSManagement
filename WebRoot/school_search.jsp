@@ -45,15 +45,15 @@ String basePath = request.getScheme() + "://"
 				<tbody>
 					<tr>
 						<td><input type="text" name="schId"  class="school_search_li"/></td>
-						<td><button type="submit" ><span>ID</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">ID</span></div></td>
 						<td><input type="text" name="schName"  class="school_search_li"/></td>
-						<td><button type="submit" ><span>名称</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">名称</span></div></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="schZip"  class="school_search_li"/></td>
-						<td><button type="submit" ><span>Toefl</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">Toefl</span></div></td>
 						<td><input type="text" name="schState"  class="school_search_li"/></td>
-						<td><button type="submit" ><span>州</span></button></td>
+						<td><div class="table_column_div"><span class="table_column_span">SAT</span></div></td>
 					</tr>
 				</tbody>
 			</table>
@@ -82,7 +82,7 @@ String basePath = request.getScheme() + "://"
              <table>
 				<tr>
 				<form action="listSchool">
-					<button>List All School</button>
+					<button style="margin: 0px 41%;width: 15%;">List All School</button>
 				</form>
 			</tr>
 			</table>
