@@ -39,7 +39,7 @@ String basePath = request.getScheme() + "://"
 				</sec:authorize>
 			</ul>	
 		</div>
-    
+    <a href="user_management/user_management.jsp">User Managment</a>
     <%@include file="/footer.jsp" %>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     

@@ -12,6 +12,7 @@
 		<span class="login_name">
 			<c:if test="${user ne null}">
       				Welcome : ${user}
+      				Level:${level }
    			</c:if>
    			
 		</span>

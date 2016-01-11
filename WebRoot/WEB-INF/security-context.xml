@@ -9,6 +9,12 @@
 
 
 	<http use-expressions="true" auto-config="true">
+	
+		<!-- user management part -->
+		<intercept-url pattern="/user_management/*.jsp"  access="isAuthenticated()"/>
+	
+	
+		<!-- school management part -->
 		<intercept-url pattern="/login/**" access="isAuthenticated()"/> <!-- login controller url -->
 		<intercept-url pattern="/school_management.jsp" access="isAuthenticated()"/>
 		<intercept-url pattern="/*management.jsp*" access="isAuthenticated()"/>
