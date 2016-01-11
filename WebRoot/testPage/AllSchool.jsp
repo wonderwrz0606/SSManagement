@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<td>${school.schWebsite }</td>
     		<td>${school.schState }</td>
     		<td>${school.schZip }</td>
-    		<td><a href="testGet?schId=${school.schId }">More</a></td>
+    		<td><a href="getSchoolDetail?schId=${school.schId }">More</a></td>
     	</tr>
     </c:forEach>
     </table>

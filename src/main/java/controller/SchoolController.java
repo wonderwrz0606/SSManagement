@@ -109,14 +109,14 @@ public class SchoolController {
 	}
 	
 	/**
-	 * 
+	 * 	input from AllSchool.jsp
 	 *  get school detail by school id.
 	 * 
 	 * @param schId
 	 * @return
 	 */
-	@RequestMapping(value="testGet")
-	public ModelAndView testGet(
+	@RequestMapping(value="getSchoolDetail")
+	public ModelAndView getSchoolDetail(
 			@RequestParam int schId
 			){
 		ModelAndView mv=new ModelAndView("school_detail");
@@ -147,12 +147,13 @@ public class SchoolController {
 	public ModelAndView searchSchool(
 			@ModelAttribute School school
 			){
-		ModelAndView mv=new ModelAndView("school_detail");
-
+		ModelAndView mv=new ModelAndView("testPage/AllSchool");
+		//TODO 临时使用ALlSchool.jsp作为显示预览页面 
 		List<School> schoolList=schoolService.DynamicSearch(school);
 		
 		mv.addObject("schoolList", schoolList);		
-//		for(int i=0;i<schoolList.size();i++){
+
+		//		for(int i=0;i<schoolList.size();i++){
 //			School s=(School) schoolList.get(i);
 //			System.out.println("id: "+s.getSchId());
 //			System.out.println("name: "+s.getSchName());
