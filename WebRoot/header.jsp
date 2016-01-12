@@ -22,7 +22,7 @@
   	 		<a href="student_management.jsp">学生管理</a>
   	 		<a href="school_management.jsp">学校管理</a>
   	 		<!-- logout路径在security-context.xml里配置 -->
-  	 		<a href="logout">Spring Security退出</a>
+  	 		<a href="logout">退出</a>
  	 	</nav>
  	</div>
 </header>
