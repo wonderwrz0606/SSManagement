@@ -6,13 +6,14 @@
 <link rel="stylesheet" href="css/header.css">
 <header>
 	<div class="header_container">
-	 	<h1><a href="index.jsp">Logo</a></h1>
- 		<sec:authentication var="user" property="name" />
+	 	<h1><a href="index.jsp">此处放Logo</a></h1>
+	 	<sec:authorize access="isAuthenticated()">
+    		<sec:authentication var="user" property="name" />
+		</sec:authorize>
  		<sec:authentication var="level" property="authorities" />
 		<span class="login_name">
 			<c:if test="${user ne null}">
       				Welcome : ${user}
-      				Level:${level }
    			</c:if>
    			
 		</span>
@@ -21,7 +22,7 @@
   	 		<a href="student_management.jsp">学生管理</a>
   	 		<a href="school_management.jsp">学校管理</a>
   	 		<!-- logout路径在security-context.xml里配置 -->
-  	 		<a href="logout">Spring Security退出</a>
+  	 		<a href="logout">退出</a>
  	 	</nav>
  	</div>
 </header>

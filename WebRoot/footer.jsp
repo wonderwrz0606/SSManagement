@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="css/footer.css">
 <footer>
 	<div class="footer_container">
-	 	<h1><a href="index.jsp">Logo</a></h1>
+	 	<h1><a href="index.jsp">此处放Logo</a></h1>
 		<nav>
 		  	<a href="application_management.jsp">申请管理</a>
   	 		<a href="student_management.jsp">学生管理</a>
