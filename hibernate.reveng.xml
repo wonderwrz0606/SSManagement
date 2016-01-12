@@ -19,4 +19,9 @@
 	</table>
 	<table name="t_school" catalog="sql5100650" class="School"></table>
 	<table name="t_student" catalog="sql5100650" class="Student"></table>
+<table name="t_user" catalog="sql5100650" class="User">
+	<primary-key>
+		<generator class="identity"></generator>
+	</primary-key>
+</table>
 </hibernate-reverse-engineering>
