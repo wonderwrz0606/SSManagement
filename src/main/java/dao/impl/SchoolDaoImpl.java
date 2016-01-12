@@ -24,17 +24,14 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 		sessionFactory.getCurrentSession().save(school);
 	}
 
-	@Override
 	public void updateSchool(School school) {
 		sessionFactory.getCurrentSession().update(school);
 	}
 	
-	@Override
 	public void deleteSchool(int sch_id) {
 		sessionFactory.getCurrentSession().delete(getSchoolbyId(sch_id).get(0));
 	}
 	
-	@Override
 	public List<School> getSchoolbyId(int sch_id) {
 		Query query=sessionFactory.getCurrentSession().createQuery("from School  where sch_id =:sch_id");
 		query.setInteger("sch_id", sch_id);

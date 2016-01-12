@@ -23,6 +23,7 @@ String basePath = request.getScheme() + "://"
 			<div>
 				<span style="padding-left: 45%;">学校修改界面</span>
 			</div>
+			<form action="getSchoolById" method="post">
 			<table class="school_search_table_multi">
 				<tbody>
 					<tr>
@@ -31,38 +32,36 @@ String basePath = request.getScheme() + "://"
 						</td>
 					</tr>
 					<tr>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button type="submit" onclick="window.location.href='school_detail.jsp'"><span>按ID查询</span></button></td>
-						<td><input type="text" class="school_search_li"/></td>
-						<td><button type="submit"><span>按名称查询</span></button></td>
+						<td><input type="text" name="schId" class="school_search_li"/></td>
+						<td><input type="submit" name="submit" value="请输入学校ID" class="school_search_li"></td>
 					</tr>
 				</tbody>
 			</table>
-			
+			</form>
 			<div>
 			<br>
 			</div>
 			
 			
-			<!-- <form action="school/addSchool" method="post"> -->
+			<form action="school/addSchool" items="${school }">
 			<table class="school_search_table_multi">
 				<tbody>
 					<tr>
-						<td><input type="text" name=schName class="school_search_li"/></td>
+						<td><input type="text" name=schName value="${school.schName }" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">名称</span></div></td>
 						<td><input type="text" name="schShort" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">简称</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" name=input class="school_search_li"/></td>
-						<td><div class="table_column_div"><span class="table_column_span">XX</span></div></td>
+						<td><input type="text" name="schTf" value="${school.schTf }" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">TOEFL</span></div></td>
 						<td><input type="text" name="schWebsite" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">网址</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" name="schCity"class="school_search_li"/></td>
+						<td><input type="text" name="schCity"value="${school.schCity }" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">城市</span></div></td>
-						<td><input type="text" name="schState" class="school_search_li"/></td>
+						<td><input type="text" name="schState" value="${school.schState }" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">州</span></div></td>
 					</tr>
 					<tr>
@@ -97,8 +96,7 @@ String basePath = request.getScheme() + "://"
 						<td><div class="table_column_div"><span class="table_column_span">SAT</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" name="schTf" class="school_search_li"/></td>
-						<td><div class="table_column_div"><span class="table_column_span">TOEFL</span></div></td>
+						
 						<td><input type="text" name="" class="school_search_li"/></td>     <!-- data bug -->
 						<td><div class="table_column_div"><span class="table_column_span">申请期限</span></div></td>
 					</tr>
@@ -134,6 +132,7 @@ String basePath = request.getScheme() + "://"
 					</tr>
 				</tbody>
 			</table>
+			</form>
 			<div>
 				<button type="submit" onclick="window.location.href='school_management.jsp'"  style="margin: 0px 41%;width: 15%;"><span>确认修改</span></button>
 			</div>

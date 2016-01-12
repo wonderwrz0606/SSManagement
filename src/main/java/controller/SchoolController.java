@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,66 +51,94 @@ public class SchoolController {
 		return mv;
 	}
 	
-	/**
+//	//@RequestMapping(value="getSchool",method=RequestMethod.GET)
+//	public ModelAndView getSchoolById(
+//			@RequestParam String select,
+//			@RequestParam String input,
+////			@RequestParam String inputId,
+////			@RequestParam String inputName,
+////			@RequestParam String inputZip,
+////			@RequestParam String inputState,
+//			@ModelAttribute School school){
+//		//ModelAndView mv=new ModelAndView("testPage/ListSchool");//for testing
+//		ModelAndView mv=new ModelAndView("school_detail");
+//		
+//		switch(select.toLowerCase()){
+//		// Search By Id
+//		case "id":
+//			
+//			List<School> schoolList=schoolService.getSchoolbyId(Integer.parseInt(input));
+//			
+//			// return to xxx page if result is null.
+//			if(schoolList.isEmpty()){
+//				mv=new ModelAndView("index");
+//				break;
+//			}
+//			mv.addObject("schoolList", schoolList);
+//			break;
+//			
+//		// Search by school name	
+//		case "name":
+//			//List<School> schoolList=schoolService.getSchoolbyName(inputName);
+//			schoolList=schoolService.getSchoolbyName(input);
+//			mv.addObject("schoolList", schoolList);
+//			break;
+//			
+//		// Search by school state	
+//		case "state":
+//			//schoolList=schoolService.getSchoolbyState(inputState);
+//			schoolList=schoolService.getSchoolbyState(input);
+//			mv.addObject("schoolList", schoolList);
+//			break;
+//			
+//		//Seach by school zipcode
+//		case "zip":
+//			
+//			//schoolList=schoolService.getSchoolbyZipCode(inputZip);
+//			schoolList=schoolService.getSchoolbyZipCode(input);
+//			mv.addObject("schoolList", schoolList);
+//			break;
+//		}
+//		
+//		return mv;
+//	}
+	
+	
+	/** 
 	 * 
-	 * @param school
-	 * @return testPage/ListSchool.jsp
+	 *  input schId, return schoolList to school_search.jsp ,to display the update information.
+	 * @param schId
+	 * 
+	 * @return school object
+	 * 
 	 */
-	//@RequestMapping(value="getSchool",method=RequestMethod.GET)
+	@RequestMapping(value="getSchoolById", method = RequestMethod.POST )
 	public ModelAndView getSchoolById(
-			@RequestParam String select,
-			@RequestParam String input,
-//			@RequestParam String inputId,
-//			@RequestParam String inputName,
-//			@RequestParam String inputZip,
-//			@RequestParam String inputState,
-			@ModelAttribute School school){
-		//ModelAndView mv=new ModelAndView("testPage/ListSchool");//for testing
-		ModelAndView mv=new ModelAndView("school_detail");
+			@RequestParam int schId
+			){
+		ModelAndView mv=new ModelAndView("school_update");
 		
-		switch(select.toLowerCase()){
-		// Search By Id
-		case "id":
+		//因为id查询的结果只有一个，则直接返回school对象
+		List<School> schoolList=schoolService.getSchoolbyId(schId);
+		if(!schoolList.isEmpty()){
+			School school=schoolList.get(0);
 			
-			List<School> schoolList=schoolService.getSchoolbyId(Integer.parseInt(input));
-			
-			// return to xxx page if result is null.
-			if(schoolList.isEmpty()){
-				mv=new ModelAndView("index");
-				break;
-			}
-			mv.addObject("schoolList", schoolList);
-			break;
-			
-		// Search by school name	
-		case "name":
-			//List<School> schoolList=schoolService.getSchoolbyName(inputName);
-			schoolList=schoolService.getSchoolbyName(input);
-			mv.addObject("schoolList", schoolList);
-			break;
-			
-		// Search by school state	
-		case "state":
-			//schoolList=schoolService.getSchoolbyState(inputState);
-			schoolList=schoolService.getSchoolbyState(input);
-			mv.addObject("schoolList", schoolList);
-			break;
-			
-		//Seach by school zipcode
-		case "zip":
-			
-			//schoolList=schoolService.getSchoolbyZipCode(inputZip);
-			schoolList=schoolService.getSchoolbyZipCode(input);
-			mv.addObject("schoolList", schoolList);
-			break;
-		
+			mv.addObject("school", school);
+		}else{
+			System.out.println(" no such school"); 
 		}
 		
 		return mv;
 	}
 	
+	
+	
+	
+	
+	
+	
 	/**
-	 * 	input from AllSchool.jsp
+	 * 	input from school_brief.jsp
 	 *  get school detail by school id.
 	 * 
 	 * @param schId
@@ -179,19 +208,6 @@ public class SchoolController {
 		List<School> schoolList=schoolService.getAllSchool();
 		
 		mv.addObject("schoolList", schoolList);
-		
-		return mv;
-	}
-	
-	
-	@RequestMapping("testTime")
-	public  ModelAndView testTime(
-			@ModelAttribute School school
-			){
-		ModelAndView mv=new ModelAndView("testPage/Test");
-		
-		System.out.println("time: "+school.getSchStartDate());
-		System.out.println("name:"+ school.getSchName());
 		
 		return mv;
 	}
