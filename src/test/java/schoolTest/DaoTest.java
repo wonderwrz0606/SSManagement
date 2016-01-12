@@ -48,7 +48,7 @@ public class DaoTest {
 	@Test
 	public void testGetSchoolByID(){
 		
-	      List<School> list=schoolService.getSchoolbyId(46);
+	      List<School> list=schoolService.getSchoolbyId(2);
 			for(int i=0;i<list.size();i++){
 				School s=(School) list.get(i);
 				System.out.println("id: "+s.getSchId());
@@ -78,7 +78,7 @@ public class DaoTest {
 	public void testUpdateSchool(){
 		School s=new School();
 		
-		s.setSchId(20);
+		s.setSchId(3);
 		s.setSchName("GuangXi University");
 		s.setSchWebsite("www.gxu.edu");
 		//s.setSchCity("Nan Ning");
@@ -90,7 +90,7 @@ public class DaoTest {
 	
 	@Test
 	public void testDeleteSchool(){
-		schoolService.deleteSchool(27);
+		schoolService.deleteSchool(8);
 	}
 	
 	@Test

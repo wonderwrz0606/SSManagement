@@ -27,7 +27,7 @@
 		<mapping class="bean.Application" />
 		<mapping class="bean.School" />
 		<mapping class="bean.Student" />
-		<mapping class="User" />
+		<mapping class="bean.User" />
 
 
 	</session-factory>

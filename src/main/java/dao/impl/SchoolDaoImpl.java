@@ -31,7 +31,7 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 	
 	@Override
 	public void deleteSchool(int sch_id) {
-		sessionFactory.getCurrentSession().delete(getSchoolbyId(sch_id));
+		sessionFactory.getCurrentSession().delete(getSchoolbyId(sch_id).get(0));
 	}
 	
 	@Override

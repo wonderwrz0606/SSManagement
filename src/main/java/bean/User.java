@@ -44,7 +44,7 @@ public class User  implements java.io.Serializable {
     // Property accessors
     @Id 
     @GeneratedValue
-    @Column(name="id", unique=true, nullable=false)
+    @Column(name="id")
 
     public Integer getId() {
         return this.id;
