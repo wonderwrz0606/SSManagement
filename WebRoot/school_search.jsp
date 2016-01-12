@@ -16,7 +16,7 @@ String basePath = request.getScheme() + "://"
 	    <script src="js/prefixfree.min.js"></script>
   	</head>
 
-<!--  body  -->
+	<!--  body  -->
   	<body>
 		<%@include file="/header.jsp" %>
 		<div class="container">
@@ -89,6 +89,6 @@ String basePath = request.getScheme() + "://"
     	<%@include file="/footer.jsp" %>
     	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	</body>
-<!--  body  -->
+	<!--  body  -->
 
 </html>

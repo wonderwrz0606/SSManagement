@@ -13,7 +13,7 @@ String basePath = request.getScheme() + "://"
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>XX中介公司欢迎您！</title>
+    <title>Blue Ivy Education Group Inc.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="css/normalize.css">
@@ -33,7 +33,7 @@ String basePath = request.getScheme() + "://"
   <body>
 <!--     <body data-spy="scroll" data-target=".navbar-default"> -->
 	  <!-- Post a JOB Modal Start -->
-	  <div class="modal fade" id="postJobModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	 <div class="modal fade" id="postJobModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	    <div class="modal-dialog" role="document">
 	      <div class="modal-content">
 	        <div class="modal-header">
@@ -61,7 +61,7 @@ String basePath = request.getScheme() + "://"
 	            <span class="icon-bar"></span>
 	          </button>
 	          <a class="navbar-brand" href="/">
-	            <div class="logo">Logo</div>
+	            <div class="logo">此处放Logo</div>
 	          </a>
 	        </div>
 	        <div id="navbar" class="navbar-collapse collapse">
@@ -71,15 +71,15 @@ String basePath = request.getScheme() + "://"
 	           <!-- <li><a href="#section-3" class="hidden-xs">Features</a></li>  --> 
 	          </ul>
 	          <ul class="nav navbar-nav navbar-right">
-	            <li name="search" style="padding: 10px 0;">
+	            <!-- <li name="search" style="padding: 10px 0;">
 	              <i class="glyphicon glyphicon-search"></i>
 	              <form action="" style="display: inline-block;">
 	                <input type="text" id="nav_search" name="nav_search" />
 	              </form>
-	            </li>
+	            </li> -->
 	            <li>
 	              <a href="school_management.jsp" class="mainLinks">
-	                <button class="mdl-button mdl-js-button mdl-js-ripple-effect">Spring Security登陆</button>
+	                <button class="mdl-button mdl-js-button mdl-js-ripple-effect">登陆</button>
 	              </a>
 	            </li>
 	
@@ -96,9 +96,9 @@ String basePath = request.getScheme() + "://"
 	      <div id="loginbox" class="mainbox col-md-6 col-sm-12 wow bounceInDown">
 	        <div class="row">
 	          <div class="col-md-12 heading">
-	            <div class="logo">Logo</div>
+	            <div class="logo">此处放Logo</div>
 	            <div class="main">
-	              <p><span class="sub-head-logo">XX留学中介您身边的好伙伴！</span></p>
+	              <p><span class="sub-head-logo">Blue Ivy留学中介您身边的好伙伴！</span></p>
 	            </div>
 	          </div>
 	        </div>
@@ -120,14 +120,14 @@ String basePath = request.getScheme() + "://"
 	    <h1 class="h2 text-center">我们的宗旨</h1>
 	    <div class="container">
 	      <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-xs-12">
-	        <p>XX自成立至今，用数以万计的成功案例，奠定了深厚的专业基础，同时也沉淀了宝贵的第一手经验资源。
+	        <p>Blue Ivy Education Group Inc. 自成立至今，用数以万计的成功案例，奠定了深厚的专业基础，同时也沉淀了宝贵的第一手经验资源。
 	          <br>
 <!-- 	          <br><strong>An Idea Never Stops, It Multiplies.</strong> -->
 	          <br> 我们已经帮助数万位国内的在职人士，大学生，高中生申请人成功地进入自己梦寐以求的欧美名校，包括哈佛、耶鲁、斯坦佛、麻省理工、哥伦比亚、牛津、剑桥等世界超一流名校。
 	          <br>
 	          <br> 而通过分析和应用这些案例数据，我们的申请结果仍在不断提升。
 	          <br>
-	          <br><strong>XX团队欢迎你</strong></p>
+	          <br><strong>Blue Ivy团队欢迎你</strong></p>
 	        <!-- <a href="Register" class="registerLink" style="text-align: center; display: block; margin: 0 auto;">
 	              Join Now
 	            </a> -->
@@ -211,7 +211,7 @@ String basePath = request.getScheme() + "://"
 	          <div id="text-13" class=" 1 widget col-md-4 col-sm-4 widget_text">
 	            <h2 class="widget-title maincolor1">关于我们</h2>
 	            <div class="textwidget">
-	              <p><a href="#section-2">XX留学中介公司</a>
+	              <p><a href="#section-2">Blue Ivy留学中介公司</a>
 	              </p>
 	              <p><a href="/blog/">公司地址</a>
 	              </p>
@@ -238,7 +238,7 @@ String basePath = request.getScheme() + "://"
 	    <div id="bottom-nav">
 	      <div class="container">
 	        <div class="row">
-	          <div class="copyright col-xs-12">Copyright © 2015 XX留学中介. All rights reserved.</div>
+	          <div class="copyright col-xs-12">Copyright © 2015 Blue Ivy留学中介. All rights reserved.</div>
 	          <!-- <nav class="col-md-6 col-xs-12">
 	            <ul class="bottom-menu list-inline pull-right">
 	              <li><a href="#">Terms</a>
