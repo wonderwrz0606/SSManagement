@@ -90,7 +90,7 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 		System.out.println("=============");
 		System.out.println("school ID:"+school.getSchId());
 		System.out.println("school name:"+school.getSchName());
-		System.out.println("zip: "+school.getSchZip());
+		System.out.println("Toefl:"+school.getSchTf());
 		System.out.println("State: "+school.getSchState());
 		System.out.println("=============");
 		
@@ -102,13 +102,56 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 			dc.add(Restrictions.like("schName", school.getSchName()+"%"));
 		}
 		
-		if(!school.getSchZip().equals("")){
-			dc.add(Restrictions.like("schZip", school.getSchZip()+"%"));
+//		if(!school.getSchZip().equals("")){
+//			dc.add(Restrictions.like("schZip", school.getSchZip()+"%"));
+//		}
+//		
+//		if(!school.getSchState().equals("")){
+//			dc.add(Restrictions.like("schState", school.getSchState()+"%"));
+//		}
+		
+		//TOEFL search 
+		if(school.getSchTf()!=null){
+			dc.add(Restrictions.le("schTf", school.getSchTf()));
 		}
 		
-		if(!school.getSchState().equals("")){
-			dc.add(Restrictions.like("schState", school.getSchState()+"%"));
+		// SSAT , 0 not require , 1 require.
+		if(school.getSchSsat()!=null){
+			if(school.getSchSsat()==0){
+				dc.add(Restrictions.eq("schSsat", school.getSchSsat()));
+			}
+			else if(school.getSchSsat()==1){
+				dc.add(Restrictions.eq("schSsat", school.getSchSsat()));
+			}
 		}
+		
+		
+		// Accept application season
+		// 0 Spring   , 1 Fall. 2 Rolling
+		if(school.getSchSeason()!=null){
+			switch(school.getSchSeason()){
+			case 0:
+				dc.add(Restrictions.eq("schSeason", school.getSchSeason()));
+				break;
+			case 1:
+				dc.add(Restrictions.eq("schSeason", school.getSchSeason()));
+				break;
+			case 2:
+				dc.add(Restrictions.eq("schSeason", school.getSchSeason()));
+				break;
+			}
+			
+//			if(school.getSchSeason()==0){
+//				dc.add(Restrictions.eq("schSeason", school.getSchSeason()));
+//			}
+//			else if(school.getSchSeason()==1){
+//				dc.add(Restrictions.eq("schSeason", school.getSchSeason()));
+//			}
+//			else if(school.getSchSeason()==2){
+//				dc.add(Restrictions.eq("schSeason", school.getSchSeason()));
+//			}
+		}
+		
 		
 		Criteria criteria=dc.getExecutableCriteria(sessionFactory.getCurrentSession());
 		System.out.println("dao empty?"+criteria.list().isEmpty());

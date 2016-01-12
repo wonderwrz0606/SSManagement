@@ -147,8 +147,8 @@ public class SchoolController {
 	public ModelAndView searchSchool(
 			@ModelAttribute School school
 			){
-		ModelAndView mv=new ModelAndView("testPage/AllSchool");
-		//TODO 临时使用ALlSchool.jsp作为显示预览页面 
+		ModelAndView mv=new ModelAndView("school_brief");
+		
 		List<School> schoolList=schoolService.DynamicSearch(school);
 		
 		mv.addObject("schoolList", schoolList);		
@@ -174,7 +174,7 @@ public class SchoolController {
 	@RequestMapping("listSchool")
 	public ModelAndView listSchool(){
 		
-		ModelAndView mv=new ModelAndView("testPage/AllSchool");
+		ModelAndView mv=new ModelAndView("school_brief.jsp");
 		
 		List<School> schoolList=schoolService.getAllSchool();
 		
@@ -183,6 +183,18 @@ public class SchoolController {
 		return mv;
 	}
 	
+	
+	@RequestMapping("testTime")
+	public  ModelAndView testTime(
+			@ModelAttribute School school
+			){
+		ModelAndView mv=new ModelAndView("testPage/Test");
+		
+		System.out.println("time: "+school.getSchStartDate());
+		System.out.println("name:"+ school.getSchName());
+		
+		return mv;
+	}
 	
 	
 }

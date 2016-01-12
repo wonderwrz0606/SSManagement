@@ -159,18 +159,23 @@ public class DaoTest {
 		
 		School school =new School();
 		
-		school.setSchId(null);
-		school.setSchName(null);
-		school.setSchZip(null);
-		school.setSchState("c");
+//		school.setSchId(null);
+	    school.setSchName("");
+//		school.setSchZip(null);
+		//school.setSchState("c");
+		school.setSchTf(null);
+		school.setSchSsat(null);
+		school.setSchSeason(1);
 		
 		List list=schoolService.DynamicSearch(school);
 		for(int i=0;i<list.size();i++){
 			School s=(School) list.get(i);
 			System.out.println("id: "+s.getSchId());
 			System.out.println("name: "+s.getSchName());
-			System.out.println("zip: "+s.getSchZip());
+			System.out.println("Toefl:"+s.getSchTf());
 			System.out.println("state: "+s.getSchState());
+			System.out.println("ssat:"+s.getSchSsat());
+			System.out.println("Season:"+s.getSchSeason());
 		}
 	}
 	

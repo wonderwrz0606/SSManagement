@@ -43,7 +43,6 @@
 			</tr>
 		</table>
 	</form>
-	
 	<form action="getSchool">
 	Search By:<select name="select">
     <option value="name">School Name</option>
@@ -55,11 +54,12 @@
   <input type="submit" value="submit">
 	</form>
 	
-	<form action="test">
+	
+	<form action="listSchool">
 	School Name:<input type="text" name="schName" >
+	Time <input type="text" name="schStartDate">
   <input type="submit" value="submit">
 	</form>
-	
 
 </body>
 </html>

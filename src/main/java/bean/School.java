@@ -5,6 +5,7 @@ package bean;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,6 +38,8 @@ public class School implements java.io.Serializable {
 	private String schState;
 	private String schZip;
 	private Integer schSat;
+	private Integer schSsat;
+	private Integer schSeason;
 	private Integer schTf;
 	private Integer schEsl;
 	private Integer schChnPop;
@@ -59,16 +62,20 @@ public class School implements java.io.Serializable {
 	public School() {
 	}
 
-	/** full constructor */
-	public School(String schName, String schResType, String schShort,
+	
+
+	public School(Integer schId, String schName, String schShort,
 			String schWebsite, Date deadline, String schGrade, Integer schEst,
 			Integer schCap, String schPtRatio, String schStreet,
 			String schCity, String schState, String schZip, Integer schSat,
-			Integer schTf, Integer schEsl, Integer schChnPop, Integer schDeps,
-			Integer schFee, Integer totalFee, String schDes, String schGroup,
+			Integer schSsat, Integer schSeason, Integer schTf, Integer schEsl,
+			Integer schChnPop, Integer schDeps, Integer schFee,
+			Integer totalFee, String schDes, String schGroup,
 			String schReligon, String schType, Integer schResFee,
-			Date schStartDate, String comment, Set<Application> applications) {
-
+			String schResType, Date schStartDate, String comment,
+			Set<Application> applications) {
+		super();
+		this.schId = schId;
 		this.schName = schName;
 		this.schShort = schShort;
 		this.schWebsite = schWebsite;
@@ -82,6 +89,8 @@ public class School implements java.io.Serializable {
 		this.schState = schState;
 		this.schZip = schZip;
 		this.schSat = schSat;
+		this.schSsat = schSsat;
+		this.schSeason = schSeason;
 		this.schTf = schTf;
 		this.schEsl = schEsl;
 		this.schChnPop = schChnPop;
@@ -92,8 +101,8 @@ public class School implements java.io.Serializable {
 		this.schGroup = schGroup;
 		this.schReligon = schReligon;
 		this.schType = schType;
-		this.schResType = schResType;
 		this.schResFee = schResFee;
+		this.schResType = schResType;
 		this.schStartDate = schStartDate;
 		this.comment = comment;
 		this.applications = applications;
@@ -340,9 +349,26 @@ public class School implements java.io.Serializable {
 	public Date getSchStartDate() {
 		return this.schStartDate;
 	}
-
+	
 	public void setSchStartDate(Date schStartDate) {
 		this.schStartDate = schStartDate;
+	}
+	
+	@Column(name = "sch_Ssat")
+	public Integer getSchSsat() {
+		return schSsat;
+	}
+
+	public void setSchSsat(Integer schSsat) {
+		this.schSsat = schSsat;
+	}
+	@Column(name = "sch_Season")
+	public Integer getSchSeason() {
+		return schSeason;
+	}
+
+	public void setSchSeason(Integer schSeason) {
+		this.schSeason = schSeason;
 	}
 
 	@Column(name = "comment", length = 45)
