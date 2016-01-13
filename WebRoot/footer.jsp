@@ -5,6 +5,7 @@
 	<div class="footer_container">
 	 	<h1><a href="index.jsp">此处放Logo</a></h1>
 		<nav>
+			<a href="user_management.jsp">权限管理</a>
 		  	<a href="application_management.jsp">申请管理</a>
   	 		<a href="student_management.jsp">学生管理</a>
   	 		<a href="school_management.jsp">学校管理</a>

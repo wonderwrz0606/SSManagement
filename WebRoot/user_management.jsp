@@ -11,7 +11,7 @@ String basePath = request.getScheme() + "://"
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 	<head>
-	    <title>学校管理</title>
+	    <title>用户管理</title>
 	    <link rel="stylesheet" href="css/reset.css">
 	    <link rel="stylesheet" href="css/style.css">
 	    <script src="js/prefixfree.min.js"></script>
@@ -22,19 +22,19 @@ String basePath = request.getScheme() + "://"
 		<%@include file="/header.jsp" %>
 		<div class="container">
 			<ul class="school_management">
-				<a style="text-decoration: none;" href="school_search.jsp"><li class="school_management_li">
-					<label class="school_management_label">查询学校</label>
+				<a style="text-decoration: none;" href="user_search.jsp"><li class="school_management_li">
+					<label class="school_management_label">查询用户</label>
 				</li></a>
 				<!-- 控制用户访问权限 -->
 				<sec:authorize access="hasRole('Admin')">
-				<a style="text-decoration: none;" href="school_add.jsp"><li class="school_management_li">
-					<label class="school_management_label">增加学校</label>
+				<a style="text-decoration: none;" href="user_add.jsp"><li class="school_management_li">
+					<label class="school_management_label">增加用户</label>
 				</li></a>
-				<a style="text-decoration: none;" href="school_update.jsp"><li class="school_management_li">
-					<label class="school_management_label">修改学校</label>
+				<a style="text-decoration: none;" href="user_update.jsp"><li class="school_management_li">
+					<label class="school_management_label">修改用户</label>
 				</li></a>
-				<a style="text-decoration: none;" href="school_delete.jsp"><li class="school_management_li">
-					<label class="school_management_label">删除学校</label>
+				<a style="text-decoration: none;" href="user_delete.jsp"><li class="school_management_li">
+					<label class="school_management_label">删除用户</label>
 				</li></a>	
 				</sec:authorize>
 			</ul>	
