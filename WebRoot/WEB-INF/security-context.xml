@@ -11,7 +11,7 @@
 	<http use-expressions="true" auto-config="true">
 	
 		<!-- user management part -->
-		<intercept-url pattern="/user_management/*.jsp"  access="isAuthenticated()"/>
+		<intercept-url pattern="/user_management.jsp"  access="hasRole('Admin')"/>
 	
 	
 		<!-- school management part -->
