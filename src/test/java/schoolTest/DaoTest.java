@@ -78,9 +78,9 @@ public class DaoTest {
 	public void testUpdateSchool(){
 		School s=new School();
 		
-		s.setSchId(3);
-		s.setSchName("GuangXi University");
-		s.setSchWebsite("www.gxu.edu");
+		s.setSchId(22);
+		s.setSchName("Rutgers University");
+		
 		//s.setSchCity("Nan Ning");
 		
 		schoolService.updateSchool(s);
@@ -121,6 +121,7 @@ public class DaoTest {
 			System.out.println(s.getSchName());
 		}
 	}
+	
 	
 	
 	@Test

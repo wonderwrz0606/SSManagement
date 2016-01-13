@@ -25,8 +25,6 @@ String basePath = request.getScheme() + "://"
 				<a style="text-decoration: none;" href="user_search.jsp"><li class="school_management_li">
 					<label class="school_management_label">查询用户</label>
 				</li></a>
-				<!-- 控制用户访问权限 -->
-				<sec:authorize access="hasRole('Admin')">
 				<a style="text-decoration: none;" href="user_add.jsp"><li class="school_management_li">
 					<label class="school_management_label">增加用户</label>
 				</li></a>
@@ -36,7 +34,6 @@ String basePath = request.getScheme() + "://"
 				<a style="text-decoration: none;" href="user_delete.jsp"><li class="school_management_li">
 					<label class="school_management_label">删除用户</label>
 				</li></a>	
-				</sec:authorize>
 			</ul>	
 		</div>
     <%@include file="/footer.jsp" %>

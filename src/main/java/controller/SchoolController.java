@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -31,6 +32,10 @@ public class SchoolController {
 	public ModelAndView saveSchool(
 			@ModelAttribute School school){
 		ModelAndView mv=new ModelAndView("index");
+		//test chinese
+		System.out.println("school name: "+school.getSchName());
+		school.setSchName("呵呵");
+		System.out.println("** school name Again: ** "+school.getSchName());
 		schoolService.addSchool(school);
 		return mv;
 	}
@@ -118,7 +123,7 @@ public class SchoolController {
 			){
 		ModelAndView mv=new ModelAndView("school_update");
 		
-		//因为id查询的结果只有一个，则直接返回school对象
+		//因为id查询的结果只有一个，于是直接返回school对象
 		List<School> schoolList=schoolService.getSchoolbyId(schId);
 		if(!schoolList.isEmpty()){
 			School school=schoolList.get(0);
@@ -132,6 +137,24 @@ public class SchoolController {
 	}
 	
 	
+	/**
+	 *  update school 
+	 *  
+	 *  更新成功后返回当前页面
+	 * 
+	 */
+	@RequestMapping(value="updateSchool", method = RequestMethod.POST )
+	public ModelAndView updateSchool(
+			@ModelAttribute School school
+			){
+		ModelAndView mv=new ModelAndView("school_update");
+		
+		schoolService.updateSchool(school);
+		
+		mv.addObject("update_notice", "update success");
+		
+		return mv;
+	}
 	
 	
 	
@@ -203,7 +226,7 @@ public class SchoolController {
 	@RequestMapping("listSchool")
 	public ModelAndView listSchool(){
 		
-		ModelAndView mv=new ModelAndView("school_brief.jsp");
+		ModelAndView mv=new ModelAndView("school_brief");
 		
 		List<School> schoolList=schoolService.getAllSchool();
 		

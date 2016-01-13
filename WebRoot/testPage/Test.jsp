@@ -54,11 +54,16 @@
   <input type="submit" value="submit">
 	</form>
 	
-	
-	<form action="listSchool">
-	School Name:<input type="text" name="schName" >
-	Time <input type="text" name="schStartDate">
+	<h1>Add School Test</h1>
+<form action="addSchool" method="post">
+	School Name:<input type="text" name="schName"  >
   <input type="submit" value="submit">
+	</form>
+	
+	<h1>update Test</h1>
+	<!-- <form action="updateSchool" method="post">
+	School Name:<input type="text" name="schName">
+  <input type="submit" value="submit"> -->
 	</form>
 
 </body>

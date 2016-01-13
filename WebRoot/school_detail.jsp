@@ -142,6 +142,22 @@
 				<span>点击申请</span>
 			</button>
 		</div>
+		<sec:authorize access="hasRole('Admin')">
+		<div>
+			<button type="submit"
+				onclick="window.location.href='http://www.nyu.edu'"
+				style="margin: 0px 41%;width: 15%;">
+				<span>删除学校</span>
+			</button>
+		</div>
+		<div>
+			<button type="submit"
+				onclick="window.location.href='http://www.nyu.edu'"
+				style="margin: 0px 41%;width: 15%;">
+				<span>更改学校</span>
+			</button>
+		</div>
+		</sec:authorize>
 	</div>
 	<%-- <div>
 		<%

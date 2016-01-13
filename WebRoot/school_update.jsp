@@ -43,10 +43,11 @@ String basePath = request.getScheme() + "://"
 			</div>
 			
 			
-			<form action="school/addSchool" items="${school }">
+			<form action="updateSchool" items="${school }" method="post">
 			<table class="school_search_table_multi">
 				<tbody>
-					<tr>
+					<tr><input type="hidden" name=schId value="${school.schId }">
+					
 						<td><input type="text" name=schName value="${school.schName }" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">名称</span></div></td>
 						<td><input type="text" name="schShort" class="school_search_li"/></td>
@@ -55,7 +56,7 @@ String basePath = request.getScheme() + "://"
 					<tr>
 						<td><input type="text" name="schTf" value="${school.schTf }" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">TOEFL</span></div></td>
-						<td><input type="text" name="schWebsite" class="school_search_li"/></td>
+						<td><input type="text" name="schWebsite" value="${school.schWebsite }"class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">网址</span></div></td>
 					</tr>
 					<tr>
@@ -65,34 +66,34 @@ String basePath = request.getScheme() + "://"
 						<td><div class="table_column_div"><span class="table_column_span">州</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" name="schZip"class="school_search_li"/></td>
+						<td><input type="text" name="schZip"value="${school.schZip }"class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">Zip Code</span></div></td>
-						<td><input type="text" name="schEst" class="school_search_li"/></td>
+						<td><input type="text" name="schEst" value="${school.schEst }"class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">建校年份</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" name="schCap" class="school_search_li"/></td>
+						<td><input type="text" name="schCap" value="${school.schCap }"class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">学生人数</span></div></td>
-						<td><input type="text" name="schGrade" class="school_search_li"/></td>
+						<td><input type="text" name="schGrade" value="${school.schGrade }"class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">招生年级</span></div></td>
 					</tr>
 					<tr>
 					                                <!-- 加入百分号 -->
 						<td><input type="text" name="schPtRatio" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">师生比</span></div></td>
-						<td><input type="text" name="schType" class="school_search_li"/></td>
+						<td><input type="text" name="schType" value="${school.schType }"class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">性质</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" name="schReligon" class="school_search_li"/></td>
+						<td><input type="text" name="schReligon"value="${school.schReligon }" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">宗教</span></div></td>
-						<td><input type="text" name="schEsl" class="school_search_li"/></td>
+						<td><input type="text" name="schEsl" value="${school.schEsl }"class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">ESL</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" name="schChnPop" class="school_search_li"/></td>
+						<td><input type="text" name="schChnPop" value="${school.schChnPop }"class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">中国学生人数</span></div></td>
-						<td><input type="text" name="schSat" class="school_search_li"/></td>
+						<td><input type="text" name="schSat" value="${school.schSat }"class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">SAT</span></div></td>
 					</tr>
 					<tr>
@@ -132,10 +133,11 @@ String basePath = request.getScheme() + "://"
 					</tr>
 				</tbody>
 			</table>
-			</form>
 			<div>
 				<button type="submit" onclick="window.location.href='school_management.jsp'"  style="margin: 0px 41%;width: 15%;"><span>确认修改</span></button>
 			</div>
+			</form>
+			
 			<!-- </form> -->
 		</div>
     
