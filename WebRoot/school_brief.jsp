@@ -1,7 +1,8 @@
-<%@ page language="java" import="java.util.*" pageEncoding="US-ASCII"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -33,12 +34,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<thead>
 	    		<tr>
 					<th class="school_search_list">ID:</th>
-					<th class="school_search_list" style="width:35%;">School Name:</th>
+					<th class="school_search_list" style="width:24%;">School Name:</th>
+					<th class="school_search_list"style="width:15%;">申请截止</th>
 					<th class="school_search_list">SSAT:</th>
 					<th class="school_search_list">School State:</th>
 					<th class="school_search_list">Min TOEFL Score:</th>
 					<th class="school_search_list">Application Season</th>
-					<th class="school_search_list"></th>
+					<th class="school_search_list">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,6 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td>${school.schId }</td>
 						<td>${school.schName }</td>
+						<td><fmt:formatDate value="${school.deadLine }" pattern="MMM-dd"/></td>
 						<td>${school.schSsat}</td>
 						<td>${school.schState }</td>
 						<td>${school.schTf }</td>

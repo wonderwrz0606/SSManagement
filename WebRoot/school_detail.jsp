@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -36,7 +37,7 @@
 				</tr>
 				<tr>
 					<td><strong>DeadLine</strong></td>
-					<td>${school.IOdeadLine }</td>
+					<td><fmt:formatDate value="${school.deadLine }" pattern="MMM-dd"/></td>
 				</tr>
 				<tr>
 					<td><strong>名称</strong></td>
@@ -92,7 +93,7 @@
 				</tr>
 				<tr>
 					<td><strong>申请期限</strong></td>
-					<td>${school.deadLine }</td>
+					<td><%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %></td>
 				</tr>
 				<tr>
 					<td><strong>申请期限String</strong></td>

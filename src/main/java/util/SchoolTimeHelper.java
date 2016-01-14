@@ -26,9 +26,12 @@ public class SchoolTimeHelper {
 		// 构造器必须为yyyy-MM-dd 这样保存到数据库的Date格式才能正确显示
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		
+		//先判断IOdeadLine 是否为空
+		if(!school.getIOdeadLine().equals(null)){
 		Date deadLine = formatter.parse(school.getIOdeadLine());
 		
 		school.setDeadLine(deadLine);
+		}
 	}
 
 

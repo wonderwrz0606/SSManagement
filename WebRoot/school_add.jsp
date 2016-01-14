@@ -34,7 +34,7 @@ String basePath = request.getScheme() + "://"
 						<td><div class="table_column_div"><span class="table_column_span">简称</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="month" name="time_deadline" class="school_search_li"/></td>
+						<td><input type="date" name="IOdeadLine" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">Application DeadLine</span></div></td>
 						<td><input type="text" name="schWebsite" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">网址</span></div></td>

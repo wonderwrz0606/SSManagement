@@ -137,9 +137,9 @@ public class SchoolController {
 		if(!schoolList.isEmpty()){
 			School school=schoolList.get(0);
 
-			schoolTimeHelper.Date2String_School(school);
+			//schoolTimeHelper.Date2String_School(school);
 			
-			System.out.println(school.getIOdeadLine());
+			//System.out.println(school.getIOdeadLine());
 			
 			mv.addObject("school", school);
 		}else{
@@ -247,57 +247,6 @@ public class SchoolController {
 		List<School> schoolList=schoolService.getAllSchool();
 		
 		mv.addObject("schoolList", schoolList);
-		
-		return mv;
-	}
-	
-		
-	
-	
-	@RequestMapping(value="testTime")
-	public ModelAndView testTime(
-			@ModelAttribute School school
-			) throws ParseException{
-		ModelAndView mv=new ModelAndView("");
-		
-		
-		schoolTimeHelper.String2Date(school);
-		
-		System.out.println("deadLine:"+school.getDeadLine());
-		
-		schoolService.addSchool(school);
-		
-		
-//		String iotime=school.getIOdeadline();
-//		
-//		System.out.println("input time: "+iotime);
-		
-//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//		
-//		Date deadline=formatter.parse(iotime);
-//		
-//		school.setDeadline(deadline);
-		////////////
-		
-		//SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		// school=new School();
-//		try {
-//
-//			Date date = formatter.parse(time);
-//			System.out.println("date:"+date);
-//			System.out.println("format date: "+formatter.format(date));
-//			
-//			
-//			school.setDeadline(date);
-//			
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		System.out.println(time);
-//		System.out.println("date from school: "+school.getDeadline());
-//		
-//		schoolService.addSchool(school);
 		
 		return mv;
 	}
