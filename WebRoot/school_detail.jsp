@@ -36,7 +36,7 @@
 					<td>${school.schId }</td>
 				</tr>
 				<tr>
-					<td><strong>DeadLine</strong></td>
+					<td><strong>申请截止</strong></td>
 					<td><fmt:formatDate value="${school.deadLine }" pattern="MMM-dd"/></td>
 				</tr>
 				<tr>
@@ -93,7 +93,7 @@
 				</tr>
 				<tr>
 					<td><strong>申请期限</strong></td>
-					<td><%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %></td>
+					<td><fmt:formatDate value="${school.deadLine }" pattern="MMM-dd"/></td>
 				</tr>
 				<tr>
 					<td><strong>申请期限String</strong></td>
