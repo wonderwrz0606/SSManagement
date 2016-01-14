@@ -35,6 +35,10 @@
 					<td>${school.schId }</td>
 				</tr>
 				<tr>
+					<td><strong>DeadLine</strong></td>
+					<td>${school.deadline }</td>
+				</tr>
+				<tr>
 					<td><strong>名称</strong></td>
 					<td>${school.schName }</td>
 				</tr>

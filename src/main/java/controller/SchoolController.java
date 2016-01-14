@@ -1,5 +1,9 @@
 package controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -235,5 +239,36 @@ public class SchoolController {
 		return mv;
 	}
 	
+		
 	
+	
+	@RequestMapping(value="testTime")
+	public ModelAndView testTime(
+			@RequestParam String time,
+			@ModelAttribute School school
+			) throws ParseException{
+		ModelAndView mv=new ModelAndView("");
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM");
+		 school=new School();
+		try {
+
+			Date date = formatter.parse(time);
+			System.out.println("date:"+date);
+			System.out.println("format date: "+formatter.format(date));
+			
+			
+			school.setDeadline(date);
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(time);
+		System.out.println("date from school: "+school.getDeadline());
+		
+		schoolService.addSchool(school);
+		
+		return mv;
+	}
 }
