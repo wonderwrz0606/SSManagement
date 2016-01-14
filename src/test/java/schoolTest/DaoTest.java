@@ -1,5 +1,6 @@
 package schoolTest;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -14,6 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import service.SchoolService;
+import util.SchoolTimeHelper;
 import bean.Application;
 import bean.School;
 import dao.SchoolDao;
@@ -178,6 +180,24 @@ public class DaoTest {
 			System.out.println("ssat:"+s.getSchSsat());
 			System.out.println("Season:"+s.getSchSeason());
 		}
+	}
+	
+	
+	@Test
+	public void testConvert() throws ParseException{
+		
+		SchoolTimeHelper sth=new SchoolTimeHelper();
+		
+		School school=new School();
+		
+		String s="2016-01-04 00:00:00.0";
+		
+		school.setIOdeadLine(s);
+		
+		sth.String2Date(school);
+		
+		System.out.println(school.getDeadLine());
+		
 	}
 	
 //	@BeforeClass

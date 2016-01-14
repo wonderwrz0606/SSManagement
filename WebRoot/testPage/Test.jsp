@@ -49,6 +49,7 @@
 	
 	<h1>Add School Test</h1>
 	<form action="addSchool" method="post">
+		DeadLine <input type="month"  name="time_deadline">
 		School Name:<input type="text" name="schName"  >
 	  <input type="submit" value="submit">
 		</form>
@@ -61,7 +62,7 @@
 		
 	 <h1>TIME TEST</h1>
 	<form action="testTime" >
-	time:<input type="month"  name="time"   >
+	time:<input type="date"  name="IOdeadLine"   >
 	<input type="submit" value="submit"  >
 	</form>
 </body>

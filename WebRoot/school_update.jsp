@@ -7,7 +7,7 @@ String basePath = request.getScheme() + "://"
     + path + "/";
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html >
 	<head>
 	    <title>修改学校</title>
@@ -50,8 +50,8 @@ String basePath = request.getScheme() + "://"
 					
 						<td><input type="text" name=schName value="${school.schName }" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">名称</span></div></td>
-						<td><input type="text" name="schShort" class="school_search_li"/></td>
-						<td><div class="table_column_div"><span class="table_column_span">简称</span></div></td>
+						<td><input type="text" name="IOdeadLine" value="${school.deadLine }"  class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">DealLine</span></div></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="schTf" value="${school.schTf }" class="school_search_li"/></td>

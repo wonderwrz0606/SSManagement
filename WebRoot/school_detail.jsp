@@ -36,7 +36,7 @@
 				</tr>
 				<tr>
 					<td><strong>DeadLine</strong></td>
-					<td>${school.deadline }</td>
+					<td>${school.IOdeadLine }</td>
 				</tr>
 				<tr>
 					<td><strong>名称</strong></td>
@@ -92,7 +92,11 @@
 				</tr>
 				<tr>
 					<td><strong>申请期限</strong></td>
-					<td>${school.deadline }</td>
+					<td>${school.deadLine }</td>
+				</tr>
+				<tr>
+					<td><strong>申请期限String</strong></td>
+					<td>${school.IOdeadLine }</td>
 				</tr>
 				<%-- <tr>
 				      	<td><strong>AP</strong></td>

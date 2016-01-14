@@ -7,7 +7,7 @@ String basePath = request.getScheme() + "://"
     + path + "/";
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
 	    <title>添加学校</title>
@@ -24,18 +24,18 @@ String basePath = request.getScheme() + "://"
 				<span style="padding-left: 45%;">学校添加界面</span>
 			</div>
 			
-			<form name="test" action="addSchool" method="post"> 
+			<form  action="addSchool" method="post"> 
 			<table class="school_search_table_multi">
 				<tbody>
 					<tr>
-						<td><input type="text" name=schName class="school_search_li"/></td>
+						<td><input type="text" name="schName" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">名称</span></div></td>
 						<td><input type="text" name="schShort" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">简称</span></div></td>
 					</tr>
 					<tr>
-						<td><input type="text" name=input class="school_search_li"/></td>
-						<td><div class="table_column_div"><span class="table_column_span">XX</span></div></td>
+						<td><input type="month" name="time_deadline" class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">Application DeadLine</span></div></td>
 						<td><input type="text" name="schWebsite" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">网址</span></div></td>
 					</tr>

@@ -28,7 +28,8 @@ public class School implements java.io.Serializable {
 	private String schName;
 	private String schShort;
 	private String schWebsite;
-	private Date deadline;
+	private Date deadLine;
+	private String IOdeadLine;
 	private String schGrade;
 	private Integer schEst;
 	private Integer schCap;
@@ -60,52 +61,6 @@ public class School implements java.io.Serializable {
 
 	/** default constructor */
 	public School() {
-	}
-
-	
-
-	public School(Integer schId, String schName, String schShort,
-			String schWebsite, Date deadline, String schGrade, Integer schEst,
-			Integer schCap, String schPtRatio, String schStreet,
-			String schCity, String schState, String schZip, Integer schSat,
-			Integer schSsat, Integer schSeason, Integer schTf, Integer schEsl,
-			Integer schChnPop, Integer schDeps, Integer schFee,
-			Integer totalFee, String schDes, String schGroup,
-			String schReligon, String schType, Integer schResFee,
-			String schResType, Date schStartDate, String comment,
-			Set<Application> applications) {
-		super();
-		this.schId = schId;
-		this.schName = schName;
-		this.schShort = schShort;
-		this.schWebsite = schWebsite;
-		this.deadline = deadline;
-		this.schGrade = schGrade;
-		this.schEst = schEst;
-		this.schCap = schCap;
-		this.schPtRatio = schPtRatio;
-		this.schStreet = schStreet;
-		this.schCity = schCity;
-		this.schState = schState;
-		this.schZip = schZip;
-		this.schSat = schSat;
-		this.schSsat = schSsat;
-		this.schSeason = schSeason;
-		this.schTf = schTf;
-		this.schEsl = schEsl;
-		this.schChnPop = schChnPop;
-		this.schDeps = schDeps;
-		this.schFee = schFee;
-		this.totalFee = totalFee;
-		this.schDes = schDes;
-		this.schGroup = schGroup;
-		this.schReligon = schReligon;
-		this.schType = schType;
-		this.schResFee = schResFee;
-		this.schResType = schResType;
-		this.schStartDate = schStartDate;
-		this.comment = comment;
-		this.applications = applications;
 	}
 
 	// Property accessors
@@ -147,13 +102,21 @@ public class School implements java.io.Serializable {
 		this.schWebsite = schWebsite;
 	}
 
-	@Column(name = "deadline", length = 0)
-	public Date getDeadline() {
-		return this.deadline;
+	public String getIOdeadLine() {
+		return IOdeadLine;
 	}
 
-	public void setDeadline(Date deadline) {
-		this.deadline = deadline;
+	public void setIOdeadLine(String iOdeadLine) {
+		IOdeadLine = iOdeadLine;
+	}
+
+	@Column(name = "deadLine", length = 0)
+	public Date getDeadLine() {
+		return this.deadLine;
+	}
+
+	public void setDeadLine(Date deadLine) {
+		this.deadLine = deadLine;
 	}
 
 	@Column(name = "sch_grade", length = 45)
@@ -349,11 +312,11 @@ public class School implements java.io.Serializable {
 	public Date getSchStartDate() {
 		return this.schStartDate;
 	}
-	
+
 	public void setSchStartDate(Date schStartDate) {
 		this.schStartDate = schStartDate;
 	}
-	
+
 	@Column(name = "sch_Ssat")
 	public Integer getSchSsat() {
 		return schSsat;
@@ -362,6 +325,7 @@ public class School implements java.io.Serializable {
 	public void setSchSsat(Integer schSsat) {
 		this.schSsat = schSsat;
 	}
+
 	@Column(name = "sch_Season")
 	public Integer getSchSeason() {
 		return schSeason;

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import service.SchoolService;
+import util.SchoolTimeHelper;
 import bean.School;
 
 @Controller
@@ -27,20 +28,24 @@ public class SchoolController {
 	@Autowired
 	private SchoolService schoolService;
 	
+	@Autowired
+	private SchoolTimeHelper schoolTimeHelper;
+	
 	/**
-	 * 
+	 * @param time_deadline    it's only use for time associate.
 	 * @param school
 	 * @return  url: index.jsp
+	 * @throws ParseException 
 	 */
 	@RequestMapping(value="addSchool",method= RequestMethod.POST)
 	public ModelAndView saveSchool(
-			@ModelAttribute School school){
-		ModelAndView mv=new ModelAndView("index");
-		//test chinese
-		System.out.println("school name: "+school.getSchName());
-		school.setSchName("呵呵");
-		System.out.println("** school name Again: ** "+school.getSchName());
+			@ModelAttribute School school) throws ParseException{
+		ModelAndView mv=new ModelAndView("addSchool");
+		
+		schoolTimeHelper.String2Date(school);
+		
 		schoolService.addSchool(school);
+		
 		return mv;
 	}
 	
@@ -115,7 +120,7 @@ public class SchoolController {
 	
 	/** 
 	 * 
-	 *  input schId, return schoolList to school_search.jsp ,to display the update information.
+	 *  input schId, return schoolList to school_update.jsp ,to display the update information.
 	 * @param schId
 	 * 
 	 * @return school object
@@ -131,6 +136,10 @@ public class SchoolController {
 		List<School> schoolList=schoolService.getSchoolbyId(schId);
 		if(!schoolList.isEmpty()){
 			School school=schoolList.get(0);
+
+			schoolTimeHelper.Date2String_School(school);
+			
+			System.out.println(school.getIOdeadLine());
 			
 			mv.addObject("school", school);
 		}else{
@@ -145,13 +154,16 @@ public class SchoolController {
 	 *  update school 
 	 *  
 	 *  更新成功后返回当前页面
+	 * @throws ParseException 
 	 * 
 	 */
 	@RequestMapping(value="updateSchool", method = RequestMethod.POST )
 	public ModelAndView updateSchool(
 			@ModelAttribute School school
-			){
+			) throws ParseException{
 		ModelAndView mv=new ModelAndView("school_update");
+		
+		schoolTimeHelper.String2Date(school);
 		
 		schoolService.updateSchool(school);
 		
@@ -244,30 +256,48 @@ public class SchoolController {
 	
 	@RequestMapping(value="testTime")
 	public ModelAndView testTime(
-			@RequestParam String time,
 			@ModelAttribute School school
 			) throws ParseException{
 		ModelAndView mv=new ModelAndView("");
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM");
-		 school=new School();
-		try {
-
-			Date date = formatter.parse(time);
-			System.out.println("date:"+date);
-			System.out.println("format date: "+formatter.format(date));
-			
-			
-			school.setDeadline(date);
-			
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
 		
-		System.out.println(time);
-		System.out.println("date from school: "+school.getDeadline());
+		schoolTimeHelper.String2Date(school);
+		
+		System.out.println("deadLine:"+school.getDeadLine());
 		
 		schoolService.addSchool(school);
+		
+		
+//		String iotime=school.getIOdeadline();
+//		
+//		System.out.println("input time: "+iotime);
+		
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//		
+//		Date deadline=formatter.parse(iotime);
+//		
+//		school.setDeadline(deadline);
+		////////////
+		
+		//SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		// school=new School();
+//		try {
+//
+//			Date date = formatter.parse(time);
+//			System.out.println("date:"+date);
+//			System.out.println("format date: "+formatter.format(date));
+//			
+//			
+//			school.setDeadline(date);
+//			
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		System.out.println(time);
+//		System.out.println("date from school: "+school.getDeadline());
+//		
+//		schoolService.addSchool(school);
 		
 		return mv;
 	}
