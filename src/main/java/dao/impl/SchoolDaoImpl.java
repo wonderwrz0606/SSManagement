@@ -1,5 +1,6 @@
 package dao.impl;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -11,6 +12,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import util.SchoolTimeHelper;
 import bean.School;
 import dao.adapt.SchoolDaoAdapter;
 
@@ -84,11 +86,23 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 	public List<School> DynamicSearch(School school) {
 		DetachedCriteria dc=DetachedCriteria.forClass(School.class);
 		
+//		school.setIOdeadLine("2016-10-01");
+//
+//		SchoolTimeHelper sth=new SchoolTimeHelper();
+//		try {
+//			sth.String2Date(school);
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//    	}
+		
+		
 		System.out.println("=============");
 		System.out.println("school ID:"+school.getSchId());
 		System.out.println("school name:"+school.getSchName());
 		System.out.println("Toefl:"+school.getSchTf());
 		System.out.println("State: "+school.getSchState());
+		System.out.println("dealLine:"+school.getDeadLine());
 		System.out.println("=============");
 		
 		if(school.getSchId()!=null){
@@ -106,6 +120,13 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 //		if(!school.getSchState().equals("")){
 //			dc.add(Restrictions.like("schState", school.getSchState()+"%"));
 //		}
+		
+		//DealLine Search
+		if(!school.getIOdeadLine().equals("")){
+			
+			dc.add(Restrictions.ge("deadLine", school.getDeadLine()));
+			
+		}
 		
 		//TOEFL search 
 		if(school.getSchTf()!=null){

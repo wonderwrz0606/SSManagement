@@ -103,11 +103,11 @@ public class School implements java.io.Serializable {
 	}
 
 	public String getIOdeadLine() {
-		return IOdeadLine;
+		return this.IOdeadLine;
 	}
 
 	public void setIOdeadLine(String iOdeadLine) {
-		IOdeadLine = iOdeadLine;
+		this.IOdeadLine = iOdeadLine;
 	}
 
 	@Column(name = "deadLine", length = 0)
