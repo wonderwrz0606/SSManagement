@@ -28,10 +28,19 @@ String basePath = request.getScheme() + "://"
 			<div>
 				<button type="submit" style="margin: 0px 41%;width: 15%;" onclick="location.href='school_management.jsp';""><span>返回上一步</span></button>
 			</div>
+			<div>
+				<button type="submit" style="margin: 0px 41%;width: 15%;" onclick="goBack()"><span>返回上一步</span></button>
+			</div>
 		</div>
     	<%@include file="/footer.jsp" %>
     	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	</body>
 	<!--  body  -->
+	
+	<script>
+		function goBack() {
+   			window.history.back();
+		}
+	</script>
 
 </html>
