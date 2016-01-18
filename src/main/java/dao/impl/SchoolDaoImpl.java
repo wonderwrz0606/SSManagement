@@ -1,6 +1,8 @@
 package dao.impl;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -8,6 +10,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -170,10 +173,13 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 //			}
 		}
 		
-		
+		 
 		Criteria criteria=dc.getExecutableCriteria(sessionFactory.getCurrentSession());
-		System.out.println("dao empty?"+criteria.list().isEmpty());
 		
+//		criteria.setFirstResult(0);
+//		criteria.setMaxResults(5);
+		
+		criteria.addOrder(Order.asc("deadLine")).addOrder(Order.asc("schId"));
 		return criteria.list();
 		//return null;
 	

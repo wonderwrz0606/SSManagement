@@ -1,6 +1,10 @@
 package schoolTest;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -169,21 +173,21 @@ public class DaoTest {
 		school.setSchTf(null);
 		school.setSchSsat(null);
 		school.setSchSeason(null);
-		school.setIOdeadLine("2010-10-12");
-
+		school.setIOdeadLine("2010-10-22");
+		
 		SchoolTimeHelper sth=new SchoolTimeHelper();
 		sth.String2Date(school);
 		
-		List list=schoolService.DynamicSearch(school);
-		for(int i=0;i<list.size();i++){
-			School s=(School) list.get(i);
-			System.out.println("id: "+s.getSchId());
-			System.out.println("name: "+s.getSchName());
-			System.out.println("Toefl:"+s.getSchTf());
-			System.out.println("state: "+s.getSchState());
-			System.out.println("ssat:"+s.getSchSsat());
-			System.out.println("Season:"+s.getSchSeason());
-		}
+//		List list=schoolService.DynamicSearch(school);
+//		for(int i=0;i<list.size();i++){
+//			School s=(School) list.get(i);
+//			System.out.println("id: "+s.getSchId());
+//			System.out.println("name: "+s.getSchName());
+//			System.out.println("Toefl:"+s.getSchTf());
+//			System.out.println("state: "+s.getSchState());
+//			System.out.println("ssat:"+s.getSchSsat());
+//			System.out.println("Season:"+s.getSchSeason());
+//		}
 	}
 	
 	
@@ -193,15 +197,21 @@ public class DaoTest {
 		SchoolTimeHelper sth=new SchoolTimeHelper();
 		
 		School school=new School();
+		school.setSchId(2);
 		
-		if(school.getIOdeadLine()!=null){
-			System.out.println("haha");
-		}else System.out.println("hehe");
+		List<School> schoolList=schoolService.getSchoolbyId(school.getSchId());
 		
-		//.out.println(school.getSchName()!=null);
+		school=schoolList.get(0);
 		
-		//System.out.println(school.getDeadLine());
+		Date date=school.getDeadLine();
 		
+		
+		System.out.println(date);
+		
+		
+		
+		
+				
 	}
 	
 //	@BeforeClass

@@ -143,7 +143,7 @@ public class SchoolController {
 
 			mv.addObject("school", school);
 		} else {
-			System.out.println(" no such school");
+			return new ModelAndView("error");
 		}
 
 		return mv;

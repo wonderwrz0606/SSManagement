@@ -40,6 +40,22 @@ String basePath = request.getScheme() + "://"
 						<td><div class="table_column_div"><span class="table_column_span">网址</span></div></td>
 					</tr>
 					<tr>
+						<td><select name="schSeason"  class="school_search_li"/">
+								<option></option>
+								<option value=0>Spring</option>
+								<option value=1>Fall</option>
+								<option value=2>Rolling</option>
+						    </select></td>
+						<td><div class="table_column_div"><span class="table_column_span">Season</span></div></td>
+						<td>
+						<select name="schSsat"  class="school_search_li">
+								<option></option>
+								<option value=0>不需要</option>
+								<option value=1>需要</option>
+						    </select></td>    <!-- data bug -->
+						<td><div class="table_column_div"><span class="table_column_span">SSAT </span></div></td>
+					</tr>
+					<tr>
 						<td><input type="text" name="schCity"class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">城市</span></div></td>
 						<td><input type="text" name="schState" class="school_search_li"/></td>
@@ -79,8 +95,6 @@ String basePath = request.getScheme() + "://"
 					<tr>
 						<td><input type="text" name="schTf" class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">TOEFL</span></div></td>
-						<td><input type="text" name="" class="school_search_li"/></td>     <!-- data bug -->
-						<td><div class="table_column_div"><span class="table_column_span">申请期限</span></div></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="" class="school_search_li"/></td>		<!-- data bug -->

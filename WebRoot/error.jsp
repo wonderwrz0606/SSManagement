@@ -26,7 +26,7 @@ String basePath = request.getScheme() + "://"
 			<br />
 			<br />
 			<div>
-				<button type="submit" style="margin: 0px 41%;width: 15%;" onclick="location.href='school_management.jsp';""><span>返回上一步</span></button>
+				<button type="submit" style="margin: 0px 41%;width: 15%;" onclick="location.href='school_management.jsp';""><span>返回主页面</span></button>
 			</div>
 			<div>
 				<button type="submit" style="margin: 0px 41%;width: 15%;" onclick="goBack()"><span>返回上一步</span></button>
