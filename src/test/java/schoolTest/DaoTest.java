@@ -1,6 +1,10 @@
 package schoolTest;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -158,7 +162,7 @@ public class DaoTest {
 	}
 	
 	@Test
-	public void testDynamicSearch(){
+	public void testDynamicSearch() throws ParseException{
 		
 		School school =new School();
 		
@@ -168,18 +172,22 @@ public class DaoTest {
 		//school.setSchState("c");
 		school.setSchTf(null);
 		school.setSchSsat(null);
-		school.setSchSeason(1);
+		school.setSchSeason(null);
+		school.setIOdeadLine("2010-10-22");
 		
-		List list=schoolService.DynamicSearch(school);
-		for(int i=0;i<list.size();i++){
-			School s=(School) list.get(i);
-			System.out.println("id: "+s.getSchId());
-			System.out.println("name: "+s.getSchName());
-			System.out.println("Toefl:"+s.getSchTf());
-			System.out.println("state: "+s.getSchState());
-			System.out.println("ssat:"+s.getSchSsat());
-			System.out.println("Season:"+s.getSchSeason());
-		}
+		SchoolTimeHelper sth=new SchoolTimeHelper();
+		sth.String2Date(school);
+		
+//		List list=schoolService.DynamicSearch(school);
+//		for(int i=0;i<list.size();i++){
+//			School s=(School) list.get(i);
+//			System.out.println("id: "+s.getSchId());
+//			System.out.println("name: "+s.getSchName());
+//			System.out.println("Toefl:"+s.getSchTf());
+//			System.out.println("state: "+s.getSchState());
+//			System.out.println("ssat:"+s.getSchSsat());
+//			System.out.println("Season:"+s.getSchSeason());
+//		}
 	}
 	
 	
@@ -189,15 +197,21 @@ public class DaoTest {
 		SchoolTimeHelper sth=new SchoolTimeHelper();
 		
 		School school=new School();
+		school.setSchId(2);
 		
-		String s="2016-01-04 00:00:00.0";
+		List<School> schoolList=schoolService.getSchoolbyId(school.getSchId());
 		
-		school.setIOdeadLine(s);
+		school=schoolList.get(0);
 		
-		sth.String2Date(school);
+		Date date=school.getDeadLine();
 		
-		System.out.println(school.getDeadLine());
 		
+		System.out.println(date);
+		
+		
+		
+		
+				
 	}
 	
 //	@BeforeClass

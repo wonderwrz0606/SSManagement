@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
 encoding//WebRoot/school_brief.jsp=UTF-8
 encoding//src/main/java/controller/SchoolController.java=UTF-8
+encoding//src/main/java/dao/impl/SchoolDaoImpl.java=UTF-8
 encoding//src/main/java/util/SchoolTimeHelper.java=UTF-8

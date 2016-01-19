@@ -103,11 +103,11 @@ public class School implements java.io.Serializable {
 	}
 
 	public String getIOdeadLine() {
-		return IOdeadLine;
+		return this.IOdeadLine;
 	}
 
 	public void setIOdeadLine(String iOdeadLine) {
-		IOdeadLine = iOdeadLine;
+		this.IOdeadLine = iOdeadLine;
 	}
 
 	@Column(name = "deadLine", length = 0)
@@ -175,11 +175,12 @@ public class School implements java.io.Serializable {
 
 	@Column(name = "sch_state", length = 45)
 	public String getSchState() {
+		
 		return this.schState;
 	}
-
+	//all state name convert to upperCase
 	public void setSchState(String schState) {
-		this.schState = schState;
+		this.schState =schState;
 	}
 
 	@Column(name = "sch_zip", length = 45)

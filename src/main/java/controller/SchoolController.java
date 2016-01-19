@@ -21,229 +21,227 @@ import util.SchoolTimeHelper;
 import bean.School;
 
 @Controller
-//@RequestMapping(value="school")
+// @RequestMapping(value="school")
 public class SchoolController {
-	
-	
+
 	@Autowired
 	private SchoolService schoolService;
-	
+
 	@Autowired
 	private SchoolTimeHelper schoolTimeHelper;
-	
+
 	/**
-	 * @param time_deadline    it's only use for time associate.
+	 * @param time_deadline
+	 *            it's only use for time associate.
 	 * @param school
-	 * @return  url: index.jsp
-	 * @throws ParseException 
+	 * @return url: index.jsp
+	 * @throws ParseException
 	 */
-	@RequestMapping(value="addSchool",method= RequestMethod.POST)
-	public ModelAndView saveSchool(
-			@ModelAttribute School school) throws ParseException{
-		ModelAndView mv=new ModelAndView("addSchool");
-		
+	@RequestMapping(value = "addSchool", method = RequestMethod.POST)
+	public ModelAndView saveSchool(@ModelAttribute School school)
+			throws ParseException {
+		ModelAndView mv = new ModelAndView("addSchool");
+
 		schoolTimeHelper.String2Date(school);
-		
+
 		schoolService.addSchool(school);
-		
+
 		return mv;
 	}
-	
+
 	/**
-	 *  prepare school information to addSchool(school_detail.jsp), final check before save.
+	 * prepare school information to addSchool(school_detail.jsp), final check
+	 * before save.
+	 * 
 	 * @param school
-	 * @return 
+	 * @return
 	 */
-	@RequestMapping(value="preSaveSchool",method= RequestMethod.POST)
-	public ModelAndView preSaveSchool(
-			@RequestParam String action,
-			@RequestParam String input,
-			@ModelAttribute School school){
-		System.out.println(action+" "+input);
-		ModelAndView mv=new ModelAndView("school_detail");
+	@RequestMapping(value = "preSaveSchool", method = RequestMethod.POST)
+	public ModelAndView preSaveSchool(@RequestParam String action,
+			@RequestParam String input, @ModelAttribute School school) {
+		System.out.println(action + " " + input);
+		ModelAndView mv = new ModelAndView("school_detail");
 		mv.addObject("school", school);
 		return mv;
 	}
-	
-//	//@RequestMapping(value="getSchool",method=RequestMethod.GET)
-//	public ModelAndView getSchoolById(
-//			@RequestParam String select,
-//			@RequestParam String input,
-////			@RequestParam String inputId,
-////			@RequestParam String inputName,
-////			@RequestParam String inputZip,
-////			@RequestParam String inputState,
-//			@ModelAttribute School school){
-//		//ModelAndView mv=new ModelAndView("testPage/ListSchool");//for testing
-//		ModelAndView mv=new ModelAndView("school_detail");
-//		
-//		switch(select.toLowerCase()){
-//		// Search By Id
-//		case "id":
-//			
-//			List<School> schoolList=schoolService.getSchoolbyId(Integer.parseInt(input));
-//			
-//			// return to xxx page if result is null.
-//			if(schoolList.isEmpty()){
-//				mv=new ModelAndView("index");
-//				break;
-//			}
-//			mv.addObject("schoolList", schoolList);
-//			break;
-//			
-//		// Search by school name	
-//		case "name":
-//			//List<School> schoolList=schoolService.getSchoolbyName(inputName);
-//			schoolList=schoolService.getSchoolbyName(input);
-//			mv.addObject("schoolList", schoolList);
-//			break;
-//			
-//		// Search by school state	
-//		case "state":
-//			//schoolList=schoolService.getSchoolbyState(inputState);
-//			schoolList=schoolService.getSchoolbyState(input);
-//			mv.addObject("schoolList", schoolList);
-//			break;
-//			
-//		//Seach by school zipcode
-//		case "zip":
-//			
-//			//schoolList=schoolService.getSchoolbyZipCode(inputZip);
-//			schoolList=schoolService.getSchoolbyZipCode(input);
-//			mv.addObject("schoolList", schoolList);
-//			break;
-//		}
-//		
-//		return mv;
-//	}
-	
-	
-	/** 
+
+	// //@RequestMapping(value="getSchool",method=RequestMethod.GET)
+	// public ModelAndView getSchoolById(
+	// @RequestParam String select,
+	// @RequestParam String input,
+	// // @RequestParam String inputId,
+	// // @RequestParam String inputName,
+	// // @RequestParam String inputZip,
+	// // @RequestParam String inputState,
+	// @ModelAttribute School school){
+	// //ModelAndView mv=new ModelAndView("testPage/ListSchool");//for testing
+	// ModelAndView mv=new ModelAndView("school_detail");
+	//
+	// switch(select.toLowerCase()){
+	// // Search By Id
+	// case "id":
+	//
+	// List<School>
+	// schoolList=schoolService.getSchoolbyId(Integer.parseInt(input));
+	//
+	// // return to xxx page if result is null.
+	// if(schoolList.isEmpty()){
+	// mv=new ModelAndView("index");
+	// break;
+	// }
+	// mv.addObject("schoolList", schoolList);
+	// break;
+	//
+	// // Search by school name
+	// case "name":
+	// //List<School> schoolList=schoolService.getSchoolbyName(inputName);
+	// schoolList=schoolService.getSchoolbyName(input);
+	// mv.addObject("schoolList", schoolList);
+	// break;
+	//
+	// // Search by school state
+	// case "state":
+	// //schoolList=schoolService.getSchoolbyState(inputState);
+	// schoolList=schoolService.getSchoolbyState(input);
+	// mv.addObject("schoolList", schoolList);
+	// break;
+	//
+	// //Seach by school zipcode
+	// case "zip":
+	//
+	// //schoolList=schoolService.getSchoolbyZipCode(inputZip);
+	// schoolList=schoolService.getSchoolbyZipCode(input);
+	// mv.addObject("schoolList", schoolList);
+	// break;
+	// }
+	//
+	// return mv;
+	// }
+
+	/**
 	 * 
-	 *  input schId, return schoolList to school_update.jsp ,to display the update information.
+	 * input schId, return schoolList to school_update.jsp ,to display the
+	 * update information.
+	 * 
 	 * @param schId
 	 * 
 	 * @return school object
 	 * 
 	 */
-	@RequestMapping(value="getSchoolById", method = RequestMethod.POST )
-	public ModelAndView getSchoolById(
-			@RequestParam int schId
-			){
-		ModelAndView mv=new ModelAndView("school_update");
-		
-		//因为id查询的结果只有一个，于是直接返回school对象
-		List<School> schoolList=schoolService.getSchoolbyId(schId);
-		if(!schoolList.isEmpty()){
-			School school=schoolList.get(0);
+	@RequestMapping(value = "getSchoolById", method = RequestMethod.POST)
+	public ModelAndView getSchoolById(@RequestParam int schId) {
+		ModelAndView mv = new ModelAndView("school_update");
 
-			//schoolTimeHelper.Date2String_School(school);
-			
-			//System.out.println(school.getIOdeadLine());
-			
+		// 因为id查询的结果只有一个，于是直接返回school对象
+		List<School> schoolList = schoolService.getSchoolbyId(schId);
+		if (!schoolList.isEmpty()) {
+			School school = schoolList.get(0);
+
+			// schoolTimeHelper.Date2String_School(school);
+
+			// System.out.println(school.getIOdeadLine());
+
 			mv.addObject("school", school);
-		}else{
-			System.out.println(" no such school"); 
+		} else {
+			return new ModelAndView("error");
 		}
-		
+
 		return mv;
 	}
-	
-	
+
 	/**
-	 *  update school 
-	 *  
-	 *  更新成功后返回当前页面
-	 * @throws ParseException 
+	 * update school
+	 * 
+	 * 更新成功后返回当前页面
+	 * 
+	 * @throws ParseException
 	 * 
 	 */
-	@RequestMapping(value="updateSchool", method = RequestMethod.POST )
-	public ModelAndView updateSchool(
-			@ModelAttribute School school
-			) throws ParseException{
-		ModelAndView mv=new ModelAndView("school_update");
-		
+	@RequestMapping(value = "updateSchool", method = RequestMethod.POST)
+	public ModelAndView updateSchool(@ModelAttribute School school)
+			throws ParseException {
+		ModelAndView mv = new ModelAndView("school_update");
+
 		schoolTimeHelper.String2Date(school);
-		
+
 		schoolService.updateSchool(school);
-		
+
 		mv.addObject("update_notice", "update success");
-		
+
 		return mv;
 	}
-	
-	
-	
-	
-	
+
 	/**
-	 * 	input from school_brief.jsp
-	 *  get school detail by school id.
+	 * input from school_brief.jsp get school detail by school id.
 	 * 
 	 * @param schId
 	 * @return
 	 */
-	@RequestMapping(value="getSchoolDetail")
-	public ModelAndView getSchoolDetail(
-			@RequestParam int schId
-			){
-		ModelAndView mv=new ModelAndView("school_detail");
-		System.out.println("SchId:"+schId);
-		
-		School school=new School();
+	@RequestMapping(value = "getSchoolDetail")
+	public ModelAndView getSchoolDetail(@RequestParam int schId) {
+		ModelAndView mv = new ModelAndView("school_detail");
+		System.out.println("SchId:" + schId);
+
+		School school = new School();
 		school.setSchId(schId);
 		school.setSchName("");
 		school.setSchZip("");
 		school.setSchState("");
-		
-		List<School> schoolList=schoolService.DynamicSearch(school);
-		
-		mv.addObject("schoolList", schoolList);		
-		
+		school.setIOdeadLine("");
+		List<School> schoolList = schoolService.DynamicSearch(school);
+
+		mv.addObject("schoolList", schoolList);
+
 		return mv;
 	}
-	
-	
+
 	/**
 	 * 
-	 * powerful  dynamic search , multip input, custom criteria
+	 * powerful dynamic search , multip input, custom criteria
 	 * 
 	 * @param school
 	 * @return
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
-	@RequestMapping(value="searchSchool" ,method=RequestMethod.GET)
-	public ModelAndView searchSchool(
-			@ModelAttribute School school
-			) throws ParseException{
-		ModelAndView mv=new ModelAndView("school_brief");
+	@RequestMapping(value = "searchSchool", method = RequestMethod.GET)
+	public ModelAndView searchSchool(@ModelAttribute School school)
+			throws ParseException {
 		
-		//schoolTimeHelper.String2Date(school);
+		//error page
+		ModelAndView mv = new ModelAndView("error");
+
+		schoolTimeHelper.String2Date(school);
 		
-		List<School> schoolList=schoolService.DynamicSearch(school);
-		
-		mv.addObject("schoolList", schoolList);		
+		System.out.println("IO:"+school.getIOdeadLine());
+		System.out.println("deadLine"+school.getDeadLine());
 	
-		
+		List<School> schoolList = schoolService.DynamicSearch(school);
+
+		if (!schoolList.isEmpty()) {
+
+			mv = new ModelAndView("school_brief");
+
+			mv.addObject("schoolList", schoolList);
+		}
+
 		return mv;
-		
+
 	}
-	
-	
+
 	/**
-	 *  List all School.
+	 * List all School.
 	 * 
 	 * @return
 	 */
 	@RequestMapping("listSchool")
-	public ModelAndView listSchool(){
-		
-		ModelAndView mv=new ModelAndView("school_brief");
-		
-		List<School> schoolList=schoolService.getAllSchool();
-		
+	public ModelAndView listSchool() {
+
+		ModelAndView mv = new ModelAndView("school_brief");
+
+		List<School> schoolList = schoolService.getAllSchool();
+
 		mv.addObject("schoolList", schoolList);
-		
+
 		return mv;
 	}
 }

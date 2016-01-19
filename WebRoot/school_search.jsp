@@ -7,7 +7,7 @@ String basePath = request.getScheme() + "://"
     + path + "/";
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html >
 	<head>
 	    <title>查询学校</title>
@@ -46,13 +46,12 @@ String basePath = request.getScheme() + "://"
 					<tr>
 						<td><input type="text" name="schId"  class="school_search_li"/></td>
 						<td><div class="table_column_div"><span class="table_column_span">ID</span></div></td>
-						<td><input type="text" name="schName"  class="school_search_li"/></td>
-						<td><div class="table_column_div"><span class="table_column_span">School Name</span></div></td>
+						<td><input type="date" name="IOdeadLine"  class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">申请截止</span></div></td>
 					</tr>
-					<tr>
-						<td><input type="text" name="schTf"  class="school_search_li"/></td>
-						<td><div class="table_column_div"><span class="table_column_span">TOFEL</span></div></td>
-						<td><select name="schSsat"  class="school_search_li"/">
+					<tr><td><input type="text" name="schName"  class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">School Name</span></div></td>
+						<td><select name="schSsat"  class="school_search_li">
 								<option></option>
 								<option value=0>不需要</option>
 								<option value=1>需要</option>
@@ -67,6 +66,8 @@ String basePath = request.getScheme() + "://"
 								<option value=2>Rolling</option>
 						    </select></td>
 						<td><div class="table_column_div"><span class="table_column_span">Season</span></div></td>
+						<td><input type="text" name="schTf"  class="school_search_li"/></td>
+						<td><div class="table_column_div"><span class="table_column_span">TOFEL</span></div></td>
 					</tr>
 				</tbody>
 			</table>
