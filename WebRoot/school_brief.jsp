@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<body>
 	<%@include file="/header.jsp" %>
 	<div class="container">
-		<table>
+		<table id="sortable">
 			<thead>
 	    		<tr>
 					<th class="school_search_list">ID:</th>
@@ -49,7 +49,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>${school.schId }</td>
 						<td>${school.schName }</td>
 						<td><fmt:formatDate value="${school.deadLine }" pattern="MMM-dd"/></td>
-						<td>${school.schSsat}</td>
+						<td>
+							<c:choose>
+								<c:when test="${school.schSsat == 1}">
+	       							有
+	   		 					</c:when>
+	   		 					<c:otherwise>
+	        						无
+	    						</c:otherwise>
+							</c:choose>
+						</td>
+						<%-- <td>${school.schSsat}</td> --%>
 						<td>${school.schState }</td>
 						<td>${school.schTf }</td>
 						<td>${school.schSeason }</td>
@@ -60,6 +70,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </table>
     </div>
     <%@include file="/footer.jsp" %>
+    
+	<script type="text/javascript">
+		var TSort_Data = new Array ('sortable', 'i', 's', 'd','s','s','i','','');
+		tsRegister();
+	</script>
+    <script type="text/javascript" src="js/gs_sortable.js"></script>
   </body>
   <!--  body  -->
   
