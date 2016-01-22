@@ -10,6 +10,7 @@
 	<context:annotation-config></context:annotation-config>
 	<context:component-scan base-package="controller,bean,dao,service,util" />
 
+	<mvc:annotation-driven/>
 
 	<bean id="sessionFactory"
   class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -17,9 +18,7 @@
 			<value>classpath:hibernate.cfg.xml</value>
 		</property>
 	</bean>
-
-
-
+	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		
@@ -32,6 +31,10 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+
+
+
+
 
 
 </beans>

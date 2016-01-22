@@ -65,5 +65,14 @@
 	time:<input type="date"  name="IOdeadLine"   >
 	<input type="submit" value="submit"  >
 	</form>
+	
+	<!-- <a style="text-decoration: none;" href="school/123"><li class="school_management_li">
+					<label class="school_management_label">URL</label> -->
+	
+	<form action="school/get">
+		INPUT:<input type="text" name="id">
+		<input type="submit" value="submit">
+	</form>
+	
 </body>
 </html>
