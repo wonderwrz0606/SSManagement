@@ -112,8 +112,11 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 			dc.add(Restrictions.eq("schId", school.getSchId()));
 		}
 		
-		if(!school.getSchName().equals("")){
-			dc.add(Restrictions.like("schName", school.getSchName()+"%"));
+		//||school.getSchName()!=null
+		if(school.getSchName()!=null){
+			if(!school.getSchName().equals("")){
+				dc.add(Restrictions.like("schName", school.getSchName()+"%"));
+			}
 		}
 		
 //		if(!school.getSchZip().equals("")){
@@ -124,11 +127,13 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 //			dc.add(Restrictions.like("schState", school.getSchState()+"%"));
 //		}
 		
-		//DealLine Search
-		if(!school.getIOdeadLine().equals("")){
-			
-			dc.add(Restrictions.ge("deadLine", school.getDeadLine()));
-			
+		//DealLine Search ||school.getIOdeadLine()!=null
+		if(school.getIOdeadLine()!=null){
+			if((!school.getIOdeadLine().equals(""))){
+					
+					dc.add(Restrictions.ge("deadLine", school.getDeadLine()));
+					
+				}
 		}
 		
 		//TOEFL search 
@@ -179,9 +184,10 @@ public class SchoolDaoImpl extends SchoolDaoAdapter{
 //		criteria.setFirstResult(0);
 //		criteria.setMaxResults(5);
 		
+		
+		//sort by deadLine  ascend , then School Id  asc
 		criteria.addOrder(Order.asc("deadLine")).addOrder(Order.asc("schId"));
 		return criteria.list();
-		//return null;
 	
 	}
 	

@@ -23,7 +23,7 @@ String basePath = request.getScheme() + "://"
 			<div>
 				<span style="padding-left: 45%;">学校修改界面</span>
 			</div>
-			<form action="getSchoolById" method="post">
+			<form action="getSchoolById" method="get">
 			<table class="school_search_table_multi">
 				<tbody>
 					<tr>

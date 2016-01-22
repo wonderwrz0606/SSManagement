@@ -128,7 +128,7 @@ public class SchoolController {
 	 * @return school object
 	 * 
 	 */
-	@RequestMapping(value = "getSchoolById", method = RequestMethod.POST)
+	@RequestMapping(value = "getSchoolById", method = RequestMethod.GET)
 	public ModelAndView getSchoolById(@RequestParam int schId) {
 		ModelAndView mv = new ModelAndView("school_update");
 
@@ -184,10 +184,10 @@ public class SchoolController {
 
 		School school = new School();
 		school.setSchId(schId);
-		school.setSchName("");
-		school.setSchZip("");
-		school.setSchState("");
-		school.setIOdeadLine("");
+//		school.setSchName("");
+//		school.setSchZip("");
+//		school.setSchState("");
+//		school.setIOdeadLine("");
 		List<School> schoolList = schoolService.DynamicSearch(school);
 
 		mv.addObject("schoolList", schoolList);
@@ -203,7 +203,7 @@ public class SchoolController {
 	 * @return
 	 * @throws ParseException
 	 */
-	@RequestMapping(value = "searchSchool", method = RequestMethod.GET)
+	@RequestMapping(value = "searchSchool", method = RequestMethod.POST)
 	public ModelAndView searchSchool(@ModelAttribute School school)
 			throws ParseException {
 		

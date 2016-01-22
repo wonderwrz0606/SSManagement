@@ -62,7 +62,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<%-- <td>${school.schSsat}</td> --%>
 						<td>${school.schState }</td>
 						<td>${school.schTf }</td>
-						<td>${school.schSeason }</td>
+						<%-- <td>${school.schSeason }</td> --%>
+						<td>
+							<c:choose>
+								<c:when test="${school.schSeason ==0}">
+									Spring
+								</c:when>
+								<c:when test="${school.schSeason ==1}">
+									Fall
+								</c:when>
+								<c:when test="${school.schSeason ==0}">
+									Rolling
+								</c:when>
+							</c:choose>
+						</td>
 						<td><a href="getSchoolDetail?schId=${school.schId }">More</a></td>
 					</tr>
 		    	</c:forEach>

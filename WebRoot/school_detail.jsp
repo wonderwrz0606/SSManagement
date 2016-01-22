@@ -135,6 +135,13 @@
 					<td><strong>备注</strong></td>
 					<td>${school.comment }</td>
 				</tr>
+				<div>
+			<button type="submit"
+				onclick="window.location.href='getSchoolById?schId=${school.schId }'"
+				style="margin: 0px 41%;width: 15%;">
+				<span>修改学校</span>
+			</button>
+		</div>
 				</c:forEach>
 				<%-- <tr>
 				      	<td><strong>备注2</strong></td>
@@ -161,9 +168,9 @@
 		</div>
 		<div>
 			<button type="submit"
-				onclick="window.location.href='http://www.nyu.edu'"
+				onclick="window.location.href='getSchoolDetail?schId=${school.schId }'"
 				style="margin: 0px 41%;width: 15%;">
-				<span>更改学校</span>
+				<span>修改学校</span>
 			</button>
 		</div>
 		</sec:authorize>

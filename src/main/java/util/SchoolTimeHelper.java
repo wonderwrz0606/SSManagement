@@ -29,12 +29,16 @@ public class SchoolTimeHelper {
 		// 把string 日期，转为 Date日期，并且格式为 yyyy-MM ，后面的日和时间都以0 代替
 		//SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM");
 		
-		//先判断IOdeadLine 是否为（""）
-		if(!school.getIOdeadLine().equals("")){
-		Date deadLine = formatter.parse(school.getIOdeadLine());
-		System.out.println("deadLine:" +deadLine);
-		school.setDeadLine(deadLine);
+		//先判断IOdeadLine是否有数值 ， 
+		//再判断IOdeadLine 是否为（""）
+		if(school.getIOdeadLine()!=null){
+			if(!school.getIOdeadLine().equals("")){
+				Date deadLine = formatter.parse(school.getIOdeadLine());
+				System.out.println("deadLine:" +deadLine);
+				school.setDeadLine(deadLine);
+			}
 		}
+			
 	}
 
 

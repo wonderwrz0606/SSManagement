@@ -167,13 +167,13 @@ public class DaoTest {
 		School school =new School();
 		
 //		school.setSchId(null);
-	    school.setSchName("");
+	    school.setSchName(null);
 //		school.setSchZip(null);
 		//school.setSchState("c");
 		school.setSchTf(null);
 		school.setSchSsat(null);
 		school.setSchSeason(null);
-		school.setIOdeadLine("2010-10-22");
+		//school.setIOdeadLine("2010-10-22");
 		
 		SchoolTimeHelper sth=new SchoolTimeHelper();
 		sth.String2Date(school);
