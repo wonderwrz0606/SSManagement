@@ -15,7 +15,7 @@ import bean.School;
 
 @Controller
 @RequestMapping(value="school")
-public class LoginController {
+public class RESTfulController {
 	
 	@Autowired
 	private SchoolService schoolService;
