@@ -44,7 +44,8 @@ public class SchoolController {
 
 		schoolTimeHelper.String2Date(school);
 		
-		System.out.println("SchoolController " + school.getSchName());
+		//System.out.println("SchoolController " + school.getSchName());
+		
 		schoolService.addSchool(school);
 
 		return mv;

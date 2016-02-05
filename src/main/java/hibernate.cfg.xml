@@ -11,7 +11,7 @@
 		org.hibernate.dialect.MySQLDialect
 	</property>
 	<property name="connection.url">
-		jdbc:mysql://sql5.freemysqlhosting.net:3306/sql5100650?zeroDateTimeBehavior=convertToNull
+		jdbc:mysql://sql5.freemysqlhosting.net:3306/sql5100650?useUnicode=true&amp;characterEncoding=UTF-8
 	</property>
 	<property name="connection.username">sql5100650</property>
 	<property name="connection.password">gS9xNZIhDl</property>
