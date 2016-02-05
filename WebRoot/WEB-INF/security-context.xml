@@ -21,7 +21,9 @@
 		<intercept-url pattern="/login.jsp" access="permitAll"/> <!-- login page -->
 		<intercept-url pattern="/**" access="permitAll" />
 		
-		<form-login login-page="/login.jsp" default-target-url="/school_management.jsp"/>
+		<form-login login-page="/login.jsp" default-target-url="/school_management.jsp" authentication-failure-url="/error.jsp"/>
+		
+		
 		
 		<logout logout-url="/logout" logout-success-url="/index.jsp" />
 	</http>

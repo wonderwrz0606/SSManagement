@@ -120,13 +120,37 @@ public class SchoolController {
 	// }
 
 	/**
+		 * input from school_brief.jsp get school detail by school id.
+		 * 
+		 * @param schId
+		 * @return school_detail.jsp
+		 */
+		@RequestMapping(value = "getSchoolDetail")
+		public ModelAndView getSchoolDetail(@RequestParam int schId) {
+			ModelAndView mv = new ModelAndView("school_detail");
+			System.out.println("SchId:" + schId);
+	
+			School school = new School();
+			school.setSchId(schId);
+	//		school.setSchName("");
+	//		school.setSchZip("");
+	//		school.setSchState("");
+	//		school.setIOdeadLine("");
+			List<School> schoolList = schoolService.DynamicSearch(school);
+	
+			mv.addObject("schoolList", schoolList);
+	
+			return mv;
+		}
+
+	/**
 	 * 
 	 * input schId, return schoolList to school_update.jsp ,to display the
 	 * update information.
 	 * 
 	 * @param schId
 	 * 
-	 * @return school object
+	 * @return school object , school_update.jsp
 	 * 
 	 */
 	@RequestMapping(value = "getSchoolById", method = RequestMethod.GET)
@@ -151,57 +175,11 @@ public class SchoolController {
 	}
 
 	/**
-	 * update school
-	 * 
-	 * 更新成功后返回当前页面
-	 * 
-	 * @throws ParseException
-	 * 
-	 */
-	@RequestMapping(value = "updateSchool", method = RequestMethod.POST)
-	public ModelAndView updateSchool(@ModelAttribute School school)
-			throws ParseException {
-		ModelAndView mv = new ModelAndView("school_update");
-
-		schoolTimeHelper.String2Date(school);
-
-		schoolService.updateSchool(school);
-
-		mv.addObject("update_notice", "update success");
-
-		return mv;
-	}
-
-	/**
-	 * input from school_brief.jsp get school detail by school id.
-	 * 
-	 * @param schId
-	 * @return
-	 */
-	@RequestMapping(value = "getSchoolDetail")
-	public ModelAndView getSchoolDetail(@RequestParam int schId) {
-		ModelAndView mv = new ModelAndView("school_detail");
-		System.out.println("SchId:" + schId);
-
-		School school = new School();
-		school.setSchId(schId);
-//		school.setSchName("");
-//		school.setSchZip("");
-//		school.setSchState("");
-//		school.setIOdeadLine("");
-		List<School> schoolList = schoolService.DynamicSearch(school);
-
-		mv.addObject("schoolList", schoolList);
-
-		return mv;
-	}
-
-	/**
 	 * 
 	 * powerful dynamic search , multip input, custom criteria
 	 * 
 	 * @param school
-	 * @return
+	 * @return school_brief.jsp
 	 * @throws ParseException
 	 */
 	@RequestMapping(value = "searchSchool", method = RequestMethod.POST)
@@ -243,6 +221,28 @@ public class SchoolController {
 
 		mv.addObject("schoolList", schoolList);
 
+		return mv;
+	}
+
+	/**
+	 * update school
+	 * 
+	 * 更新成功后返回当前页面
+	 * 
+	 * @throws ParseException
+	 * 
+	 */
+	@RequestMapping(value = "updateSchool", method = RequestMethod.POST)
+	public ModelAndView updateSchool(@ModelAttribute School school)
+			throws ParseException {
+		ModelAndView mv = new ModelAndView("school_update");
+	
+		schoolTimeHelper.String2Date(school);
+	
+		schoolService.updateSchool(school);
+	
+		mv.addObject("update_notice", "update success");
+	
 		return mv;
 	}
 }
