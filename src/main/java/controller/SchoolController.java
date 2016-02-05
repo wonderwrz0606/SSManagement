@@ -40,14 +40,15 @@ public class SchoolController {
 	@RequestMapping(value = "addSchool", method = RequestMethod.POST)
 	public ModelAndView saveSchool(@ModelAttribute School school)
 			throws ParseException {
-		ModelAndView mv = new ModelAndView("addSchool");
+		ModelAndView mv = new ModelAndView("success");
 
 		schoolTimeHelper.String2Date(school);
-
+		
+		System.out.println("SchoolController " + school.getSchName());
 		schoolService.addSchool(school);
 
 		return mv;
-	}
+	}	
 
 	/**
 	 * prepare school information to addSchool(school_detail.jsp), final check
