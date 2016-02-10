@@ -24,7 +24,7 @@ String basePath = request.getScheme() + "://"
 				<span style="padding-left: 45%;">学校删除界面</span>
 			</div>
 			<table class="school_search_table_multi">
-				<form action="searchSchool" method="post">
+				<form action="preDeleteSchool" method="post">
 					<tbody>
 						<tr>
 							<td><input type="text" name="schId" class="school_search_li"/></td>
@@ -43,8 +43,135 @@ String basePath = request.getScheme() + "://"
 					</tbody>
 					</form>
 			</table>
+			
+			<table>
+			<thead>
+				<tr>
+					<th>项目</th>
+					<th>详细信息</th>
+				</tr>
+			</thead>
+			<tbody>
+			<c:forEach items="${schoolList}" var="school">
+				<tr>
+					<td><strong>ID</strong></td>
+					<td>${school.schId }</td>
+				</tr>
+				<tr>
+					<td><strong>申请截止</strong></td>
+					<td><fmt:formatDate value="${school.deadLine }" pattern="MMM-dd"/></td>
+				</tr>
+				<tr>
+					<td><strong>名称</strong></td>
+					<td>${school.schName }</td>
+				</tr>
+				<tr>
+					<td><strong>网址</strong></td>
+					<td>${school.schWebsite }</td>
+				</tr>
+				<tr>
+					<td><strong>城市</strong></td>
+					<td>${school.schCity }</td>
+				</tr>
+				<tr>
+					<td><strong>州</strong></td>
+					<td>${school.schState }</td>
+				</tr>
+				<tr>
+					<td><strong>Zip Code</strong></td>
+					<td>${school.schZip }</td>
+				</tr>
+				<tr>
+					<td><strong>建校年份</strong></td>
+					<td>${school.schEst }</td>
+				</tr>
+				<tr>
+					<td><strong>学生人数</strong></td>
+					<td>${school.schCap }</td>
+				</tr>
+				<tr>
+					<td><strong>招生年级</strong></td>
+					<td>${school.schGrade }</td>
+				</tr>
+				<tr>
+					<td><strong>师生比</strong></td>
+					<td>${school.schPtRatio }</td>
+				</tr>
+				<tr>
+					<td><strong>性质</strong></td>
+					<td>${school.schType }</td>
+				</tr>
+				<tr>
+					<td><strong>宗教</strong></td>
+					<td>${school.schReligon }</td>
+				</tr>
+				<tr>
+					<td><strong>中国学生人数</strong></td>
+					<td>${school.schChnPop }</td>
+				</tr>
+				<tr>
+					<td><strong>Toefl</strong></td>
+					<td>${school.schTf }</td>
+				</tr>
+				<tr>
+					<td><strong>申请期限</strong></td>
+					<td><fmt:formatDate value="${school.deadLine }" pattern="MMM-dd"/></td>
+				</tr>
+				<tr>
+					<td><strong>申请期限String</strong></td>
+					<td>${school.IOdeadLine }</td>
+				</tr>
+				<%-- <tr>
+				      	<td><strong>AP</strong></td>
+				      	<td>${school. }</td>
+				    </tr>
+				    <tr>
+				      	<td><strong>运动</strong></td>
+				      	<td>${school. }</td>
+				    </tr> --%>
+				<tr>
+					<td><strong>社团</strong></td>
+					<td>${school.schGroup }</td>
+				</tr>
+				<tr>
+					<td><strong>住宿</strong></td>
+					<td>${school.schResFee }</td>
+				</tr>
+				<tr>
+					<td><strong>押金</strong></td>
+					<td>${school.schDeps }</td>
+				</tr>
+				<tr>
+					<td><strong>学费</strong></td>
+					<td>${school.schFee }</td>
+				</tr>
+				<tr>
+					<td><strong>总计</strong></td>
+					<td>${school.totalFee }</td>
+				</tr>
+				<tr>
+					<td><strong>特点</strong></td>
+					<td>${school.schDes }</td>
+				</tr>
+				<tr>
+					<td><strong>备注</strong></td>
+					<td>${school.comment }</td>
+				</tr>
+				<tr>
+				
+				</c:forEach>
+				</tr>
+			</tbody>
+		</table>
 			<div>
 				<button type="submit" onclick="window.location.href='school_management.jsp'"  style="margin: 0px 41%;width: 15%;background-color:red;color:white;"><span>确认删除</span></button>
+			</div>
+			<div>
+				<button type="submit"
+						onclick="window.location.href='getSchoolById?schId=${school.schId }'"
+						style="margin: 0px 41%;width: 15%;">
+						<span>修改学校</span>
+				</button>
 			</div>
 		</div>
     

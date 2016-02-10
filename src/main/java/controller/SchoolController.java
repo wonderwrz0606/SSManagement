@@ -207,6 +207,39 @@ public class SchoolController {
 		return mv;
 
 	}
+	
+	/**
+	 * 
+	 * 
+	 * @param school
+	 * @return return to school_delete.jsp
+	 * @throws ParseException
+	 */
+	@RequestMapping(value = "preDeleteSchool", method = RequestMethod.POST)
+	public ModelAndView deleteSchool(@ModelAttribute School school)
+			throws ParseException {
+		
+		//error page
+		ModelAndView mv = new ModelAndView("error");
+
+		schoolTimeHelper.String2Date(school);
+		
+		List<School> schoolList = schoolService.DynamicSearch(school);
+
+		if (!schoolList.isEmpty()) {
+
+			mv = new ModelAndView("school_delete");
+
+			mv.addObject("schoolList", schoolList);
+		}
+
+		return mv;
+
+	}
+	
+	
+	
+	
 
 	/**
 	 * List all School.

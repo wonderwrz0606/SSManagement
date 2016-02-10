@@ -61,7 +61,7 @@ String basePath = request.getScheme() + "://"
 	            <span class="icon-bar"></span>
 	          </button>
 	          <a class="navbar-brand" href="/">
-	            <div class="logo">此处放Logo</div>
+	            <div class="logo">Blue Ivy Education Group Inc.</div>
 	          </a>
 	        </div>
 	        <div id="navbar" class="navbar-collapse collapse">
