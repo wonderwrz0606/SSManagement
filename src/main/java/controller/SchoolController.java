@@ -277,6 +277,33 @@ public class SchoolController {
 		return mv;
 	
 	}
+	
+	/**
+	 * 
+	 *  use for redirecting to school_delete.jsp
+	 * @param schId
+	 * @return
+	 * @throws ParseException
+	 */
+	@RequestMapping(value = "preDeleteSchoolById", method = RequestMethod.GET)
+	public ModelAndView preDeleteSchoolById(
+			@RequestParam int schId
+			)
+			throws ParseException {
+		ModelAndView mv = new ModelAndView("school_delete");
+		
+		List<School> schoolList = schoolService.getSchoolbyId(schId);
+		
+		if (!schoolList.isEmpty()) {
+	
+			mv = new ModelAndView("school_delete");
+	
+			mv.addObject("schoolList", schoolList);
+		}
+	
+		return mv;
+	}
+	
 
 	/**
 	 * delete school by id
@@ -285,14 +312,14 @@ public class SchoolController {
 	 * @return
 	 * @throws ParseException
 	 */
-	@RequestMapping(value = "deleteSchool", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteSchool", method = RequestMethod.GET)
 	public ModelAndView deleteSchool(
-			@ModelAttribute School school,
+			
 			@RequestParam int schId)
 			throws ParseException {
 		
 		
-		ModelAndView mv = new ModelAndView("error");
+		ModelAndView mv = new ModelAndView("school_search");
 	
 		//schoolTimeHelper.String2Date(school);
 		schoolService.deleteSchool(schId);

@@ -143,16 +143,22 @@ String basePath = request.getScheme() + "://"
 			</tbody>
 			
 		</table>
-		
+		<sec:authorize access="hasRole('Admin')">
 			<div>
-				<sec:authorize access="hasRole('Admin')">
 				<button type="submit"
 						onclick="window.location.href='getSchoolById?schId=${school.schId }'"
 						style="margin: 0px 41%;width: 15%;">
 						<span>修改学校</span>
 				</button>
-				 </sec:authorize>
 			</div>
+			<div>
+				<button type="submit"
+						onclick="window.location.href='preDeleteSchoolById?schId=${school.schId }'"
+						style="margin: 0px 41%;width: 15%;">
+						<span>删除学校</span>
+				</button>
+			</div>
+			</sec:authorize>
 		</div>
 		</c:forEach>
     

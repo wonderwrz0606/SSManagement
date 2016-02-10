@@ -154,7 +154,7 @@ String basePath = request.getScheme() + "://"
 				</tr>
 				<tr>
 				
-				</c:forEach>
+				
 				</tr>
 			</tbody>
 		</table>
@@ -163,15 +163,15 @@ String basePath = request.getScheme() + "://"
 						onclick="window.location.href='deleteSchool?schId=${school.schId }'"  
 						style="margin: 0px 41%;width: 15%;background-color:red;color:white;"><span>确认删除</span></button>
 			</div>
-			<div>
+			<%-- <div>
 				<button type="submit"
 						onclick="window.location.href='getSchoolById?schId=${school.schId }'"
 						style="margin: 0px 41%;width: 15%;">
 						<span>修改学校</span>
 				</button>
-			</div>
+			</div> --%>
 		</div>
-    
+    </c:forEach>
     	<%@include file="/footer.jsp" %>
     	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	</body>
