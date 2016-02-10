@@ -32,18 +32,13 @@ String basePath = request.getScheme() + "://"
 							<td><input type="text" name="schName" class="school_search_li"/></td>
 							<td><div class="table_column_div"><span class="table_column_span">名称</span></div></td>
 						</tr>
-						<tr>
-							<td>
-								<div>
-									<button type="submit" onclick="window.location.href='school_management.jsp'"  style="margin: 0px 41%;width: 153px;background-color:red;color:white; height: 35px">
-									<span>查询要删除的学校</span></button>
-								</div>
-							</td>	
-						</tr>
 					</tbody>
+					<button type="submit"  style="margin: 0px 41%;width: 153px;background-color:red;color:white; height: 35px">
+									<span>查询要删除的学校</span></button>
 					</form>
+							
 			</table>
-			
+								
 			<table>
 			<thead>
 				<tr>
@@ -164,7 +159,9 @@ String basePath = request.getScheme() + "://"
 			</tbody>
 		</table>
 			<div>
-				<button type="submit" onclick="window.location.href='school_management.jsp'"  style="margin: 0px 41%;width: 15%;background-color:red;color:white;"><span>确认删除</span></button>
+				<button type="submit" 
+						onclick="window.location.href='deleteSchool?schId=${school.schId }'"  
+						style="margin: 0px 41%;width: 15%;background-color:red;color:white;"><span>确认删除</span></button>
 			</div>
 			<div>
 				<button type="submit"

@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.io.*,java.util.*" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme() + "://"
@@ -39,7 +42,7 @@ String basePath = request.getScheme() + "://"
 				</tr>
 				<tr>
 					<td><strong>申请截止</strong></td>
-					<td><fmt:formatDate value="${school.deadLine }" pattern="MMM-dd"/></td>
+					<td><fmt:formatDate value="${school.deadLine}" pattern="MMM-dd"/></td>
 				</tr>
 				<tr>
 					<td><strong>名称</strong></td>

@@ -127,17 +127,18 @@ public class SchoolController {
 		 * @return school_detail.jsp
 		 */
 		@RequestMapping(value = "getSchoolDetail")
-		public ModelAndView getSchoolDetail(@RequestParam int schId) {
+		public ModelAndView getSchoolDetail(
+				@RequestParam int schId) {
 			ModelAndView mv = new ModelAndView("school_detail");
 			System.out.println("SchId:" + schId);
 	
-			School school = new School();
-			school.setSchId(schId);
-	//		school.setSchName("");
-	//		school.setSchZip("");
-	//		school.setSchState("");
-	//		school.setIOdeadLine("");
-			List<School> schoolList = schoolService.DynamicSearch(school);
+//			School school = new School();
+//			school.setSchId(schId);
+//			school.setSchName("");
+//			school.setSchZip("");
+//			school.setSchState("");
+//			school.setIOdeadLine("");
+			List<School> schoolList = schoolService.getSchoolbyId(schId);
 	
 			mv.addObject("schoolList", schoolList);
 	
@@ -155,7 +156,8 @@ public class SchoolController {
 	 * 
 	 */
 	@RequestMapping(value = "getSchoolById", method = RequestMethod.GET)
-	public ModelAndView getSchoolById(@RequestParam int schId) {
+	public ModelAndView getSchoolById(
+			@RequestParam int schId) {
 		ModelAndView mv = new ModelAndView("school_update");
 
 		// 因为id查询的结果只有一个，于是直接返回school对象
@@ -209,39 +211,6 @@ public class SchoolController {
 	}
 	
 	/**
-	 * 
-	 * 
-	 * @param school
-	 * @return return to school_delete.jsp
-	 * @throws ParseException
-	 */
-	@RequestMapping(value = "preDeleteSchool", method = RequestMethod.POST)
-	public ModelAndView deleteSchool(@ModelAttribute School school)
-			throws ParseException {
-		
-		//error page
-		ModelAndView mv = new ModelAndView("error");
-
-		schoolTimeHelper.String2Date(school);
-		
-		List<School> schoolList = schoolService.DynamicSearch(school);
-
-		if (!schoolList.isEmpty()) {
-
-			mv = new ModelAndView("school_delete");
-
-			mv.addObject("schoolList", schoolList);
-		}
-
-		return mv;
-
-	}
-	
-	
-	
-	
-
-	/**
 	 * List all School.
 	 * 
 	 * @return
@@ -278,5 +247,57 @@ public class SchoolController {
 		mv.addObject("update_notice", "update success");
 	
 		return mv;
+	}
+
+	/**
+	 * prepare school information for deleting.
+	 * 
+	 * @param school
+	 * @return return to school_delete.jsp
+	 * @throws ParseException
+	 */
+	@RequestMapping(value = "preDeleteSchool", method = RequestMethod.POST)
+	public ModelAndView preDeleteSchool(@ModelAttribute School school)
+			throws ParseException {
+		
+		//error page
+		ModelAndView mv = new ModelAndView("error");
+	
+		schoolTimeHelper.String2Date(school);
+		
+		List<School> schoolList = schoolService.DynamicSearch(school);
+	
+		if (!schoolList.isEmpty()) {
+	
+			mv = new ModelAndView("school_delete");
+	
+			mv.addObject("schoolList", schoolList);
+		}
+	
+		return mv;
+	
+	}
+
+	/**
+	 * delete school by id
+	 * 
+	 * @param school
+	 * @return
+	 * @throws ParseException
+	 */
+	@RequestMapping(value = "deleteSchool", method = RequestMethod.POST)
+	public ModelAndView deleteSchool(
+			@ModelAttribute School school,
+			@RequestParam int schId)
+			throws ParseException {
+		
+		
+		ModelAndView mv = new ModelAndView("error");
+	
+		//schoolTimeHelper.String2Date(school);
+		schoolService.deleteSchool(schId);
+		
+		return mv;
+	
 	}
 }

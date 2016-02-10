@@ -97,7 +97,7 @@ public class DaoTest {
 	
 	@Test
 	public void testDeleteSchool(){
-		schoolService.deleteSchool(8);
+		schoolService.deleteSchool(41);
 	}
 	
 	@Test
