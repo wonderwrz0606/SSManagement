@@ -1,28 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.io.*,java.util.*" %>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+String path = request.getContextPath();
+String basePath = request.getScheme() + "://"
+    + request.getServerName() + ":" + request.getServerPort()
+    + path + "/";
 %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="java.util.*"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>学校明细</title>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/prefixfree.min.js"></script>
-</head>
+<html >
+	<head>
+	    <title>删除学校</title>
+	    <link rel="stylesheet" href="css/reset.css">
+	    <link rel="stylesheet" href="css/style.css">
+	    <script src="js/prefixfree.min.js"></script>
+  	</head>
 
 <!--  body  -->
-<body>
-	<%@include file="/header.jsp"%>
-	<div class="container">
-		<table>
+  	<body>
+		<%@include file="/header.jsp" %>
+		<div class="container">
+			<div>
+				<span style="padding-left: 45%;">学校详细信息</span>
+			</div>
+			
+			<table>
 			<thead>
 				<tr>
 					<th>项目</th>
@@ -30,7 +32,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${schoolList }" var="school">
+			<c:forEach items="${schoolList}" var="school">
 				<tr>
 					<td><strong>ID</strong></td>
 					<td>${school.schId }</td>
@@ -134,78 +136,27 @@
 				<tr>
 					<td><strong>备注</strong></td>
 					<td>${school.comment }</td>
-				</tr>
-				
-				</c:forEach>
-				<%-- <tr>
-				      	<td><strong>备注2</strong></td>
-				      	<td>${school.comment2 }</td>
-				    </tr> --%>
+				</tr>							
 			</tbody>
+			
 		</table>
-		<br>
-	<div>
-			<button type="submit"
-				onclick="window.location.href='getSchoolById?schId=${school.schId }'"
-				style="margin: 0px 41%;width: 15%;">
-				<span>修改学校</span>
-			</button>
+		
+			<div>
+				<sec:authorize access="hasRole('Admin')">
+				<button type="submit"
+						onclick="window.location.href='getSchoolById?schId=${school.schId }'"
+						style="margin: 0px 41%;width: 15%;">
+						<span>修改学校</span>
+				</button>
+				 </sec:authorize>
+			</div>
 		</div>
-		<div>
-			<button type="submit"
-				onclick="window.location.href='http://www.nyu.edu'"
-				style="margin: 0px 41%;width: 15%;">
-				<span>点击申请</span>
-			</button>
-		</div>
-		<sec:authorize access="hasRole('Admin')">
-		<div>
-			<button type="submit"
-				onclick="window.location.href='http://www.nyu.edu'"
-				style="margin: 0px 41%;width: 15%;">
-				<span>删除学校</span>
-			</button>
-		</div>
-		</sec:authorize>
-	</div>
-	<%-- <div>
-		<%
-		   out.clear();
-		   out = pageContext.pushBody();
-		   response.setContentType("application/pdf");
-		
-		   try {
-		    String strPdfPath = new String("/洛约拉学校.pdf");
-		    //判断该路径下的文件是否存在
-		    File file = new File(strPdfPath);
-		    if (file.exists()) {
-		     DataOutputStream temps = new DataOutputStream(response
-		       .getOutputStream());
-		     DataInputStream in = new DataInputStream(
-		       new FileInputStream(strPdfPath));
-		
-		     byte[] b = new byte[2048];
-		     while ((in.read(b)) != -1) {
-		      temps.write(b);
-		      temps.flush();
-		     }
-		
-		     in.close();
-		     temps.close();
-		    } else {
-		     out.print(strPdfPath + " 文件不存在!");
-		    }
-		
-		   } catch (Exception e) {
-		    out.println(e.getMessage());
-		   }
-		%>
-		</div> --%>
-
-	<%@include file="/footer.jsp"%>
-	<script
-		src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-</body>
+		</c:forEach>
+    
+   
+    	<%@include file="/footer.jsp" %>
+    	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	</body>
 <!--  body  -->
 
 </html>
